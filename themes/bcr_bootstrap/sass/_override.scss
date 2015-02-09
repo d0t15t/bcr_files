@@ -1,0 +1,32 @@
+/*
+ * Bootstrap etc. Override styles
+ */
+
+ul.nav li.dropdown:hover > ul.dropdown-menu{
+  display: block !important;
+}
+ul.nav li.dropdown ul.dropdown-menu {
+  margin-top: 0;
+}
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+  padding: 0 10px;
+  position: relative;
+}
+
+.main-container {
+  .col-sm-12 {
+    padding-right: 0;
+  }
+}
+
+.navbar {
+  min-height: 30px;
+}
+
+
+.node-type-channel .img-responsive {
+  max-width: none;
+}

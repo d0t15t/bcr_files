@@ -1,0 +1,1338 @@
+/* import compass */
+/* import partials */
+/* line 1, ../sass/_body.scss */
+body {
+  margin-top: 60px;
+}
+
+/* line 6, ../sass/_body.scss */
+body, html {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* line 12, ../sass/_body.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'DIN Next W02 Medium', 'DIN Alternate', 'Helvetica Neue', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-weight: bold;
+  color: black;
+  font-weight: normal !important;
+}
+
+/* line 18, ../sass/_body.scss */
+a, a:link, a:visited {
+  color: black !important;
+}
+
+/* line 21, ../sass/_body.scss */
+a:hover {
+  color: #4AFFD7 !important;
+  text-decoration: none !important;
+  text-shadow: none !important;
+}
+
+/* line 38, ../sass/_body.scss */
+#block-menu-menu-streams ul {
+  margin: 0px;
+  padding: 0px;
+}
+/* line 42, ../sass/_body.scss */
+#block-menu-menu-streams li a:hover {
+  background: none !important;
+}
+
+/* line 49, ../sass/_body.scss */
+.logo-wrapper, .logo {
+  height: 130px !important;
+  overflow: hidden;
+  padding: 0px;
+  margin: 0px;
+  width: 210px !important;
+  z-index: 1;
+}
+
+/* line 57, ../sass/_body.scss */
+.logo-wrapper {
+  display: none;
+}
+
+/* line 60, ../sass/_body.scss */
+.logo-wrapper, .menu-wrapper {
+  float: none;
+}
+
+/* line 65, ../sass/_body.scss */
+.region-navigation .navbar-collapse ul.navbar-nav {
+  font-family: 'DIN Next W02 Medium', 'DIN Alternate', 'Helvetica Neue', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-weight: bold;
+}
+
+/* line 70, ../sass/_body.scss */
+.logo {
+  width: 200px;
+  height: 200px;
+  background: url("../images/bcr-logo.gif") no-repeat;
+}
+/* line 76, ../sass/_body.scss */
+.logo:hover {
+  background: url("../images/bcr-logo-hover.png") no-repeat;
+}
+
+/* line 81, ../sass/_body.scss */
+.node-type-channel {
+  background: no-repeat -1px -1px;
+  background-size: 100% 700px;
+}
+/* line 84, ../sass/_body.scss */
+.node-type-channel.bg-blue {
+  background-image: url("../images/bg-blue.png");
+}
+/* line 87, ../sass/_body.scss */
+.node-type-channel.bg-green {
+  background-image: url("../images/bg-green.png");
+}
+/* line 90, ../sass/_body.scss */
+.node-type-channel.bg-purple {
+  background-image: url("../images/bg-purple.png");
+}
+/* line 93, ../sass/_body.scss */
+.node-type-channel.bg-yellow {
+  background-image: url("../images/bg-yellow.png");
+}
+/* line 96, ../sass/_body.scss */
+.node-type-channel.bg-red {
+  background-image: url("../images/bg-red.png");
+}
+
+/* line 101, ../sass/_body.scss */
+.main-container.container {
+  padding-bottom: 80px;
+}
+/* line 106, ../sass/_body.scss */
+.main-container.container .panels-flexible-4 .panels-flexible-region-4-left_1 {
+  padding-right: 60px;
+}
+/* line 110, ../sass/_body.scss */
+.main-container.container .panels-flexible-4 .panels-flexible-region-4-left_1 .pane-bcr-schedule-today-panel-pane-1 .view-bcr-schedule-today {
+  font-family: 'DIN Next W02 Medium', 'DIN Alternate', 'Helvetica Neue', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-weight: bold;
+  width: 100%;
+  margin: 0px auto 0px auto;
+  padding-bottom: 30px;
+}
+/* line 115, ../sass/_body.scss */
+.main-container.container .panels-flexible-4 .panels-flexible-region-4-left_1 .pane-bcr-schedule-today-panel-pane-1 .view-bcr-schedule-today p {
+  font-size: 12px;
+  color: #666;
+}
+/* line 118, ../sass/_body.scss */
+.main-container.container .panels-flexible-4 .panels-flexible-region-4-left_1 .pane-bcr-schedule-today-panel-pane-1 .view-bcr-schedule-today p strong {
+  font-size: 16px;
+  color: black;
+}
+/* line 122, ../sass/_body.scss */
+.main-container.container .panels-flexible-4 .panels-flexible-region-4-left_1 .pane-bcr-schedule-today-panel-pane-1 .view-bcr-schedule-today p a {
+  color: black;
+}
+/* line 130, ../sass/_body.scss */
+.main-container.container .panels-flexible-4 .panels-flexible-region-4-left_1 .pane-bcr-blocks-bcr-chat {
+  margin: 0px auto 0px auto;
+  width: 100%;
+}
+/* line 134, ../sass/_body.scss */
+.main-container.container .panels-flexible-4 .panels-flexible-region-4-left_1 .pane-bcr-blocks-bcr-chat .tlkio iframe {
+  height: 400px !important;
+}
+/* line 143, ../sass/_body.scss */
+.main-container.container .panels-flexible-4 .panels-flexible-region-4-center .panels-flexible-region-4-center-inside {
+  padding: 0;
+}
+/* line 147, ../sass/_body.scss */
+.main-container.container .panels-flexible-4 .panels-flexible-region-4-center .panels-flexible-region-4-center-inside .pane-bcr-blog-recent-panel-pane-1 .pane-title {
+  display: none;
+}
+/* line 155, ../sass/_body.scss */
+.main-container.container .panels-flexible-4 .panels-flexible-region-4-center .panels-flexible-region-4-center-inside .view-bcr-blog-recent .views-row {
+  margin: 0px 20px 30px 0px;
+}
+/* line 157, ../sass/_body.scss */
+.main-container.container .panels-flexible-4 .panels-flexible-region-4-center .panels-flexible-region-4-center-inside .view-bcr-blog-recent .views-row .field-type-image {
+  width: 100%;
+  height: auto;
+}
+/* line 161, ../sass/_body.scss */
+.main-container.container .panels-flexible-4 .panels-flexible-region-4-center .panels-flexible-region-4-center-inside .view-bcr-blog-recent .views-row:nth-child(3n) {
+  margin-right: 0;
+}
+/* line 166, ../sass/_body.scss */
+.main-container.container .panels-flexible-4 .panels-flexible-region-4-center .panels-flexible-region-4-center-inside .view-bcr-blog-recent .more-link {
+  clear: both;
+  text-align: right;
+  font-family: 'DIN Next W02 Medium', 'DIN Alternate', 'Helvetica Neue', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-weight: bold;
+}
+
+/* line 183, ../sass/_body.scss */
+.flippy {
+  float: left;
+  margin: 30px 0px 30px 0px !important;
+}
+/* line 187, ../sass/_body.scss */
+.flippy li a {
+  font-size: 2em;
+  color: #ccc !important;
+}
+/* line 190, ../sass/_body.scss */
+.flippy li a:hover {
+  color: #4AFFD7 !important;
+}
+
+/* line 200, ../sass/_body.scss */
+#block-views-recommended-blog-posts-block .views-row {
+  display: inline-block;
+  vertical-align: top;
+  width: 30%;
+  padding: 0px 10px 0px 0px;
+}
+
+/* line 4, ../sass/_channel-display.scss */
+.homepage-body .view-bcr-channels {
+  left: -250px;
+}
+
+/* line 8, ../sass/_channel-display.scss */
+.view-bcr-channels {
+  width: 960px;
+  position: relative;
+  z-index: 9;
+  text-align: center;
+  margin: 80px 10px 0;
+  padding-bottom: 160px;
+  background: white url(../images/logospot_footer.png) no-repeat bottom 60px center;
+  background-size: 90px;
+}
+/* line 20, ../sass/_channel-display.scss */
+.view-bcr-channels .views-row {
+  float: left;
+  width: 220px;
+  margin-right: 20px;
+  margin-bottom: 60px;
+}
+/* line 25, ../sass/_channel-display.scss */
+.view-bcr-channels .views-row:nth-child(4n) {
+  margin-right: 0;
+}
+/* line 28, ../sass/_channel-display.scss */
+.view-bcr-channels .views-row:nth-child(4n + 1) {
+  clear: both;
+}
+/* line 33, ../sass/_channel-display.scss */
+.view-bcr-channels .field-name-channel-image-compound .channel-img-wrapper {
+  position: relative;
+  width: 220px;
+  height: 160px;
+  margin: 0;
+}
+/* line 38, ../sass/_channel-display.scss */
+.view-bcr-channels .field-name-channel-image-compound .channel-img-wrapper img {
+  width: 220px;
+  height: auto;
+}
+/* line 42, ../sass/_channel-display.scss */
+.view-bcr-channels .field-name-channel-image-compound .channel-img-wrapper .channel-img-el {
+  position: absolute;
+  top: 0px;
+  -moz-transition-property: display;
+  -o-transition-property: display;
+  -webkit-transition-property: display;
+  transition-property: display;
+  -moz-transition-duration: 200ms;
+  -o-transition-duration: 200ms;
+  -webkit-transition-duration: 200ms;
+  transition-duration: 200ms;
+}
+/* line 56, ../sass/_channel-display.scss */
+.view-bcr-channels .field-name-channel-image-compound .channel-img-wrapper .channel-img-el .channel-img-el-inner {
+  width: 220px;
+  height: 160px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  font-size: 14px;
+}
+/* line 64, ../sass/_channel-display.scss */
+.view-bcr-channels .field-name-channel-image-compound .channel-img-wrapper .channel-img-el a {
+  width: 220px;
+  height: 160px;
+  display: block;
+  vertical-align: middle;
+  line-height: 160px;
+  text-transform: uppercase;
+  font-size: 1em !important;
+  font-weight: normal;
+  letter-spacing: 1px;
+  font-family: 'DIN Next W02 Medium', 'DIN Alternate', 'Helvetica Neue', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-weight: bold;
+}
+/* line 77, ../sass/_channel-display.scss */
+.view-bcr-channels .field-name-channel-image-compound .channel-img-wrapper .channel-img-el a, .view-bcr-channels .field-name-channel-image-compound .channel-img-wrapper .channel-img-el a:link, .view-bcr-channels .field-name-channel-image-compound .channel-img-wrapper .channel-img-el a:visited {
+  color: white !important;
+}
+/* line 83, ../sass/_channel-display.scss */
+.view-bcr-channels .field-name-channel-image-compound .channel-img-wrapper .channel-img-overlay:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -moz-transition: opacity, ease-out 100ms;
+  -o-transition: opacity, ease-out 100ms;
+  -webkit-transition: opacity, ease-out 100ms;
+  transition: opacity, ease-out 100ms;
+}
+/* line 92, ../sass/_channel-display.scss */
+.view-bcr-channels .field-name-channel-cover {
+  margin: 0px 15px 20px 0px;
+}
+/* line 94, ../sass/_channel-display.scss */
+.view-bcr-channels .field-name-channel-cover h4 {
+  margin: 0px !important;
+  font-size: 1em !important;
+  font-weight: normal;
+}
+/* line 98, ../sass/_channel-display.scss */
+.view-bcr-channels .field-name-channel-cover h4 a {
+  padding: 0px 10px 0px 10px;
+  width: 220px;
+  height: 160px;
+  display: block;
+  background-color: black;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 160px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+  opacity: 0.7;
+}
+/* line 109, ../sass/_channel-display.scss */
+.view-bcr-channels .field-name-channel-cover h4 a, .view-bcr-channels .field-name-channel-cover h4 a:link, .view-bcr-channels .field-name-channel-cover h4 a:visited {
+  color: white !important;
+}
+/* line 112, ../sass/_channel-display.scss */
+.view-bcr-channels .field-name-channel-cover h4:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -moz-transition: opacity, ease-out 100ms;
+  -o-transition: opacity, ease-out 100ms;
+  -webkit-transition: opacity, ease-out 100ms;
+  transition: opacity, ease-out 100ms;
+}
+/* line 118, ../sass/_channel-display.scss */
+.view-bcr-channels .field-type-image {
+  position: relative;
+  top: -180px;
+  z-index: -1;
+  height: 0px;
+}
+/* line 125, ../sass/_channel-display.scss */
+.view-bcr-channels:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+/* line 134, ../sass/_channel-display.scss */
+.view-bcr-channels .node-channel-ads {
+  width: 220px;
+  height: 160px;
+  position: absolute;
+  overflow: hidden;
+}
+/* line 140, ../sass/_channel-display.scss */
+.view-bcr-channels .node-channel-ads .field-type-image {
+  top: 0px;
+  position: absolute;
+}
+
+/* line 148, ../sass/_channel-display.scss */
+* html .view-bcr-channels {
+  zoom: 1;
+}
+
+/* IE6 */
+/* line 149, ../sass/_channel-display.scss */
+*:first-child + html .view-bcr-channels {
+  zoom: 1;
+}
+
+/* IE7 */
+/* line 2, ../sass/_blog.scss */
+.view-bcr-blog-recent .views-row {
+  width: 220px;
+  float: left;
+  margin: 0 20px 40px 0;
+}
+/* line 7, ../sass/_blog.scss */
+.view-bcr-blog-recent .views-row h4 {
+  font-size: 14px;
+  line-height: 1.5em;
+}
+/* line 12, ../sass/_blog.scss */
+.view-bcr-blog-recent .views-row:nth-child(3n) {
+  margin-right: 0;
+}
+/* line 16, ../sass/_blog.scss */
+.view-bcr-blog-recent .views-row:nth-child(3n+1) {
+  clear: both;
+}
+
+/* line 23, ../sass/_blog.scss */
+.blog-post-region .field-type-image {
+  padding-bottom: 20px;
+}
+/* line 25, ../sass/_blog.scss */
+.blog-post-region .field-type-image .field-item {
+  margin-bottom: 20px;
+}
+/* line 52, ../sass/_blog.scss */
+.blog-post-region .field-name-banner {
+  float: right;
+  padding: 10px;
+  padding-bottom: 0px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+/* line 59, ../sass/_blog.scss */
+.blog-post-region .field-name-banner .field-type-image {
+  padding: 0px !important;
+}
+/* line 61, ../sass/_blog.scss */
+.blog-post-region .field-name-banner .field-type-image .field-item {
+  margin: 0px !important;
+}
+/* line 65, ../sass/_blog.scss */
+.blog-post-region .field-name-banner .banner-info {
+  text-align: right;
+  font-size: .7em;
+  color: #ccc;
+}
+/* line 72, ../sass/_blog.scss */
+.blog-post-region .flag-recommend .flag-wrapper {
+  border: 1px solid #ccc;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  padding: 5px;
+}
+/* line 76, ../sass/_blog.scss */
+.blog-post-region .flag-recommend .flag-wrapper a, .blog-post-region .flag-recommend .flag-wrapper a:link {
+  color: #ccc;
+}
+/* line 83, ../sass/_blog.scss */
+.blog-post-region .service-links #twitter-widget-0 {
+  position: relative;
+  top: 6px;
+  left: 10px;
+}
+
+/* line 9, ../sass/_menus.scss */
+.menu-wrapper .menu {
+  width: 220px;
+}
+/* line 11, ../sass/_menus.scss */
+.menu-wrapper .menu .leaf {
+  background-repeat: no-repeat !important;
+}
+/* line 16, ../sass/_menus.scss */
+.menu-wrapper .menu .leaf-soundcloud-link,
+.menu-wrapper .menu .leaf-twitter-link,
+.menu-wrapper .menu .leaf-facebook-link,
+.menu-wrapper .menu .leaf-youtube-link,
+.menu-wrapper .menu .leaf-instagram-link,
+.menu-wrapper .menu .leaf-mail-link {
+  float: left;
+  width: 34px;
+  height: 34px;
+  margin-right: 10px;
+}
+/* line 26, ../sass/_menus.scss */
+.menu-wrapper .menu .leaf-soundcloud-link a,
+.menu-wrapper .menu .leaf-twitter-link a,
+.menu-wrapper .menu .leaf-facebook-link a,
+.menu-wrapper .menu .leaf-youtube-link a,
+.menu-wrapper .menu .leaf-instagram-link a,
+.menu-wrapper .menu .leaf-mail-link a {
+  width: 100%;
+  height: 100%;
+  float: left;
+  background-position: top left;
+  background-size: 34px;
+  opacity: 0.3;
+  border: 0;
+  margin-right: 0;
+  margin-top: 0 !important;
+}
+/* line 36, ../sass/_menus.scss */
+.menu-wrapper .menu .leaf-soundcloud-link a:hover,
+.menu-wrapper .menu .leaf-twitter-link a:hover,
+.menu-wrapper .menu .leaf-facebook-link a:hover,
+.menu-wrapper .menu .leaf-youtube-link a:hover,
+.menu-wrapper .menu .leaf-instagram-link a:hover,
+.menu-wrapper .menu .leaf-mail-link a:hover {
+  border: 0;
+  opacity: 1;
+}
+/* line 43, ../sass/_menus.scss */
+.menu-wrapper .menu .leaf-soundcloud-link {
+  margin-top: 15px;
+}
+/* line 45, ../sass/_menus.scss */
+.menu-wrapper .menu .leaf-soundcloud-link a {
+  background-image: url(../images/menu-soundcloud.png);
+}
+/* line 49, ../sass/_menus.scss */
+.menu-wrapper .menu .leaf-twitter-link {
+  margin-top: 15px;
+}
+/* line 51, ../sass/_menus.scss */
+.menu-wrapper .menu .leaf-twitter-link a {
+  background-image: url(../images/menu-twitter.png);
+}
+/* line 55, ../sass/_menus.scss */
+.menu-wrapper .menu .leaf-facebook-link {
+  margin-top: 15px;
+}
+/* line 57, ../sass/_menus.scss */
+.menu-wrapper .menu .leaf-facebook-link a {
+  background-image: url(../images/menu-facebook.png);
+}
+/* line 61, ../sass/_menus.scss */
+.menu-wrapper .menu .leaf-youtube-link {
+  clear: both;
+}
+/* line 63, ../sass/_menus.scss */
+.menu-wrapper .menu .leaf-youtube-link a {
+  background-image: url(../images/menu-youtube.png);
+}
+/* line 68, ../sass/_menus.scss */
+.menu-wrapper .menu .leaf-instagram-link a {
+  background-image: url(../images/menu-instagram.png);
+}
+/* line 73, ../sass/_menus.scss */
+.menu-wrapper .menu .leaf-mail-link a {
+  background-image: url(../images/menu-mail.png);
+}
+/* line 79, ../sass/_menus.scss */
+.menu-wrapper .navbar-brand {
+  display: block;
+  width: 150px;
+  height: 80px;
+  background: url("../images/bcr-logo.png") top left no-repeat;
+  background-size: 150px;
+  margin-bottom: 20px;
+}
+/* line 85, ../sass/_menus.scss */
+.menu-wrapper .navbar-brand:hover {
+  background-position: bottom left;
+}
+/* line 90, ../sass/_menus.scss */
+.homepage-body .menu-wrapper .navbar-brand {
+  display: none;
+}
+
+/* line 97, ../sass/_menus.scss */
+.region-navigation {
+  background: none;
+  border: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-top: 0px !important;
+}
+/* line 104, ../sass/_menus.scss */
+.region-navigation .menu-wrapper {
+  position: fixed;
+  top: 100px;
+  margin-left: 10px;
+  z-index: 8;
+}
+/* line 111, ../sass/_menus.scss */
+.region-navigation ul.navbar-nav {
+  font-family: 'DIN Next W02 Medium', 'DIN Alternate', 'Helvetica Neue', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-weight: bold;
+  z-index: 10;
+}
+/* line 116, ../sass/_menus.scss */
+.region-navigation ul.navbar-nav li {
+  display: block;
+  margin: 5px 0;
+  float: none;
+  font-size: 14px;
+}
+/* line 123, ../sass/_menus.scss */
+.region-navigation ul.navbar-nav li a {
+  padding: 3px 0px 0px 0px !important;
+  margin: 5px 0;
+  text-decoration: none !important;
+  margin-right: 20px;
+  display: inline-block;
+  line-height: 1em;
+  border-bottom: 1px solid transparent;
+}
+/* line 131, ../sass/_menus.scss */
+.region-navigation ul.navbar-nav li a:hover {
+  color: black !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+/* line 138, ../sass/_menus.scss */
+.region-navigation ul.navbar-nav li.active-trail a.active {
+  background: none !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid black;
+}
+/* line 154, ../sass/_menus.scss */
+.region-navigation #block-menu-menu-main-2 .menu .leaf a {
+  padding-top: 0px !important;
+}
+/* line 156, ../sass/_menus.scss */
+.region-navigation #block-menu-menu-main-2 .menu .leaf a:hover {
+  background: none;
+}
+/* line 163, ../sass/_menus.scss */
+.region-navigation a {
+  font-size: .9em;
+  letter-spacing: 1px;
+  text-transform: uppercase !important;
+}
+
+/* line 3, ../sass/_page.scss */
+#homepage-panel {
+  width: 704px;
+  padding-top: 360px;
+  background: url(../images/logotypebig.png) no-repeat 0px 20px;
+  background-size: 700px;
+}
+/* line 9, ../sass/_page.scss */
+#homepage-panel .panels-flexible-region-4-center {
+  width: 100%;
+}
+/* line 14, ../sass/_page.scss */
+#homepage-panel .panels-flexible-region-last h2 {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+/* line 22, ../sass/_page.scss */
+.main-container .row {
+  margin-left: 235px;
+}
+
+/* line 27, ../sass/_page.scss */
+.page-header {
+  font-size: 92px;
+  text-align: right;
+  line-height: 114px;
+  border: 0;
+}
+
+/* line 34, ../sass/_page.scss */
+.field-item {
+  font-size: 16px;
+  line-height: 1.6em;
+}
+
+/* line 39, ../sass/_page.scss */
+.panel-flexible .panel-separator {
+  margin-bottom: 2em;
+}
+/* line 41, ../sass/_page.scss */
+.panel-flexible .panel-separator a {
+  text-decoration: underline !important;
+}
+
+/* line 46, ../sass/_page.scss */
+.field-slideshow-wrapper {
+  margin: 40px 0;
+}
+
+/* line 50, ../sass/_page.scss */
+.region-footer {
+  border: 0;
+}
+
+/* line 4, ../sass/_player.scss */
+.region-persistent {
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  top: 0;
+  border-bottom: 1px solid black;
+  background: white;
+  z-index: 10;
+}
+/* line 14, ../sass/_player.scss */
+.region-persistent #live-options-toggle {
+  position: fixed;
+  visibility: hidden;
+}
+/* line 19, ../sass/_player.scss */
+.region-persistent .mobile-links {
+  position: absolute;
+  z-index: 10;
+  left: 80px;
+  top: 10px;
+  font-family: 'DIN Next W02 Medium', 'DIN Alternate', 'Helvetica Neue', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-weight: bold;
+  padding: 8px 12px 6px;
+  border: 1px solid black;
+  cursor: pointer;
+  display: block;
+}
+@media only screen and (min-device-width: 769px) {
+  /* line 19, ../sass/_player.scss */
+  .region-persistent .mobile-links {
+    display: none;
+  }
+}
+/* line 34, ../sass/_player.scss */
+.region-persistent .live-options {
+  font-family: 'DIN Next W02 Medium', 'DIN Alternate', 'Helvetica Neue', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-weight: bold;
+  position: fixed;
+  border: 1px solid black;
+  top: 2.5%;
+  left: 2.5%;
+  width: 95%;
+  height: 95%;
+  display: none;
+  background: white;
+  z-index: 100;
+}
+/* line 46, ../sass/_player.scss */
+.region-persistent .live-options label {
+  cursor: pointer;
+}
+/* line 48, ../sass/_player.scss */
+.region-persistent .live-options label:hover {
+  color: red;
+}
+/* line 53, ../sass/_player.scss */
+.region-persistent .live-options ul {
+  list-style: none;
+  width: 50%;
+  padding: 0;
+  margin: 0 auto;
+  font-size: 24px;
+  position: relative;
+  top: 50%;
+  -moz-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+/* line 62, ../sass/_player.scss */
+.region-persistent .live-options ul li {
+  padding: 20px 0 18px;
+  border-top: 1px solid black;
+}
+/* line 69, ../sass/_player.scss */
+.region-persistent #live-options-toggle:checked ~ .live-options {
+  display: block;
+}
+/* line 73, ../sass/_player.scss */
+.region-persistent #logo-element, .region-persistent iframe, .region-persistent .streaming-menu {
+  display: inline-block;
+}
+/* line 78, ../sass/_player.scss */
+.region-persistent #block-bcr-blocks-bcr-player {
+  margin: inherit auto inherit auto;
+}
+/* line 82, ../sass/_player.scss */
+.region-persistent .logo-rel .bcr-logo {
+  position: relative;
+  left: 20px;
+  top: 80px;
+  width: 50px;
+  height: 50px;
+}
+/* line 92, ../sass/_player.scss */
+.region-persistent .streaming-menu {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: .9em;
+  position: relative;
+  top: -43px;
+  left: -100px;
+}
+/* line 100, ../sass/_player.scss */
+.region-persistent .streaming-menu a:hover {
+  background: none !important;
+}
+/* line 105, ../sass/_player.scss */
+.region-persistent iframe {
+  border: 0px;
+  height: 60px;
+  width: 220px;
+  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  padding: 0px !important;
+  margin: 0px !important;
+  position: relative;
+}
+/* line 119, ../sass/_player.scss */
+.region-persistent iframe, .region-persistent a {
+  display: inline-block;
+}
+
+/* line 1, ../sass/_airtime.scss */
+#block-airtimewidgets-airtime-nowplaying {
+  position: relative;
+  z-index: 10;
+}
+/* line 4, ../sass/_airtime.scss */
+#block-airtimewidgets-airtime-nowplaying .container {
+  padding-right: 0;
+}
+
+/* line 9, ../sass/_airtime.scss */
+#headerLiveHolder ul li, #headerLiveTrackHolder ul li {
+  overflow: visible;
+  height: 18px;
+}
+
+/* line 14, ../sass/_airtime.scss */
+#headerLiveHolder {
+  position: fixed;
+  top: 12px;
+  width: 700px !important;
+  margin-left: 250px;
+  font-family: 'DIN Next W02 Medium', 'DIN Alternate', 'Helvetica Neue', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-weight: bold;
+}
+/* line 22, ../sass/_airtime.scss */
+#headerLiveHolder h4 {
+  display: none;
+}
+/* line 26, ../sass/_airtime.scss */
+#headerLiveHolder li {
+  display: inline-block;
+  font-size: 12px !important;
+  line-height: 18px !important;
+}
+/* line 32, ../sass/_airtime.scss */
+#headerLiveHolder .current {
+  width: 100% !important;
+  margin: 0;
+  padding: 0;
+}
+/* line 38, ../sass/_airtime.scss */
+#headerLiveHolder .next {
+  width: auto !important;
+  display: block;
+}
+/* line 43, ../sass/_airtime.scss */
+#headerLiveHolder .time-elapsed,
+#headerLiveHolder .time-remaining {
+  position: relative;
+  display: inline-block;
+  right: auto;
+  margin: 0 0 0 10px;
+  float: right;
+}
+
+/* line 53, ../sass/_airtime.scss */
+#headerLiveHolder ul li.current {
+  color: black;
+}
+
+/* line 57, ../sass/_airtime.scss */
+#headerLiveHolder ul li span#time-elapsed {
+  right: auto;
+}
+
+/* line 61, ../sass/_airtime.scss */
+#headerLiveHolder ul li span#time-elapsed:before {
+  content: "+";
+}
+
+/* line 65, ../sass/_airtime.scss */
+#headerLiveHolder ul li span#time-remaining:before {
+  content: "-";
+}
+
+/* import compass */
+/* line 4, ../sass/bcr-jplayer.scss */
+body {
+  margin-left: 0;
+}
+
+/*
+ * Skin for jPlayer Plugin (jQuery JavaScript Library)
+ * http://www.happyworm.com/jquery/jplayer
+ *
+ * Skin Name: Blue Monday
+ *
+ * Copyright (c) 2010 Happyworm Ltd
+ * Dual licensed under the MIT and GPL licenses.
+ *  - http://www.opensource.org/licenses/mit-license.php
+ *  - http://www.gnu.org/copyleft/gpl.html
+ *
+ * Author: Silvia Benvenuti
+ * Skin Version: 3.0 (jPlayer 2.0.0)
+ * Date: 20th December 2010
+ */
+/* line 30, ../sass/bcr-jplayer.scss */
+.bcr-logo {
+  display: inline-block;
+  width: 39px;
+  height: 38px;
+  background: url("../images/logospot.png") no-repeat;
+  background-size: 39px;
+  vertical-align: middle;
+}
+
+/* line 39, ../sass/bcr-jplayer.scss */
+.home-link {
+  height: 20px;
+  width: 20px;
+}
+
+/* line 50, ../sass/bcr-jplayer.scss */
+.jp-audio {
+  display: inline-block;
+  top: 0px;
+}
+/* line 55, ../sass/bcr-jplayer.scss */
+.jp-audio .jp-controls {
+  vertical-align: middle;
+  display: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+@media only screen and (min-device-width: 769px) {
+  /* line 55, ../sass/bcr-jplayer.scss */
+  .jp-audio .jp-controls {
+    display: inline-block;
+  }
+}
+/* line 64, ../sass/bcr-jplayer.scss */
+.jp-audio .jp-controls li {
+  display: inline-block;
+  list-style: none;
+  position: absolute;
+  top: -9px;
+}
+/* line 70, ../sass/bcr-jplayer.scss */
+.jp-audio .jp-controls li.play-control {
+  left: 20px;
+}
+/* line 74, ../sass/bcr-jplayer.scss */
+.jp-audio .jp-controls li.vol-control {
+  left: 70px;
+}
+/* line 78, ../sass/bcr-jplayer.scss */
+.jp-audio .jp-controls li a {
+  vertical-align: middle;
+  position: absolute;
+  outline: none;
+}
+/* line 85, ../sass/bcr-jplayer.scss */
+.jp-audio .jp-controls li .jp-play {
+  width: 20px;
+  height: 20px;
+  background: url("../images/jplayer-buttons/player-button--play.png") no-repeat center;
+  background-size: 16px;
+}
+/* line 91, ../sass/bcr-jplayer.scss */
+.jp-audio .jp-controls li .jp-pause {
+  width: 20px;
+  height: 20px;
+  background: url("../images/jplayer-buttons/player-button--pause.png") no-repeat center;
+  background-size: 17px;
+}
+/* line 97, ../sass/bcr-jplayer.scss */
+.jp-audio .jp-controls li .jp-mute {
+  width: 22px;
+  height: 20px;
+  background: url("../images/jplayer-buttons/vol-button--off.png") no-repeat center;
+  background-size: 22px;
+}
+/* line 103, ../sass/bcr-jplayer.scss */
+.jp-audio .jp-controls li .jp-unmute {
+  width: 23px;
+  height: 20px;
+  background: url("../images/jplayer-buttons/vol-button--on.png") no-repeat center;
+  background-size: 23px;
+}
+
+/* line 117, ../sass/bcr-jplayer.scss */
+div.jp-audio,
+div.jp-video {
+  /* Edit the font-size to counteract inherited font sizing.
+   * Eg. 1.25em = 1 / 0.8em
+   */
+  font-size: 1em;
+  /* No parent CSS that can effect the size in these demos */
+  font-family: Verdana, Arial, sans-serif;
+  line-height: 1.6;
+  color: #666;
+}
+
+/* line 132, ../sass/bcr-jplayer.scss */
+div.label {
+  font-size: 1em;
+  font-weight: bold;
+  text-indent: 5px;
+}
+
+/* line 139, ../sass/bcr-jplayer.scss */
+div.jp-interface ul.jp-controls a {
+  overflow: hidden;
+  text-indent: -9999px;
+}
+
+/* line 144, ../sass/bcr-jplayer.scss */
+a.jp-stop {
+  background: url("jplayer.blue.monday.jpg") 0 -83px no-repeat;
+  width: 28px;
+  height: 28px;
+  z-index: 1;
+}
+
+/* line 150, ../sass/bcr-jplayer.scss */
+a.jp-stop:hover {
+  background: url("jplayer.blue.monday.jpg") -29px -83px no-repeat;
+}
+
+/* line 153, ../sass/bcr-jplayer.scss */
+div.jp-audio div.jp-type-playlist a.jp-previous {
+  left: 20px;
+  top: 26px;
+}
+
+/* line 157, ../sass/bcr-jplayer.scss */
+div.jp-video div.jp-type-playlist a.jp-previous {
+  top: 21px;
+}
+
+/* line 160, ../sass/bcr-jplayer.scss */
+div.jp-video-270p div.jp-type-playlist a.jp-previous {
+  left: 192px;
+}
+
+/* line 163, ../sass/bcr-jplayer.scss */
+div.jp-video-360p div.jp-type-playlist a.jp-previous {
+  left: 272px;
+}
+
+/* line 166, ../sass/bcr-jplayer.scss */
+a.jp-previous {
+  background: url("jplayer.blue.monday.jpg") 0 -112px no-repeat;
+  width: 28px;
+  height: 28px;
+}
+
+/* line 171, ../sass/bcr-jplayer.scss */
+a.jp-previous:hover {
+  background: url("jplayer.blue.monday.jpg") -29px -112px no-repeat;
+}
+
+/* line 174, ../sass/bcr-jplayer.scss */
+div.jp-audio div.jp-type-playlist a.jp-next {
+  left: 88px;
+  top: 26px;
+}
+
+/* line 178, ../sass/bcr-jplayer.scss */
+div.jp-video div.jp-type-playlist a.jp-next {
+  top: 21px;
+}
+
+/* line 181, ../sass/bcr-jplayer.scss */
+div.jp-video-270p div.jp-type-playlist a.jp-next {
+  left: 260px;
+}
+
+/* line 184, ../sass/bcr-jplayer.scss */
+div.jp-video-360p div.jp-type-playlist a.jp-next {
+  left: 340px;
+}
+
+/* line 187, ../sass/bcr-jplayer.scss */
+a.jp-next {
+  background: url("jplayer.blue.monday.jpg") 0 -141px no-repeat;
+  width: 28px;
+  height: 28px;
+}
+
+/* line 192, ../sass/bcr-jplayer.scss */
+a.jp-next:hover {
+  background: url("jplayer.blue.monday.jpg") -29px -141px no-repeat;
+}
+
+/* line 195, ../sass/bcr-jplayer.scss */
+div.jp-progress {
+  position: absolute;
+  overflow: hidden;
+  background-color: #ddd;
+}
+
+/* line 200, ../sass/bcr-jplayer.scss */
+div.jp-audio div.jp-type-single div.jp-progress {
+  top: 32px;
+  left: 130px;
+  width: 122px;
+  height: 15px;
+}
+
+/* line 206, ../sass/bcr-jplayer.scss */
+div.jp-audio div.jp-type-playlist div.jp-progress {
+  top: 32px;
+  left: 164px;
+  width: 122px;
+  height: 15px;
+}
+
+/* line 212, ../sass/bcr-jplayer.scss */
+div.jp-video div.jp-progress {
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 10px;
+}
+
+/* line 218, ../sass/bcr-jplayer.scss */
+div.jp-seek-bar {
+  background: url("jplayer.blue.monday.jpg") 0 -202px repeat-x;
+  width: 0px;
+  /* height:15px; */
+  height: 100%;
+  cursor: pointer;
+}
+
+/* line 225, ../sass/bcr-jplayer.scss */
+div.jp-play-bar {
+  background: url("jplayer.blue.monday.jpg") 0 -218px repeat-x;
+  width: 0px;
+  /* height:15px; */
+  height: 100%;
+}
+
+/* The seeking class is added/removed inside jPlayer */
+/* line 233, ../sass/bcr-jplayer.scss */
+div.jp-seeking-bg {
+  background: url("pbar-ani.gif");
+}
+
+/* line 238, ../sass/bcr-jplayer.scss */
+div.jp-volume-bar {
+  position: absolute;
+  overflow: hidden;
+  background: url("jplayer.blue.monday.jpg") 0 -250px repeat-x;
+  width: 46px;
+  height: 5px;
+  cursor: pointer;
+}
+
+/* line 246, ../sass/bcr-jplayer.scss */
+div.jp-audio div.jp-type-single div.jp-volume-bar {
+  top: 37px;
+  left: 302px;
+}
+
+/* line 250, ../sass/bcr-jplayer.scss */
+div.jp-audio div.jp-type-playlist div.jp-volume-bar {
+  top: 37px;
+  left: 324px;
+}
+
+/* line 256, ../sass/bcr-jplayer.scss */
+div.jp-video div.jp-volume-bar {
+  top: 32px;
+}
+
+/* line 259, ../sass/bcr-jplayer.scss */
+div.jp-video-270p div.jp-type-single div.jp-volume-bar {
+  left: 332px;
+}
+
+/* line 262, ../sass/bcr-jplayer.scss */
+div.jp-video-270p div.jp-type-playlist div.jp-volume-bar {
+  left: 391px;
+}
+
+/* line 265, ../sass/bcr-jplayer.scss */
+div.jp-video-360p div.jp-type-single div.jp-volume-bar {
+  left: 412px;
+}
+
+/* line 268, ../sass/bcr-jplayer.scss */
+div.jp-video-360p div.jp-type-playlist div.jp-volume-bar {
+  left: 471px;
+}
+
+/* line 271, ../sass/bcr-jplayer.scss */
+div.jp-volume-bar-value {
+  background: url("jplayer.blue.monday.jpg") 0 -256px repeat-x;
+  width: 0px;
+  height: 5px;
+}
+
+/* line 276, ../sass/bcr-jplayer.scss */
+div.jp-current-time,
+div.jp-duration {
+  position: absolute;
+  font-size: .64em;
+  font-style: oblique;
+}
+
+/* line 282, ../sass/bcr-jplayer.scss */
+div.jp-duration {
+  text-align: right;
+}
+
+/* line 285, ../sass/bcr-jplayer.scss */
+div.jp-audio div.jp-type-single div.jp-current-time,
+div.jp-audio div.jp-type-single div.jp-duration {
+  top: 49px;
+  left: 130px;
+  width: 122px;
+}
+
+/* line 291, ../sass/bcr-jplayer.scss */
+div.jp-audio div.jp-type-playlist div.jp-current-time,
+div.jp-audio div.jp-type-playlist div.jp-duration {
+  top: 49px;
+  left: 164px;
+  width: 122px;
+}
+
+/* line 300, ../sass/bcr-jplayer.scss */
+div.jp-playlist {
+  /* width:418px; */
+  width: 100%;
+  background-color: #ccc;
+  /* border:1px solid #009be3; */
+  border-top: none;
+}
+
+/* line 308, ../sass/bcr-jplayer.scss */
+div.jp-playlist ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 20px;
+  /* background-color:#ccc; */
+  /* border:1px solid #009be3; */
+  /* border-top:none; */
+  /* width:378px; */
+  font-size: .72em;
+}
+
+/* line 320, ../sass/bcr-jplayer.scss */
+div.jp-type-single div.jp-playlist li {
+  padding: 5px 0 5px 20px;
+  font-weight: bold;
+}
+
+/* line 324, ../sass/bcr-jplayer.scss */
+div.jp-type-playlist div.jp-playlist li {
+  padding: 5px 0 4px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+/*
+div.jp-video div.jp-playlist li {
+  padding:5px 0 5px 20px;
+  font-weight:bold;
+}
+*/
+/* line 334, ../sass/bcr-jplayer.scss */
+div.jp-type-playlist div.jp-playlist li.jp-playlist-last {
+  padding: 5px 0 5px 20px;
+  border-bottom: none;
+}
+
+/* line 338, ../sass/bcr-jplayer.scss */
+div.jp-type-playlist div.jp-playlist li.jp-playlist-current {
+  list-style-type: square;
+  list-style-position: inside;
+  padding-left: 8px;
+}
+
+/* line 343, ../sass/bcr-jplayer.scss */
+div.jp-type-playlist div.jp-playlist a {
+  color: #666;
+  text-decoration: none;
+}
+
+/* line 347, ../sass/bcr-jplayer.scss */
+div.jp-type-playlist div.jp-playlist a:hover {
+  color: #0d88c1;
+}
+
+/* line 350, ../sass/bcr-jplayer.scss */
+div.jp-type-playlist div.jp-playlist a.jp-playlist-current {
+  color: #0d88c1;
+}
+
+/* line 353, ../sass/bcr-jplayer.scss */
+div.jp-type-playlist div.jp-playlist div.jp-free-media {
+  display: inline;
+  margin-left: 20px;
+}
+
+/*
+ * Bootstrap etc. Override styles
+ */
+/* line 5, ../sass/_override.scss */
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+  display: block !important;
+}
+
+/* line 8, ../sass/_override.scss */
+ul.nav li.dropdown ul.dropdown-menu {
+  margin-top: 0;
+}
+
+/* line 12, ../sass/_override.scss */
+.container {
+  width: 960px;
+  margin: 0 auto;
+  padding: 0 10px;
+  position: relative;
+}
+
+/* line 20, ../sass/_override.scss */
+.main-container .col-sm-12 {
+  padding-right: 0;
+}
+
+/* line 25, ../sass/_override.scss */
+.navbar {
+  min-height: 30px;
+}
+
+/* line 30, ../sass/_override.scss */
+.node-type-channel .img-responsive {
+  max-width: none;
+}

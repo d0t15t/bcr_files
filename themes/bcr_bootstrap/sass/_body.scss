@@ -1,0 +1,206 @@
+body {
+  //display: none;
+  margin-top: 60px;
+}
+
+body, html {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @include header-font;
+  color: black;
+  font-weight: normal !important;
+}
+
+a, a:link, a:visited {
+  color: black !important;
+}
+a:hover {
+  color: $blue1 !important;
+  text-decoration: none !important;
+  text-shadow: none !important;
+  //display: none !important;
+}
+
+
+
+
+// streaming menu block
+#block-menu-menu-streams {
+  //position: relative;
+  //left: -230px;
+  //top: 25px;
+  //z-index: 2;
+  //float: right;
+  ul {
+    margin: 0px;
+    padding: 0px;
+  }
+  li a:hover {
+    background: none !important;
+  }
+}
+
+
+// logo
+.logo-wrapper, .logo {
+  height: 130px !important;
+  overflow: hidden;
+  padding: 0px;
+  margin: 0px;
+  width: 210px !important;
+  z-index: 1;
+}
+.logo-wrapper {
+  display: none;
+}
+.logo-wrapper, .menu-wrapper {
+  float: none;
+}
+.menu-wrapper {
+}
+.region-navigation .navbar-collapse ul.navbar-nav {
+  //margin-top: 0px !important;
+  //display: inline-block;
+  @include header-font;
+}
+.logo {
+  width: $logo_width;
+  height: $logo_height;
+  //background-color: pink;
+  //background: #ffffff url("img_tree.png") no-repeat right top;
+  background: url('../images/bcr-logo.gif') no-repeat;
+  &:hover {
+    background: url('../images/bcr-logo-hover.png') no-repeat;
+  }
+}
+
+.node-type-channel {
+  background: no-repeat -1px -1px;
+  background-size: 100% 700px;
+  &.bg-blue {
+    background-image: url('../images/bg-blue.png');
+  }
+  &.bg-green {
+    background-image: url('../images/bg-green.png');
+  }
+  &.bg-purple {
+    background-image: url('../images/bg-purple.png');
+  }
+  &.bg-yellow {
+    background-image: url('../images/bg-yellow.png');
+  }
+  &.bg-red {
+    background-image: url('../images/bg-red.png');
+  }
+}
+
+.main-container.container {
+  padding-bottom: 80px;
+  // front page design
+  .panels-flexible-4 {
+    // upper left
+    .panels-flexible-region-4-left_1 {
+      padding-right: 60px;
+      // schedule pane
+      .pane-bcr-schedule-today-panel-pane-1 {
+        .view-bcr-schedule-today {
+          @include header_font;
+          width: 100%;
+          margin: 0px auto 0px auto;
+          padding-bottom: 30px;
+          p {
+            font-size: 12px;
+            color: #666;
+            strong {
+              font-size: 16px;
+              color: black;
+            }
+            a {
+              color: black;
+            }
+          }
+          
+        }
+      }
+      // chat pane
+      .pane-bcr-blocks-bcr-chat {
+          margin: 0px auto 0px auto;
+          width: 100%;
+        .tlkio {
+          iframe {
+            height: 400px !important;
+            
+          }
+        }
+      }
+    }
+    // upper right
+    .panels-flexible-region-4-center {
+      .panels-flexible-region-4-center-inside {
+        padding: 0;
+
+        .pane-bcr-blog-recent-panel-pane-1 {
+          .pane-title {
+            display: none;
+          }
+        }
+
+        // recent blog
+        .view-bcr-blog-recent {
+          
+          .views-row {
+            margin: 0px 20px 30px 0px;
+            .field-type-image {
+              width: 100%;
+              height: auto;
+            }
+            &:nth-child(3n) {
+              margin-right: 0;
+            }
+          }
+
+          .more-link {
+            clear: both;
+            text-align: right;
+            @include header-font;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+
+// various body elements
+
+// pager / flippy
+
+.flippy {
+  float: left;
+  margin: 30px 0px 30px 0px !important;
+  li {
+    a {
+      font-size: 2em;
+      color: #ccc !important;
+      &:hover {
+        color: $blue1 !important;
+      }
+    }
+  }
+}
+
+
+// recommended article block
+#block-views-recommended-blog-posts-block {
+  .views-row {
+    display: inline-block;
+    vertical-align: top;
+    width: 30%;
+    padding: 0px 10px 0px 0px;
+  }
+}

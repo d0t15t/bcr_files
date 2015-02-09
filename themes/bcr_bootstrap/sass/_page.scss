@@ -1,0 +1,52 @@
+// page layout
+
+#homepage-panel {
+  width: 704px;
+  padding-top: 360px;
+  background: url(../images/logotypebig.png) no-repeat 0px 20px;
+  background-size: 700px;
+
+  .panels-flexible-region-4-center {
+    width: 100%;
+  }
+
+  .panels-flexible-region-last {
+    h2 {
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.main-container {
+  .row {
+    margin-left: 235px;
+  }
+}
+
+.page-header {
+  font-size: 92px;
+  text-align: right;
+  line-height: 114px;
+  border: 0;
+}
+
+.field-item {
+  font-size: 16px;
+  line-height: 1.6em;
+}
+
+.panel-flexible .panel-separator {
+  margin-bottom: 2em;
+  a {
+    text-decoration: underline !important;
+  }
+}
+
+.field-slideshow-wrapper {
+  margin: 40px 0;
+}
+
+.region-footer {
+  border: 0;
+}

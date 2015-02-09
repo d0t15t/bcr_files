@@ -1,0 +1,67 @@
+#block-airtimewidgets-airtime-nowplaying {
+  position: relative;
+  z-index: 10;
+  .container {
+    padding-right: 0;
+  }
+}
+
+#headerLiveHolder ul li, #headerLiveTrackHolder ul li {
+  overflow: visible;
+  height: 18px;
+}
+
+#headerLiveHolder {
+  position: fixed;
+  top: 12px;
+  width: 700px !important;
+  margin-left: 250px;
+
+  @include header-font;
+
+  h4 {
+    display: none;
+  }
+
+  li {
+    display: inline-block;
+    font-size: 12px !important;
+    line-height: 18px !important;
+  }
+
+  .current {
+    width: 100% !important;
+    margin: 0;
+    padding: 0;
+  }
+
+  .next {
+    width: auto !important;
+    display: block;
+  }
+
+  .time-elapsed,
+  .time-remaining {
+    position: relative;
+    display: inline-block;
+    right: auto;
+    margin: 0 0 0 10px;
+    float: right;
+  }
+}
+
+#headerLiveHolder ul li.current {
+  color: black;
+}
+
+#headerLiveHolder ul li span#time-elapsed {
+  right: auto;
+}
+
+#headerLiveHolder ul li span#time-elapsed:before {
+  content: "+";
+}
+
+#headerLiveHolder ul li span#time-remaining:before {
+  content: "-";
+}

@@ -1,0 +1,168 @@
+// @file _menus.scss
+
+// TESTING
+body {
+  //display: none;
+}
+
+.menu-wrapper {
+  .menu {
+    width: 220px;
+    .leaf {
+      background-repeat: no-repeat !important;
+      //overflow: hidden;
+    }
+
+    .leaf-soundcloud-link,
+    .leaf-twitter-link,
+    .leaf-facebook-link,
+    .leaf-youtube-link,
+    .leaf-instagram-link,
+    .leaf-mail-link {
+      float: left;
+      width: 34px;
+      height: 34px;
+      margin-right: 10px;
+      a {
+        width: 100%;
+        height: 100%;
+        float: left;
+        background-position: top left;
+        background-size: 34px;
+        opacity: 0.3;
+        border: 0;
+        margin-right: 0;
+        margin-top: 0 !important;
+        &:hover {
+          border: 0;
+          opacity: 1;
+        }
+      }
+    }
+
+    .leaf-soundcloud-link {
+      margin-top: 15px;
+      a {
+        background-image: url(../images/menu-soundcloud.png);
+      }
+    }
+    .leaf-twitter-link {
+      margin-top: 15px;
+      a {
+        background-image: url(../images/menu-twitter.png);
+      }
+    }
+    .leaf-facebook-link {
+      margin-top: 15px;
+      a {
+        background-image: url(../images/menu-facebook.png);
+      }
+    }
+    .leaf-youtube-link {
+      clear: both;
+      a {
+        background-image: url(../images/menu-youtube.png);
+      }
+    }
+    .leaf-instagram-link {
+      a {
+        background-image: url(../images/menu-instagram.png);
+      }
+    }
+    .leaf-mail-link {
+      a {
+        background-image: url(../images/menu-mail.png);
+      }
+    }
+  }
+
+  .navbar-brand {
+    display: block;
+    width: 150px;
+    height: 80px;
+    background: url('../images/bcr-logo.png') top left no-repeat;
+    background-size: 150px;
+    &:hover {
+      background-position: bottom left;
+    }
+    margin-bottom: 20px;
+
+    .homepage-body & {
+      display: none;
+    }
+  }
+}
+
+// OVERRIDE
+.region-navigation {
+  background: none;
+  border: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-top: 0px !important;
+
+  .menu-wrapper {
+    position: fixed;
+    top: 100px;
+    margin-left: 10px;
+    z-index: 8;
+  }
+
+  ul.navbar-nav {
+    //float: none;
+    @include header-font;
+    z-index: 10;
+
+    li {
+      display: block;
+      margin: 5px 0;
+      float: none;
+      font-size: 14px;
+    }
+
+    li a {
+      padding: 3px 0px 0px 0px !important;
+      margin: 5px 0;
+      text-decoration: none !important;
+      margin-right: 20px;
+      display: inline-block;
+      line-height: 1em;
+      border-bottom: 1px solid transparent;
+      &:hover {
+        color: black !important;
+        text-decoration: none !important;
+        border-bottom: 1px solid rgba(0,0,0,0.5);
+      }
+    }
+    li.active-trail {
+      a.active {
+        background: none !important;
+        text-decoration: none !important;
+        border-bottom: 1px solid black;
+      }
+    }
+
+  }
+
+  #block-menu-menu-main-2 {
+    //display: block !important;
+    //margin-left: 185px;
+    //width: 600px;
+    .menu {
+      .leaf {
+        //display: inline-block;
+        a {
+          padding-top: 0px !important;
+          &:hover {
+            background: none;
+          }
+        }
+      }
+    }
+  }
+  a {
+    font-size: .9em;
+    letter-spacing: 1px;
+    text-transform: uppercase !important;
+  }
+}
