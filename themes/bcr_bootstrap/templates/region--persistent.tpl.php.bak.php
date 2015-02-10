@@ -43,8 +43,8 @@
       <?php // PLAYER ?>
       <div class="player-wrapper col-sm-3">
         <?php
-        $block = module_invoke('bcr_blocks','block_view','bcr_player');
-        print render($block['content']);
+//        $block = module_invoke('bcr_blocks','block_view','bcr_player');
+//        print render($block['content']);
         ?>
       </div>
 
