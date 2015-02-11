@@ -7,9 +7,10 @@
     $('.region-persistent', context).once(function() {
 
 
-
+      /**
+       * original player control - doesn't work in Safari
+       */
 //      $("#jquery_jplayer_1").jPlayer({
-//
 //        ready: function () {
 //          $(this).jPlayer("setMedia", {
 //            oga: "http://berlincommunityradio.out.airtime.pro:8000/berlincommunityradio_a"
@@ -24,27 +25,23 @@
 //      });
 
 
-
-
-
-
-
       $("#jquery_jplayer_1").jPlayer({
-        ready: function() {
+        ready: function (event) {
           $(this).jPlayer("setMedia", {
-            oga: "http://berlincommunityradio.out.airtime.pro:8000/berlincommunityradio_a"
-          }).jPlayer("play");
-          var click = document.ontouchstart === undefined ? 'click' : 'touchstart';
-          var kickoff = function () {
-            $("#jquery_jplayer_1").jPlayer("play");
-            document.documentElement.removeEventListener(click, kickoff, true);
-          };
-          document.documentElement.addEventListener(click, kickoff, true);
+            mp3:"http://berlincommunityradio.out.airtime.pro:8000/berlincommunityradio_a"
+//            mp3:"http://berlincommunityradio.out.airtime.pro:8000/berlincommunityradio_a"
+          });
+          $(this).jPlayer('play');
         },
-        supplied: "oga",
-        swfPath: "/js",
-        loop: true
+        supplied: "mp3"
+//        supplied: "oga, mp3"
+//        swfPath: "../../../../../libraries/jPlayer/dist/jplayer",
+//        wmode: "window"
+//        solution:"flash",
       });
+
+
+
 
 
     });
@@ -54,6 +51,5 @@
 
 
 
-  }
-  };
+  }};
 })(jQuery);

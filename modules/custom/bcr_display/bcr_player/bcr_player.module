@@ -12,8 +12,8 @@
  */
 function bcr_player_init() {
   drupal_add_js(drupal_get_path('module', 'bcr_player') . '/js/jquery.jplayer.min.js');
-//  drupal_add_library('bcr_player', 'Jplayer');
-  drupal_add_js(drupal_get_path('module', 'bcr_player') . '/js/bcr_player.js');
+//  drupal_add_library('bcr_player', 'jPlayer');
+  drupal_add_js(drupal_get_path('module', 'bcr_player') . '/bcr_player.js');
 }
 
 
@@ -25,12 +25,12 @@ function bcr_player_init() {
  */
 function bcr_player_library() {
   // Library One.
-  $libraries['Jplayer'] = array(
-    'title' => 'Jplayer',
+  $libraries['jPlayer'] = array(
+    'title' => 'jPlayer',
     'website' => 'https://github.com/happyworm/jPlayer',
     'version' => '2.92',
     'js' => array(
-      'sites/all/libraries/Jplayer/dist/jplayer/jquery.jplayer.min.js' => array()
+      'sites/all/libraries/jPlayer/dist/jplayer/jquery.jplayer.min.js' => array()
     ),
 //    'css' => array(
 //      drupal_get_path('module', 'my_module') . '/library-2.css' => array(
