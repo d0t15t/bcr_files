@@ -27,6 +27,8 @@ regions[page_bottom]    = 'Page bottom'
 
 stylesheets[all][] = css/style.css
 
+scripts[] = 'js/js.js'
+
 ; For information on choosing the desired method, please read the Drupal
 ; Bootstrap sub-theme "how-to" documentation:
 ; https://drupal.org/node/1978010
@@ -39,7 +41,7 @@ stylesheets[all][] = css/style.css
 ; ;; Scripts
 ; ;;;;;;;;;;;;;;;;;;;;;
 ; 
-; scripts[] = 'bootstrap/js/affix.js'
+
 ; scripts[] = 'bootstrap/js/alert.js'
 ; scripts[] = 'bootstrap/js/button.js'
 ; scripts[] = 'bootstrap/js/carousel.js'

@@ -1,6 +1,6 @@
 (function($) {
 
-  Drupal.behaviors.bootstrapSubthemeJs = {
+  Drupal.behaviors.bcrPlayer = {
   attach: function (context, settings) {
 
 
@@ -17,11 +17,6 @@
       });
 
     });
-
-
-
-
-
 
   }};
 })(jQuery);
