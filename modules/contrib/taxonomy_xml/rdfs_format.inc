@@ -1,10 +1,7 @@
 <?php
-/* double-commented to avoid conflict with svn
- */
-
 /**
  * @file
- *   Include routines for RDFS parsing and taxonomy/term creation.
+ * Include routines for RDFS parsing and taxonomy/term creation.
  *
  * THIS IS OLDER CODE, for backwards support and choice.
  * rdf_format has been updated to use the more configurable D7 'bundles' and
@@ -17,21 +14,19 @@
  * flavour of RDF
  *
  * @author dman http://coders.co.nz
- *
- *
  */
 
 module_load_include('inc', 'taxonomy_xml', 'rdf_utils');
 
 
-// Constants for rules when recursing
-// When dumping a term, don't list child terms
+// Constants for rules when recursing.
+// When dumping a term, don't list child terms.
 define('TAXONOMY_XML_NO_CHILDREN', 0);
-// When dumping a term, Just list child term URIs
+// When dumping a term, Just list child term URIs.
 define('TAXONOMY_XML_CHILDREN_REF_ONLY', 1);
 // When dumping a term, Fully describe immediate child terms (URI ref under them)
 define('TAXONOMY_XML_CHILDREN_DETAILS', 3);
-// When dumping a term, Fully describe all child terms
+// When dumping a term, Fully describe all child terms.
 define('TAXONOMY_XML_CHILDREN_RECURSIVE', 4);
 
 
@@ -75,14 +70,12 @@ function taxonomy_xml_rdfs_create($vid, $parent = 0, $depth = -1, $max_depth = N
   $domcontainer = taxonomy_xml_rdf_document();
   $dom = $domcontainer->ownerDocument;
   #dpm(array(domcontainer => $domcontainer, dom => $dom));
-
   // Use our OWN rdf mapping!
 
-
-  // define the vocab
+  // Define the vocab.
   taxonomy_xml_rdfs_add_vocab($domcontainer, $vocabulary);
 
-  // and more details?
+  // And more details?
 
   // Now start adding terms.
   // They are listed as siblings, not children of the ontology
@@ -91,10 +84,9 @@ function taxonomy_xml_rdfs_create($vid, $parent = 0, $depth = -1, $max_depth = N
 
   $result = $dom->savexml();
 
-  // Minor layout tweak for readability
+  // Minor layout tweak for readability.
   $result = preg_replace('|(<[^<]*/[^>]*>)|', "$1\n", $result);
   $result = preg_replace('|><|', ">\n<", $result);
-  #dpm($result);
   return $result;
 }
 
@@ -103,17 +95,19 @@ function taxonomy_xml_rdfs_create($vid, $parent = 0, $depth = -1, $max_depth = N
  * Create a vocabulary definition (just the def, not its terms) and insert it
  * into the given document element.
  *
- * @param $domcontainer an XML dom document, modified by ref.
- * @param $vocabulary a vocab object
+ * @param $domcontainer
+ *   an XML dom document, modified by ref.
+ * @param $vocabulary
+ *   a vocab object
  */
-function taxonomy_xml_rdfs_add_vocab(&$domcontainer, $vocabulary) {
+function taxonomy_xml_rdfs_add_vocab(DomDocument &$domcontainer, $vocabulary) {
   $dom = $domcontainer->ownerDocument;
 
-  // Describe the vocabulary itself
+  // Describe the vocabulary itself.
   $vocabnode = $dom->createelementns(TAXONOMY_XML_OWL_NS, 'owl:Ontology');
   $domcontainer->appendchild($vocabnode);
 
-  // If this was a cannonic vocab, we would use a full URI as identifiers
+  // If this was a cannonic vocab, we would use a full URI as identifiers.
   $vocabnode->setattributens(TAXONOMY_XML_RDF_NS, 'rdf:ID', 'vocabulary-' . $vocabulary->vid );
   $vocabnode->setattributens(TAXONOMY_XML_RDF_NS, 'rdf:about', url('taxonomy_xml/' . $vocabulary->vid . '/rdf', array('absolute' => TRUE) ) );
 
@@ -155,33 +149,31 @@ function taxonomy_xml_rdfs_add_vocab(&$domcontainer, $vocabulary) {
  * @param $termlist a FLAT array of all terms, internally cross-referenced to
  * each other defining the tree stucture
  */
-function taxonomy_xml_rdfs_add_terms(&$domcontainer, $termlist, $recursion_behaviour = TAXONOMY_XML_CHILDREN_REF_ONLY) {
+function taxonomy_xml_rdfs_add_terms(DOMElement &$domcontainer, $termlist, $recursion_behaviour = TAXONOMY_XML_CHILDREN_REF_ONLY) {
   if (! $termlist) {
     return;
   }
   $dom = $domcontainer->ownerDocument;
 
-  // Allow submission of a single term
+  // Allow submission of a single term.
   if (! is_array($termlist)) {
     $termlist = array($termlist);
   }
 
-  // D7 hook_taxonomy_term_load actually takes an array, not a singular
+  // D7 hook_taxonomy_term_load actually takes an array, not a singular.
   module_invoke_all('taxonomy_term_load', $termlist);
 
   foreach ($termlist as $term) {
-    #dpm($term);
     // TODO - rewrite this hunk to use the new rdf entity rdf mappings!
     // eg with
     // $termnode = rdf_entity_to_xml($term, $dom);
-
 
     $termnode = $dom->createelementns(TAXONOMY_XML_RDFS_NS, 'rdfs:Class');
     $termnode->setattributens(TAXONOMY_XML_RDF_NS, 'rdf:ID', 'term-' . $term->tid );
     $domcontainer->appendchild($termnode);
 
-    // Set either the local or (preferably) the cannonic remote URI as the elements
-    // 'about' attribute.
+    // Set either the local or (preferably)
+    // the cannonic remote URI as the elements 'about' attribute.
 
     if ($uri = taxonomy_xml_get_term_uri($term)) {
       $termnode->setattributens(TAXONOMY_XML_RDF_NS, 'rdf:about', $uri );
@@ -207,55 +199,36 @@ function taxonomy_xml_rdfs_add_terms(&$domcontainer, $termlist, $recursion_behav
     $vocab_ref->setattributens(TAXONOMY_XML_RDF_NS, 'rdf:resource', '#vocabulary-' . $term->vid );
     $termnode->appendchild($vocab_ref);
 
-    /*
-     * These went away in D7
-    foreach ((array) taxonomy_get_related($term->tid) as $relatedid => $relatedterm) {
-      $related_node = $dom->createelementns(TAXONOMY_XML_RDFS_NS, 'rdfs:seeAlso', xmlentities($relatedterm->name) );
-      $related_node->setattributens(TAXONOMY_XML_RDF_NS, 'rdf:resource', '#term-' . $relatedid );
-      $termnode->appendchild($related_node);
-    }
-
-    $synonyms = taxonomy_get_synonyms($term->tid);
-    // TODO - figure out the right syntax for synonym
-    // I'm using 'equivalentClass' ... although that's really intended for merging different vocabs.
-    foreach ((array) $synonyms as $synonymname) {
-      $synonymnode = $parent_node = $dom->createelementns(TAXONOMY_XML_OWL_NS, 'owl:equivalentClass', xmlentities($synonymname) );
-      $termnode->appendchild($synonymnode);
-    }
-    */
-
     if (!empty($term->parents)) {
       foreach ((array) $term->parents as $parentid) {
         $parentlist = array();
         if ($parentid) {
-          $parentlist[$parentid] = $parent =  taxonomy_term_load($parentid);
+          $parentlist[$parentid] = $parent = taxonomy_term_load($parentid);
           $parent_node = $dom->createelementns(TAXONOMY_XML_RDFS_NS, 'rdfs:subClassOf', xmlentities($parent->name));
           $parent_node->setattributens(TAXONOMY_XML_RDF_NS, 'rdf:resource', '#term-' . $parentid );
           $termnode->appendchild($parent_node);
         }
       }
     }
-    #dpm(array('adding term to rdf' => $term));
-    #$termnode->appendchild($dom->createcomment(print_r($term, 1)));
 
-    // Now add the children also
+    // Now add the children also.
     switch ($recursion_behaviour) {
-      case TAXONOMY_XML_NO_CHILDREN :
-      break;
-      case TAXONOMY_XML_CHILDREN_REF_ONLY :
+      case TAXONOMY_XML_NO_CHILDREN:
+        break;
+
+      case TAXONOMY_XML_CHILDREN_REF_ONLY:
         $max_depth = 1;
         $tree = taxonomy_get_tree($term->vid, $term->tid, $max_depth);
         foreach ($tree as $child) {
           $child_id = $child->tid;
           $child_node = $dom->createelementns(TAXONOMY_XML_RDFS_NS, 'rdfs:superClassOf', xmlentities($child->name));
-          $child_node->setattributens(TAXONOMY_XML_RDF_NS, 'rdf:resource', '#term-' . $child_id );
+          $child_node->setattributens(TAXONOMY_XML_RDF_NS, 'rdf:resource', '#term-' . $child_id);
           $termnode->appendchild($child_node);
         }
 
     }
 
-
-    // workaround for large vocabs - extend runtime indefinately
+    // Workaround for large vocabs - extend runtime indefinately.
     drupal_set_time_limit(10);
   }
   // Done all terms in list

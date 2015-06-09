@@ -13,7 +13,7 @@ function taxonomy_server_install() {
     System vocabularies are now published
     (to roles with the appropriate permissions)
     underneath <a href='!taxonomy_vocabulary'>taxonomy/vocabulary</a>.
-    A menu SUGGESTED item is available for this path, 
+    A menu SUGGESTED item is available for this path,
     (In the 'Navigation' menu by default)
     you may want to enable it now.
   ", array(

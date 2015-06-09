@@ -1,8 +1,7 @@
 <?php
 /**
  * @file
- *  This module makes it possible to import and export taxonomies as XML
- * documents.
+ * Make it possible to import and export taxonomies as XML documents.
  */
 
 /**
@@ -12,7 +11,6 @@
  * Copyright (c) 2007  Nicolas Haase <nicolas.haase@team.ourbrisbane.com>
  * Copyright (c) 2006  Sami Khan <sami@etopian.com>
  * Copyright (c) 2005  Sheldon Rampton <sheldon@prwatch.org>
- *
  */
 
 /**
@@ -28,36 +26,30 @@
  *
  * Refer also to ISO2788 for a description of the use of these structural
  * relations
- * "http://www.ontopia.net/topicmaps/materials/tm-vs-thesauri.html#sect-thesauri"
- *
- *
+ * http://www.ontopia.net/topicmaps/materials/tm-vs-thesauri.html#sect-thesauri
  *
  * An example Thesaurus source file may be the text version of
- *
  * Thesaurus for Graphic Materials I: Subject Terms [Library of Congress]
- *
  * "http://www.loc.gov/rr/print/tgm1/downloadtgm1.html"
  */
 
-// Note that 'related' is deprecated in D7
-define('TAXONOMY_XML_RELATED',         'Related Terms');
-define('TAXONOMY_XML_PARENT',          'Broader Terms');
-define('TAXONOMY_XML_CHILD',           'Narrower Terms');
-define('TAXONOMY_XML_HAS_SYNONYM',     'Used for');
-define('TAXONOMY_XML_SYNONYM_OF',      'Use');
-define('TAXONOMY_XML_DESCRIPTION',     'Definition');
-define('TAXONOMY_XML_IN_VOCABULARY',   'Part of');
-define('TAXONOMY_XML_NAME',            'name');
-define('TAXONOMY_XML_UNUSED',          'unused');
-// Data coming from CSV may have a header row with a blank predicate
-// That row is not a triple, defining a NULL value allows us to ignore it quietly
-define('TAXONOMY_XML_NULL',            '');
+// Note that 'related' is deprecated in D7.
+define('TAXONOMY_XML_RELATED',          'Related Terms');
+define('TAXONOMY_XML_PARENT',           'Broader Terms');
+define('TAXONOMY_XML_CHILD',            'Narrower Terms');
+define('TAXONOMY_XML_HAS_SYNONYM',      'Used for');
+define('TAXONOMY_XML_SYNONYM_OF',       'Use');
+define('TAXONOMY_XML_DESCRIPTION',      'Definition');
+define('TAXONOMY_XML_IN_VOCABULARY',    'Part of');
+define('TAXONOMY_XML_NAME',             'name');
+define('TAXONOMY_XML_UNUSED',           'unused');
+// Data coming from CSV may have a header row with a blank predicate.
+// That row is not a triple, defining a NULL value allows us to ignore it
+// quietly.
+define('TAXONOMY_XML_NULL',             '');
 // Other is data that we want but doesn't map to Drupal
-// It'll get stored by rdf.module if possible
+// It'll get stored by rdf.module if possible.
 define('TAXONOMY_XML_OTHER_PREDICATE', 'other_rdf');
-
-
-
 
 /**
  * The batch process is tricky.
@@ -98,13 +90,14 @@ define('TAXONOMY_XML_ADMIN', 'admin/structure/taxonomy');
 define('TAXONOMY_XML_VOCAB_PATH', 'taxonomy/vocabulary');
 
 /**
- * Implementation of hook_help().
+ * Implements hook_help().
  */
 function taxonomy_xml_help($path, $arg) {
   $doc_path = drupal_get_path('module', 'taxonomy_xml') . '/help';
   switch ($path) {
     case 'admin/modules#description':
       return t('Makes it possible to import and export taxonomy terms via XML.');
+
     case TAXONOMY_XML_ADMIN . '/import':
       return t("
         You can upload or import a vocabulary and/or taxonomy terms
@@ -121,6 +114,7 @@ function taxonomy_xml_help($path, $arg) {
         ",
         array('!taxonomy_formats' => l(t("taxonomy formats"), "admin/help/taxonomy_xml"))
       );
+
     case 'admin/help#taxonomy_xml':
       return t(file_get_contents($doc_path . '/help.html'),
         array(
@@ -131,56 +125,53 @@ function taxonomy_xml_help($path, $arg) {
           '!rdf' => url("$doc_path/rdf.html"),
         )
       );
+
     case TAXONOMY_XML_ADMIN . '/import/services':
       return file_get_contents("$doc_path/services.html");
   }
 }
 
 /**
- * Implementation of hook_menu: Define menu links.
- *
- * @note See hook_menu for a description of return values.
+ * Implements hook_menu().
  */
 function taxonomy_xml_menu() {
   if (!module_exists('taxonomy')) {
-    return;
+    return NULL;
   }
   $items = array();
   $items[TAXONOMY_XML_ADMIN . '/export'] = array(
-    'title' => t('Export'),
+    'title' => 'Export',
     'access arguments' => array('administer taxonomy'),
     'page callback' => 'taxonomy_xml_export',
     'file' => 'taxonomy_xml.export.inc',
-    'type' => MENU_LOCAL_TASK
+    'type' => MENU_LOCAL_TASK,
   );
   $items[TAXONOMY_XML_VOCAB_PATH . '/%taxonomy_vocabulary_machine_name/%'] = array(
-    'title' => t('Export'),
+    'title' => 'Export',
     'access arguments' => array('administer taxonomy'),
     'page callback' => 'taxonomy_xml_export_vocabulary',
     'page arguments' => array(2, 3),
     'file' => 'taxonomy_xml.export.inc',
-    'type' => MENU_LOCAL_TASK
+    'type' => MENU_LOCAL_TASK,
   );
 
-
   $items[TAXONOMY_XML_ADMIN . '/import'] = array(
-    'title' => t('Import'),
+    'title' => 'Import',
     'access arguments' => array('administer taxonomy'),
     'page callback' => 'drupal_get_form',
     'page arguments' => array('taxonomy_xml_import_form'),
     'file' => 'taxonomy_xml.admin.inc',
-    'type' => MENU_LOCAL_TASK
+    'type' => MENU_LOCAL_TASK,
   );
   $items[TAXONOMY_XML_ADMIN . '_xml/flush'] = array(
-    'title' => t('Delete cache file'),
+    'title' => 'Delete cache file',
     'access arguments' => array('administer taxonomy'),
     'page callback' => 'taxonomy_xml_flush_cache_file',
     'type' => MENU_CALLBACK,
   );
 
-
   $items[TAXONOMY_XML_ADMIN . '/import/services'] = array(
-    'title' => t('About taxonomy_import services'),
+    'title' => 'About taxonomy_import services',
     'access arguments' => array('administer taxonomy'),
     'page callback' => 'taxonomy_xml_about_services',
     'type' => MENU_LOCAL_TASK,
@@ -195,16 +186,24 @@ function taxonomy_xml_menu() {
  */
 function taxonomy_xml_rdf_namespaces() {
   return array(
-    'rdf'      => 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
-    'owl'      => 'http://www.w3.org/2002/07/owl#',
+    'rdf' => 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
+    'owl' => 'http://www.w3.org/2002/07/owl#',
   );
 }
 
 /**
- * Do the actual importing from the given string, pased on the parameters passed
- * from the form.
+ * Do the actual importing from the given string.
  *
- * @return
+ * Based on the parameters passed from the form.
+ *
+ * @param string $text
+ *   Vocabulary definition as a string.
+ * @param array $params
+ *   Import options.
+ * @param string|null $url
+ *   Base URL it was taken from, if relative links need resolving.
+ *
+ * @return bool
  *   NULL. Writes success summary to the screen
  *
  * @see taxonomy_xml_formats()
@@ -214,7 +213,7 @@ function taxonomy_xml_invoke_import($text, $params, $url = NULL) {
   watchdog('taxonomy_xml', __FUNCTION__, array(), WATCHDOG_DEBUG);
   module_load_include('inc', 'taxonomy_xml', 'taxonomy_xml.process');
 
-  // Conditionally include and invoke the appropriate format library
+  // Conditionally include and invoke the appropriate format library.
   $format = $params['format'];
   if (empty($format)) {
     drupal_set_message("No format defined. Cannot start import.", 'error');
@@ -223,7 +222,7 @@ function taxonomy_xml_invoke_import($text, $params, $url = NULL) {
   module_load_include('inc', 'taxonomy_xml', 'formats/' . $format . '_format');
 
   $funcname = "taxonomy_xml_${format}_parse";
-  if (! function_exists($funcname) ) {
+  if (!function_exists($funcname)) {
     drupal_set_message("Unavailable format '$format'. $funcname was not found in formatting library ${format}_format .", 'error');
     return FALSE;
   }
@@ -232,15 +231,16 @@ function taxonomy_xml_invoke_import($text, $params, $url = NULL) {
   // In taxonomy_xml_absorb_vocabularies,
   // we cached a list of vocabs and their guid.
   // Ensure it's not been deleted in the meantime
-  // Or we'd be creating some bad references
+  // Or we'd be creating some bad references.
   $taxonomy_xml_vocabulary_ids = variable_get('taxonomy_xml_vocabulary_ids', array());
   foreach ($taxonomy_xml_vocabulary_ids as $guid => $vid) {
-    if (! taxonomy_vocabulary_load($vid)) {
+    if (!taxonomy_vocabulary_load($vid)) {
       unset($taxonomy_xml_vocabulary_ids[$guid]);
       variable_set('taxonomy_xml_vocabulary_ids', $taxonomy_xml_vocabulary_ids);
-    } // yes, it's actually better to have the variable_set inside the loop, it almost never runs
+    }
+    // Yes, it's actually better to have the variable_set inside the loop,
+    // it almost never runs.
   }
-
 
   $vid = $params['vid'];
   if ($vid == TAXONOMY_XML_CREATE_NEW) {
@@ -258,12 +258,12 @@ function taxonomy_xml_invoke_import($text, $params, $url = NULL) {
     variable_set('taxonomy_xml_vid', $vid);
   }
 
-
   // All the action is here:
   watchdog('taxonomy_xml', "Running $funcname", array(), WATCHDOG_DEBUG);
   $modified_terms = $funcname($text, $vid, $url);
 
-  // Func may have modified vocab or vid during its import. reload (just for these messages).
+  // Func may have modified vocab or vid during its import.
+  // Reload (just for these messages).
   $vocabulary = taxonomy_vocabulary_load($vid);
   if (empty($vocabulary)) {
     drupal_set_message("Failed to create or update vocabulary. Invalid ID", 'error');
@@ -283,14 +283,14 @@ function taxonomy_xml_invoke_import($text, $params, $url = NULL) {
         or <a href='!list_link'>List the terms</a>",
         array(
           '%vocab_name' => $vocabulary->name,
-          '!settings_link' => url(TAXONOMY_XML_ADMIN . '/'. $vocabulary->machine_name . '/edit'),
+          '!settings_link' => url(TAXONOMY_XML_ADMIN . '/' . $vocabulary->machine_name . '/edit'),
           '!list_link' => url(TAXONOMY_XML_ADMIN . '/' . $vocabulary->machine_name),
         )
       ));
     }
     else {
-      // returned something that was not an array.
-      // maybe it was just 'OK'
+      // Returned something that was not an array.
+      // Maybe it was just 'OK'
     }
     return TRUE;
   }
@@ -301,12 +301,12 @@ function taxonomy_xml_invoke_import($text, $params, $url = NULL) {
 }
 
 /**
- * Load a vocabulary from the given URL and import it
+ * Load a vocabulary from the given URL and import it.
  */
 function taxonomy_xml_invoke_import_on_url($url, $params) {
   watchdog('taxonomy_xml', __FUNCTION__);
   if (empty($url)) {
-    drupal_set_message('Invalid request to '. __FUNCTION__ .', Blank URL requested.', 'error');
+    drupal_set_message('Invalid request to ' . __FUNCTION__ . ', Blank URL requested.', 'error');
     return FALSE;
   }
   $text = taxonomy_xml_cached_get_contents($url);
@@ -328,7 +328,7 @@ function taxonomy_xml_invoke_import_on_url($url, $params) {
  *
  * It may also check for further dependencies (ARC) as needed.
  *
- * @return
+ * @return array
  *   an Array (
  *   [csv_format]   => CSV
  *   [rdf_format]   => RDF
@@ -356,7 +356,7 @@ function taxonomy_xml_formats() {
 }
 
 /**
- * Conditionally include the named format library
+ * Conditionally include the named format library.
  */
 function taxonomy_xml_load_format($format) {
   module_load_include('inc', 'taxonomy_xml', 'formats/' . $format . '_format');
@@ -398,7 +398,7 @@ function taxonomy_xml_format_info($requested_format_id = NULL) {
  * appropriate handlers (CCK, taxonomy_enhancer or rdf) when the term is saved.
  */
 function taxonomy_xml_set_term_guid(&$term, $guid) {
-  // Use our custom term field to store this data
+  // Use our custom term field to store this data.
   $term->field_guid['und'][0]['value'] = $term->guid = $guid;
 }
 
@@ -416,7 +416,7 @@ function taxonomy_xml_get_term_guid(&$term) {
     return $term->guid;
   }
 
-  // HERE is where we use the 'fieldable' term field to access our guid
+  // HERE is where we use the 'fieldable' term field to access our guid.
   if (!empty($term->field_guid)) {
     // What the hell is 'und'? - "Undefined language'!
     $term->guid = $term->field_guid['und'][0]['value'];
@@ -433,8 +433,11 @@ function taxonomy_xml_get_term_guid(&$term) {
 /**
  * Return a URI associated with this vocabulary.
  *
- * @param either a vocab or a vid.
- * @return an absolute URI
+ * @param object|int $vocabulary
+ *   Either a vocab or a vid.
+ *
+ * @return string
+ *   An absolute URI
  */
 function taxonomy_xml_get_vocabulary_uri($vocabulary) {
   $vid = is_numeric($vocabulary) ? $vocabulary : $vocabulary->vid;
@@ -442,36 +445,25 @@ function taxonomy_xml_get_vocabulary_uri($vocabulary) {
   return $uri;
 }
 
-
-function taxonomy_xml_get_term_by_uri($uri, $vid = NULL) {
-  dpm('DEPRECATED '. __FUNCTION__);
-  return taxonomy_xml_get_term_by_guid($uri, $vid);
-}
-
 /**
- * Special lookup for terms if they are saved with a URI or GUID
+ * Special lookup for terms if they are saved with a URI or GUID.
  *
  * Very specific to certain ways of serializing terms, REQUIRES
  * taxonomy_enhancer and a field called field_guid
  * OR
  * rdf.module and an owl:sameAs relation
+ *
+ * @return bool|object
  */
 function taxonomy_xml_get_term_by_guid($guid, $vid = NULL) {
-  if (! $guid) {
+  if (!$guid) {
     return NULL;
   }
-  // Use the field API to look up the entity?
-  #$conditions = array(
-  #  'vid' => $vid,
-  #  TAXONOMY_XML_IDENTIFIER => $guid,
-  #);
-  #$found_terms = taxonomy_term_load_multiple(array(), $conditions);
-  # nope, doesn't work like that
-
-  # SELECT entity_id FROM taxonomy_field_data_field_guid where bundle='mesh_server_php_looku' AND field_uri_value='http://localhost/EOL/MeSH/MeSH_server.php?lookup=DescriptorUI&id=D001628';
 
   // This is probably not the best way, but I spent two hours trying to get
   // through fieldapi and things and couldn't find a clue.
+  // TODO - should use entity_metadata_wrapper. Did not know that existed
+  // at the time,
   static $guid_field_id;
   static $guid_field_info;
   if (!$guid_field_id) {
@@ -479,97 +471,100 @@ function taxonomy_xml_get_term_by_guid($guid, $vid = NULL) {
     $guid_field_id = $guid_field_info['id'];
   }
   if ($guid_field_id) {
-    // Find the id of the entity with a field with a value of the URI we are asked for.
-    # $field_lookup = field_attach_query($guid_field_id, array(array('value', $guid)));
-    # YOW. http://drupal.org/node/780154#comment-3100410
 
     // Find the thing(s)
     // of type taxonomy_term
     // that has a field (guid)
-    // with a value of (desired guid)
+    // with a value of (desired guid).
     $id_lookup_query = new EntityFieldQuery();
     $id_lookup_query->entityCondition('entity_type', 'taxonomy_term')
       ->fieldCondition($guid_field_info, 'value', $guid);
 
     $field_lookup = $id_lookup_query->execute();
-    // $field_lookup is now an array of entities (or at least entity ids) that match the lookup
+    // $field_lookup is now an array of entities (or at least entity ids)
+    // that match the lookup
     // array('taxonomy_term' => array(
     //   9 => object('tid' => 9, 'vocabulary_machine_name' => 'food'),
     // ))
 
-    // Load that entity (assume only one valid match)
-    if (! empty($field_lookup['taxonomy_term'])) {
+    // Load that entity (assume only one valid match).
+    if (!empty($field_lookup['taxonomy_term'])) {
       $term_entity = array_pop($field_lookup['taxonomy_term']);
       $term = taxonomy_term_load($term_entity->tid);
-      watchdog('taxonomy_xml', "Found !guid = !term_name !tid", array('!guid' => $guid, '!term_name' => $term->name, '!tid' => $term_entity->tid), WATCHDOG_DEBUG);
+      $strings = array(
+        '!guid' => $guid,
+        '!term_name' => $term->name,
+        '!tid' => $term_entity->tid,
+      );
+      watchdog('taxonomy_xml', "Found !guid = !term_name !tid", $strings, WATCHDOG_DEBUG);
       return $term;
     }
   }
 
-  #dpm("Couldn't find a known item with a URI = $guid ");
+  // dpm("Couldn't find a known item with a URI = $guid ");
 
-/* @todo D7
-  if (module_exists('rdf')) {
-    // Lookup the RDF values to see if this term has any 'sameAs' matches
-    // Note the canononic or remote URL will be on the right of the triple
-    $lookups = rdf_normalize(rdf_query(NULL, 'owl:sameAs', $guid));
-    // Normalized data is indexed by [subject][predicate][] = object
-    // We are looking for the value on the left - the subject.
+  /* @todo D7
+   if (module_exists('rdf')) {
+   // Lookup the RDF values to see if this term has any 'sameAs' matches
+   // Note the canononic or remote URL will be on the right of the triple
+   $lookups = rdf_normalize(rdf_query(NULL, 'owl:sameAs', $guid));
+   // Normalized data is indexed by [subject][predicate][] = object
+   // We are looking for the value on the left - the subject.
 
-    $local_term_paths = array_keys($lookups);
-    if (count($local_term_paths) > 1) {
-      // Not sure how it happened, but we may get more than one result.
-      watchdog('taxonomy_xml',
-        "This is confusing, apparently there are more than one local match
-        that are sameAs '%guid' .
-        <pre>!lookups</pre>
-        Possibly the same concept in a different vocabulary.
-        I'm only going to deal with one of them (the one in the current vocab - if any).",
-        array('%guid' => $guid, '!lookups' => print_r(array_keys($lookups), 1)),
-        WATCHDOG_DEBUG
-      );
-    }
+   $local_term_paths = array_keys($lookups);
+   if (count($local_term_paths) > 1) {
+   // Not sure how it happened, but we may get more than one result.
+   watchdog('taxonomy_xml',
+   "This is confusing, apparently there are more than one local match
+   that are sameAs '%guid' .
+   <pre>!lookups</pre>
+   Possibly the same concept in a different vocabulary.
+   I'm only going to deal with one of them (the one in the current vocab - if any).",
+   array('%guid' => $guid, '!lookups' => print_r(array_keys($lookups), 1)),
+   WATCHDOG_DEBUG
+   );
+   }
 
-    $term_base_url = url('taxonomy/term/', array('absolute' => TRUE));
-    // There is (almost certainly) only one value all down this tree,
-    // but I don't know the keys, just iterate.
-    foreach ((array) $lookups as $subject => $predicate_array) {
-      foreach ($predicate_array as $predicate => $value_array) {
-        foreach ($value_array as $i => $found_value) {
-          // Stored in the database was a URI, backtrack to the term ID.
+   $term_base_url = url('taxonomy/term/', array('absolute' => TRUE));
+   // There is (almost certainly) only one value all down this tree,
+   // but I don't know the keys, just iterate.
+   foreach ((array) $lookups as $subject => $predicate_array) {
+   foreach ($predicate_array as $predicate => $value_array) {
+   foreach ($value_array as $i => $found_value) {
+   // Stored in the database was a URI, backtrack to the term ID.
 
-          // Is my term sameAs the URI?
-          if (strstr($subject, $term_base_url)) {
-            // yep, it's a local term URL
-            $tid = intval(drupal_substr($subject, drupal_strlen($term_base_url)));
-            if ($found_term = taxonomy_term_load($tid)) {
-              watchdog('taxonomy_xml',
-                'Found <a href="!term_link">an existing term %term_name</a>
-                in vocab %vid when looking for %guid',
-                array(
-                  '%guid'       => $guid,
-                  '%term_name' => $found_term->name,
-                  '%vid'       => $found_term->vid,
-                  '!term_link' => url('taxonomy/term/' . $found_term->tid),
-                ),
-                WATCHDOG_DEBUG
-              );
+   // Is my term sameAs the URI?
+   if (strstr($subject, $term_base_url)) {
+   // yep, it's a local term URL
+   $tid = intval(drupal_substr($subject, drupal_strlen($term_base_url)));
+   if ($found_term = taxonomy_term_load($tid)) {
+   watchdog('taxonomy_xml',
+   'Found <a href="!term_link">an existing term %term_name</a>
+   in vocab %vid when looking for %guid',
+   array(
+   '%guid'       => $guid,
+   '%term_name' => $found_term->name,
+   '%vid'       => $found_term->vid,
+   '!term_link' => url('taxonomy/term/' . $found_term->tid),
+   ),
+   WATCHDOG_DEBUG
+   );
 
-              // Now I found the term, check it's the right vocab (in case of multiples)
-              if ($vid && $found_term->vid == $vid) {
-                $term = $found_term;
-              }
+   // Now I found the term, check it's the right vocab (in case of multiples)
+   if ($vid && $found_term->vid == $vid) {
+   $term = $found_term;
+   }
 
-            }
-          } // found a string match
-        } // loop all result values
-      } // loop all (1) predicates
-      // Keep looking if that didn't work
-      // (highly rare there's more than one)
-    } // loop all (1) result
+   }
+   } // found a string match
+   } // loop all result values
+   } // loop all (1) predicates
+   // Keep looking if that didn't work
+   // (highly rare there's more than one)
+   } // loop all (1) result
 
-  } // RDF.module lookup
-*/
+   } // RDF.module lookup
+   */
 
   return isset($term) ? $term : NULL;
 }
@@ -617,7 +612,7 @@ function taxonomy_xml_cached_get_contents($url, $options = array(), $flush = FAL
 
   // Discard any anchor before MD5-ing it or checking the cache
   // The last part does not count.
-  @list($url, $anchor) = split('#', $url);
+  @list($url, $anchor) = explode('#', $url);
 
   // Check the MRU cache.
   static $old_url, $old_data;
@@ -636,7 +631,7 @@ function taxonomy_xml_cached_get_contents($url, $options = array(), $flush = FAL
     $old_data = $content;
     if ($content) { // Occasionally got zero-length reponses?
       $flush = l("flush", TAXONOMY_XML_ADMIN . '_xml/flush/' . md5($url));
-      watchdog('taxonomy_xml', "Using locally cached copy !local_copy of !url !flush", array('!local_copy' => l(md5($url), $save_as), '!url' => l($url, $url), '!flush' => $flush ), WATCHDOG_DEBUG);
+      watchdog('taxonomy_xml', "Using locally cached copy !local_copy of !url !flush", array('!local_copy' => l(md5($url), $save_as), '!url' => l($url, $url), '!flush' => $flush), WATCHDOG_DEBUG);
       return $content;
     }
   }
@@ -665,7 +660,7 @@ function taxonomy_xml_cached_get_contents($url, $options = array(), $flush = FAL
   }
 
   $context = stream_context_create($opts);
-  // Header set - will take effect on this request
+  // Header set - will take effect on this request.
 
   $content = file_get_contents($url, NULL, $context);
   if (! empty($content)) {
@@ -675,7 +670,7 @@ function taxonomy_xml_cached_get_contents($url, $options = array(), $flush = FAL
     $error = error_get_last();
     watchdog('taxonomy_xml', 'Failed to retrieve valid content from URL <a href="!url">!url</a>', array('!url' => $url), WATCHDOG_ERROR);
     if (!empty($options['mime'])) {
-      watchdog('taxonomy_xml', 'request for <a href="!url">URL</a> failed. It may be that the server does not respont to content-type "!mime" requests', array('!url' => $url, '!mime' => $options['mime']), WATCHDOG_ERROR);
+      watchdog('taxonomy_xml', 'Request for <a href="!url">URL</a> failed. It may be that the server does not respont to content-type "!mime" requests', array('!url' => $url, '!mime' => $options['mime'], '%error' => $error), WATCHDOG_ERROR);
     }
   }
 
@@ -695,8 +690,9 @@ function taxonomy_xml_flush_cache_file($hash) {
 }
 
 /**
- * Deletes ALL cached files. Accessed in the 'advanced' section of the import
- * form.
+ * Deletes ALL cached files.
+ *
+ * Accessed in the 'advanced' section of the import form.
  */
 function taxonomy_xml_flush_file_cache() {
   #$cachedir = file_directory_path() . '/url_cache';
@@ -713,6 +709,9 @@ function taxonomy_xml_flush_file_cache() {
  *
  * Utility Func extending taxonomy.module
  *
+ * @param string $name
+ *   Vocab name.
+ *
  * @return
  *  Vocabulary  object. NULL if not found
  *
@@ -725,6 +724,7 @@ function taxonomy_xml_get_vocabulary_by_name($name) {
       return $voc;
     }
   }
+  return NULL;
 }
 
 
@@ -735,8 +735,13 @@ function taxonomy_xml_get_vocabulary_by_name($name) {
  *
  * @see taxonomy_get_term_by_name()
  *
- * @return
- *  Term  object. NULL if not found
+ * @param string $name
+ *   Term name.
+ * @param int $vid
+ *   Vocab ID.
+ *
+ * @return object.
+ *  Term object. NULL if not found.
  *
  * @ingroup utility
  */
@@ -754,14 +759,16 @@ function taxonomy_xml_get_term_by_name_from_vocab($name, $vid) {
   return $term;
 }
 
-
 /**
  * Return the full, internal taxonomy/term/n URI
  *
  * Note that we must always use the taxonomy/term/n system path, not the alias.
  *
- * @param
- *   Either  a $term or $tid is fine
+ * @param $term int|object
+ *   Either a $term or $tid is fine
+ *
+ * @return object
+ *   Term.
  */
 function taxonomy_xml_rdf_taxonomy_term_path($term) {
   #return url('taxonomy/term/' . (is_numeric($term) ? $term : ((is_object($term)) ? $term->tid : $term['tid'] )), array('absolute' => TRUE));
@@ -775,7 +782,7 @@ function taxonomy_xml_rdf_taxonomy_term_path($term) {
  * Native taxonomy_term_load does not normally pick up the parents too. I do
  * here.
  *
- * @todo, now that hook_taxonomy_term_load is in core, need to check if this
+ * TODO now that hook_taxonomy_term_load is in core, need to check if this
  * will affect performance.
  *
  * @param $terms
@@ -806,7 +813,7 @@ function taxonomy_xml_taxonomy_term_load($terms) {
     }
     #$term->synonyms_array = taxonomy_get_synonyms($term->tid);
 
-####
+    ####
     // ->uri is now reserved for entities in d7?
 
     if ($guid = taxonomy_xml_get_term_guid($term)) {
@@ -844,14 +851,17 @@ function taxonomy_xml_shortname($uri) {
 
 
 /**
- * Choose a string from an array of language-tagged possibilities
+ * Choose a string from an array of language-tagged possibilities.
  *
  * Util func to help read complex RDF statements.
  *
  * If we want just one string but the RDF has given us a choice, like of
  * different languages, need to pick the right one.
  *
- * @param attname is just for debug
+ * @param array $values
+ *
+ * @param string $attname
+ *  Just for debug
  */
 function taxonomy_xml_get_literal_string($values, $attname = '') {
   if (! is_array($values)) {
@@ -867,7 +877,7 @@ function taxonomy_xml_get_literal_string($values, $attname = '') {
       $out = $label;
     }
     else {
-      // fine, whatever. Grab the first.
+      // Fine, whatever. Grab the first.
       watchdog('taxonomy_xml', 'Trying to pick a string from among a list of alternatives %attname = (%list) - this may not be the best choice, but it\'s the best I can do', array('%list' => join(', ', $values), '%attname' => $attname), WATCHDOG_NOTICE);
       $out = reset($values);
     }
@@ -885,9 +895,13 @@ function taxonomy_xml_get_literal_string($values, $attname = '') {
  * Calls hook_taxonomy_service_info() on each of the files in turn to find out
  * what it does.
  *
- * @param $mode How to return the results. Default 'full' is all info array. May
+ * @param string $mode
+ * How to return the results. Default 'full' is all info array. May
  * also be 'options' which returns just the service name and ID as can be used
  * in a selectbox.
+ *
+ * @return array
+ * List of services.
  */
 function taxonomy_xml_services($mode = 'full') {
   static $services;
@@ -904,7 +918,7 @@ function taxonomy_xml_services($mode = 'full') {
       }
       else {
         $service_infos = $funcname();
-        foreach ($service_infos as $service_id => $service_info) {
+        foreach ($service_infos as $service_info) {
           $service_info['filepath'] = $filepath;
         }
         if (is_array($service_infos)) {
@@ -916,9 +930,9 @@ function taxonomy_xml_services($mode = 'full') {
       }
     }
   }
-  // This will have returned an index list of all services we can use
+  // This will have returned an index list of all services we can use.
   if ($mode == 'options') {
-    // Return an array suitable for use in a form select element
+    // Return an array suitable for use in a form select element.
     $options = array();
     foreach ($services as $id => $service) {
       $options[$id] = $service['provider'] . " - " . $service['name'];
@@ -973,11 +987,11 @@ function taxonomy_xml_watchdog($log_message) {
  */
 function taxonomy_xml_watchdog_levels() {
   return array(
-    WATCHDOG_DEBUG   => 'debug',
-    WATCHDOG_INFO    => 'info',
-    WATCHDOG_NOTICE  => 'notice',
+    WATCHDOG_DEBUG => 'debug',
+    WATCHDOG_INFO => 'info',
+    WATCHDOG_NOTICE => 'notice',
     WATCHDOG_WARNING => 'warning',
-    WATCHDOG_ERROR   => 'error',
+    WATCHDOG_ERROR => 'error',
   );
 }
 
@@ -1048,123 +1062,113 @@ function taxonomy_xml_relationship_synonyms() {
   static $synonyms;
   if (! isset($synonyms)) {
     $synonyms = array(
-    'type'            => 'type', # Only used internally
-    'Related Terms'   => TAXONOMY_XML_RELATED,
-    'Related'         => TAXONOMY_XML_RELATED,
-    'related'         => TAXONOMY_XML_RELATED, # SKOS
-    'closeMatch'      => TAXONOMY_XML_RELATED, # SKOS
-    'RT'              => TAXONOMY_XML_RELATED, # ISO2788
-    'seeAlso'         => TAXONOMY_XML_RELATED, # RDFS
-    'Broader Terms'   => TAXONOMY_XML_PARENT, # Library of Congress
-    'Broader'         => TAXONOMY_XML_PARENT,
-    'broader'         => TAXONOMY_XML_PARENT, # SKOS
-    'Broad Term'      => TAXONOMY_XML_PARENT,
-    'BT'              => TAXONOMY_XML_PARENT, # ISO2788
-    'subClassOf'      => TAXONOMY_XML_PARENT, # rdfs
-    'SubClassOf'      => TAXONOMY_XML_PARENT, # contentlabel
-    'ChildOf'         => TAXONOMY_XML_PARENT, # FOAF?
-    'hypernym'        => TAXONOMY_XML_PARENT,
-    'hyponymOf'       => TAXONOMY_XML_PARENT, # Wordnet
-    'parent'          => TAXONOMY_XML_PARENT, // lsid.zoology.gla.ac.uk
-    'is child taxon of' => TAXONOMY_XML_PARENT, # TCS
-    'biology.organism_classification.higher_classification' => TAXONOMY_XML_PARENT, # Freenet
-    'music.genre.parent_genre' => TAXONOMY_XML_PARENT, # Freenet
-
-    'Narrower Terms'  => TAXONOMY_XML_CHILD, # Library of Congress
-    'Narrower'        => TAXONOMY_XML_CHILD,
-    'Narrow Term'     => TAXONOMY_XML_CHILD, # FONZ
-    'narrower'        => TAXONOMY_XML_CHILD, # SKOS
-    'NT'              => TAXONOMY_XML_CHILD, # ISO2788 ' Narrower Term'
-    'superClassOf'    => TAXONOMY_XML_CHILD, # should be complimentary to the rdfs subClassOf
-    'ParentOf'        => TAXONOMY_XML_CHILD,
-    'hasChild'        => TAXONOMY_XML_CHILD, # uBio
-    'hasCAVConcept'   => TAXONOMY_XML_CHILD, # uBio
-    'hyponym'         => TAXONOMY_XML_CHILD,
-    'hyponymOf'       => TAXONOMY_XML_CHILD, # Wordnet
-    'is parent taxon of' => TAXONOMY_XML_CHILD, # TCS
-    'biology.organism_classification.lower_classifications' => TAXONOMY_XML_CHILD, #Freenet
-    'music.genre.subgenre' => TAXONOMY_XML_CHILD, #Freenet
-
-    'Description'     => TAXONOMY_XML_DESCRIPTION,
-    'description'     => TAXONOMY_XML_DESCRIPTION, # DC
-    'definition'      => TAXONOMY_XML_DESCRIPTION, # SKOS
-    'Definition'      => TAXONOMY_XML_DESCRIPTION,
-    'comment'         => TAXONOMY_XML_DESCRIPTION,
-    'gloss'           => TAXONOMY_XML_DESCRIPTION,
-    'Scope Note'      => TAXONOMY_XML_DESCRIPTION, # Library of Congress
-    'scopeNote'       => TAXONOMY_XML_DESCRIPTION, # also Library of Congress
-    'note'            => TAXONOMY_XML_DESCRIPTION, # SKOS
-    'SN'              => TAXONOMY_XML_DESCRIPTION, # ISO2788 'Scope note'
-    'Used for'        => TAXONOMY_XML_HAS_SYNONYM,
-    'AKA'             => TAXONOMY_XML_HAS_SYNONYM,
-    'synonym'         => TAXONOMY_XML_HAS_SYNONYM,
-    'altLabel'        => TAXONOMY_XML_HAS_SYNONYM, # SKOS
-    #'notation'        => TAXONOMY_XML_HAS_SYNONYM, # SKOS
-    'equivalentClass' => TAXONOMY_XML_HAS_SYNONYM, # OWL
-    'has synonym'     => TAXONOMY_XML_HAS_SYNONYM, # TCS
-    'has vernacular'  => TAXONOMY_XML_HAS_SYNONYM, # TCS
-    'common.topic.alias' => TAXONOMY_XML_HAS_SYNONYM, # Freenet
-    'biology.organism_classification.scientific_name', TAXONOMY_XML_HAS_SYNONYM, # Freenet
-    'See'             => TAXONOMY_XML_SYNONYM_OF, # Library of Congress
-    'USE'             => TAXONOMY_XML_SYNONYM_OF, # ISO2788
-    'Use'             => TAXONOMY_XML_SYNONYM_OF,
-    'Preferred Term'  => TAXONOMY_XML_SYNONYM_OF,
-    'PT'              => TAXONOMY_XML_SYNONYM_OF, # 'Preferred Term'
-                                                  # Do not use 'sameas', it's not.
-    'related'         => TAXONOMY_XML_RELATED,
-    'seeAlso'         => TAXONOMY_XML_RELATED,
-    'See Also'        => TAXONOMY_XML_RELATED, # Library of Congress
-    'memberMeronymOf' => TAXONOMY_XML_RELATED, # Wordnet
-    'similarTo'       => TAXONOMY_XML_RELATED, # Wordnet (1999 rdfs)
-    'RT'              => TAXONOMY_XML_RELATED, # 'Related Term'
-    'Related Term'    => TAXONOMY_XML_RELATED, # FONZ
-    'Part of'         => TAXONOMY_XML_IN_VOCABULARY,
-    'belongs-to-facet' => TAXONOMY_XML_IN_VOCABULARY, # XFML
-    'isDefinedBy'     => TAXONOMY_XML_IN_VOCABULARY, # rdfs
-    'inScheme'        => TAXONOMY_XML_IN_VOCABULARY, # SKOS
-    'member'          => TAXONOMY_XML_IN_VOCABULARY, # SKOS
-    'name'            => TAXONOMY_XML_NAME,
-    'title'           => TAXONOMY_XML_NAME, # DC
-    'lexicalForm'     => TAXONOMY_XML_NAME,
-    'label'           => TAXONOMY_XML_NAME, # sig.ma and others
-    'scientific name' => TAXONOMY_XML_NAME,
-    'Scientific Name' => TAXONOMY_XML_NAME, # ubio
-    'prefLabel'       => TAXONOMY_XML_NAME, #SKOS
-    'type.object.name' => TAXONOMY_XML_NAME, # Freebase
-    # Listing unused things here just turns down the volume in debug logs.
-    # Things NOT explicitly unused MAY be retained further down the process.
-    'subPropertyOf'   => TAXONOMY_XML_UNUSED, # ignore this
-    'hasDescriptor'   => TAXONOMY_XML_UNUSED,
-    'subjectIndicator' => TAXONOMY_XML_UNUSED, # from SKOS/Topic Maps. Seen in the GCL. I have no idea what it's used for
-    'type.object.key' => TAXONOMY_XML_UNUSED, #unused things from freebase
-    'license'         => TAXONOMY_XML_UNUSED,
-    'attributionName' => TAXONOMY_XML_UNUSED,
-    'attributionURL'  => TAXONOMY_XML_UNUSED,
-    'example'         => TAXONOMY_XML_UNUSED, # unused from LoC
-    'created'         => TAXONOMY_XML_UNUSED, # unused from LoC
-    'modified'        => TAXONOMY_XML_UNUSED, # unused from LoC
-    'source'          => TAXONOMY_XML_UNUSED, # unused from LoC
-    'music.genre.albums'    => TAXONOMY_XML_UNUSED, # Freenet - ignore for better debugging
-    'music.genre.artists'   => TAXONOMY_XML_UNUSED, # Freenet - ignore for better debugging
-    'common.topic.webpage'  => TAXONOMY_XML_UNUSED, # Freenet - ignore for better debugging
-    'common.topic.article'  => TAXONOMY_XML_UNUSED, # Freenet - ignore for better debugging
-    'location.location.geolocation' => TAXONOMY_XML_UNUSED, # Freenet - ignore for better debugging
-    'type.type.expected_by' => TAXONOMY_XML_UNUSED, # Freenet - ignore for better debugging
-    'common.topic.image' => TAXONOMY_XML_UNUSED, # Freenet - ignore for better debugging
-    'status'          => TAXONOMY_XML_UNUSED, # Seen in SKOS from "http://metadataregistry.org/"
-    'editorialNote'   => TAXONOMY_XML_UNUSED, # From Library of Congress. Ignore
-    'value'           => TAXONOMY_XML_NAME, # Too unpredictable what context this may be found in
-
-    'stylesheet'      => TAXONOMY_XML_UNUSED, # RDFa - often parses to include useless stuff.
-    'alternate'       => TAXONOMY_XML_UNUSED, # RDFa
-    'icon'            => TAXONOMY_XML_UNUSED, # RDFa
-
-
-    // Some arbitrary known values may come in handy. Store them as pure RDF if we can!
-    'sameAs'          => TAXONOMY_XML_OTHER_PREDICATE,
-    'notation'        => TAXONOMY_XML_OTHER_PREDICATE, # SKOS
-    'identifier'      => TAXONOMY_XML_OTHER_PREDICATE, # uBio
-    'type.type.instance' => TAXONOMY_XML_OTHER_PREDICATE, # Freenet - This one is useful, it represents terms that are members of a vocabulary
+      'type' => 'type', # Only used internally
+      'Related Terms' => TAXONOMY_XML_RELATED,
+      'Related' => TAXONOMY_XML_RELATED,
+      'related' => TAXONOMY_XML_RELATED, # SKOS
+      'closeMatch' => TAXONOMY_XML_RELATED, # SKOS
+      'RT' => TAXONOMY_XML_RELATED, # ISO2788 'Related Term'
+      'seeAlso' => TAXONOMY_XML_RELATED, # RDFS
+      'Broader Terms' => TAXONOMY_XML_PARENT, # Library of Congress
+      'Broader' => TAXONOMY_XML_PARENT,
+      'broader' => TAXONOMY_XML_PARENT, # SKOS
+      'Broad Term' => TAXONOMY_XML_PARENT,
+      'BT' => TAXONOMY_XML_PARENT, # ISO2788
+      'subClassOf' => TAXONOMY_XML_PARENT, # rdfs
+      'SubClassOf' => TAXONOMY_XML_PARENT, # contentlabel
+      'ChildOf' => TAXONOMY_XML_PARENT, # FOAF?
+      'hypernym' => TAXONOMY_XML_PARENT,
+      'hyponymOf' => TAXONOMY_XML_PARENT, # Wordnet
+      'parent' => TAXONOMY_XML_PARENT, // lsid.zoology.gla.ac.uk
+      'is child taxon of' => TAXONOMY_XML_PARENT, # TCS
+      'biology.organism_classification.higher_classification' => TAXONOMY_XML_PARENT, # Freenet
+      'music.genre.parent_genre' => TAXONOMY_XML_PARENT, # Freenet
+      'Narrower Terms' => TAXONOMY_XML_CHILD, # Library of Congress
+      'Narrower' => TAXONOMY_XML_CHILD,
+      'Narrow Term' => TAXONOMY_XML_CHILD, # FONZ
+      'narrower' => TAXONOMY_XML_CHILD, # SKOS
+      'NT' => TAXONOMY_XML_CHILD, # ISO2788 ' Narrower Term'
+      'superClassOf' => TAXONOMY_XML_CHILD, # should be complimentary to the rdfs subClassOf
+      'ParentOf' => TAXONOMY_XML_CHILD,
+      'hasChild' => TAXONOMY_XML_CHILD, # uBio
+      'hasCAVConcept' => TAXONOMY_XML_CHILD, # uBio
+      'hyponym' => TAXONOMY_XML_CHILD,
+      'is parent taxon of' => TAXONOMY_XML_CHILD, # TCS
+      'biology.organism_classification.lower_classifications' => TAXONOMY_XML_CHILD, #Freenet
+      'music.genre.subgenre' => TAXONOMY_XML_CHILD, #Freenet
+      'Description' => TAXONOMY_XML_DESCRIPTION,
+      'description' => TAXONOMY_XML_DESCRIPTION, # DC
+      'definition' => TAXONOMY_XML_DESCRIPTION, # SKOS
+      'Definition' => TAXONOMY_XML_DESCRIPTION,
+      'comment' => TAXONOMY_XML_DESCRIPTION,
+      'gloss' => TAXONOMY_XML_DESCRIPTION,
+      'Scope Note' => TAXONOMY_XML_DESCRIPTION, # Library of Congress
+      'scopeNote' => TAXONOMY_XML_DESCRIPTION, # also Library of Congress
+      'note' => TAXONOMY_XML_DESCRIPTION, # SKOS
+      'SN' => TAXONOMY_XML_DESCRIPTION, # ISO2788 'Scope note'
+      'Used for' => TAXONOMY_XML_HAS_SYNONYM,
+      'AKA' => TAXONOMY_XML_HAS_SYNONYM,
+      'synonym' => TAXONOMY_XML_HAS_SYNONYM,
+      'altLabel' => TAXONOMY_XML_HAS_SYNONYM, # SKOS
+      #'notation'        => TAXONOMY_XML_HAS_SYNONYM, # SKOS
+      'equivalentClass' => TAXONOMY_XML_HAS_SYNONYM, # OWL
+      'has synonym' => TAXONOMY_XML_HAS_SYNONYM, # TCS
+      'has vernacular' => TAXONOMY_XML_HAS_SYNONYM, # TCS
+      'common.topic.alias' => TAXONOMY_XML_HAS_SYNONYM, # Freenet 'biology.organism_classification.scientific_name', TAXONOMY_XML_HAS_SYNONYM, # Freenet
+      'See' => TAXONOMY_XML_SYNONYM_OF, # Library of Congress
+      'USE' => TAXONOMY_XML_SYNONYM_OF, # ISO2788
+      'Use' => TAXONOMY_XML_SYNONYM_OF,
+      'Preferred Term' => TAXONOMY_XML_SYNONYM_OF,
+      'PT' => TAXONOMY_XML_SYNONYM_OF, # 'Preferred Term'
+      # Do not use 'sameas', it's not.
+      'See Also' => TAXONOMY_XML_RELATED, # Library of Congress
+      'memberMeronymOf' => TAXONOMY_XML_RELATED, # Wordnet
+      'similarTo' => TAXONOMY_XML_RELATED, # Wordnet (1999 rdfs)
+      'Related Term' => TAXONOMY_XML_RELATED, # FONZ
+      'Part of' => TAXONOMY_XML_IN_VOCABULARY,
+      'belongs-to-facet' => TAXONOMY_XML_IN_VOCABULARY, # XFML
+      'isDefinedBy' => TAXONOMY_XML_IN_VOCABULARY, # rdfs
+      'inScheme' => TAXONOMY_XML_IN_VOCABULARY, # SKOS
+      'member' => TAXONOMY_XML_IN_VOCABULARY, # SKOS
+      'name' => TAXONOMY_XML_NAME,
+      'title' => TAXONOMY_XML_NAME, # DC
+      'lexicalForm' => TAXONOMY_XML_NAME,
+      'label' => TAXONOMY_XML_NAME, # sig.ma and others
+      'scientific name' => TAXONOMY_XML_NAME,
+      'Scientific Name' => TAXONOMY_XML_NAME, # ubio
+      'prefLabel' => TAXONOMY_XML_NAME, #SKOS
+      'type.object.name' => TAXONOMY_XML_NAME, # Freebase
+      # Listing unused things here just turns down the volume in debug logs.
+      # Things NOT explicitly unused MAY be retained further down the process.
+      'subPropertyOf' => TAXONOMY_XML_UNUSED, # ignore this
+      'hasDescriptor' => TAXONOMY_XML_UNUSED,
+      'subjectIndicator' => TAXONOMY_XML_UNUSED, # from SKOS/Topic Maps. Seen in the GCL. I have no idea what it's used for
+      'type.object.key' => TAXONOMY_XML_UNUSED, #unused things from freebase
+      'license' => TAXONOMY_XML_UNUSED,
+      'attributionName' => TAXONOMY_XML_UNUSED,
+      'attributionURL' => TAXONOMY_XML_UNUSED,
+      'example' => TAXONOMY_XML_UNUSED, # unused from LoC
+      'created' => TAXONOMY_XML_UNUSED, # unused from LoC
+      'modified' => TAXONOMY_XML_UNUSED, # unused from LoC
+      'source' => TAXONOMY_XML_UNUSED, # unused from LoC
+      'music.genre.albums' => TAXONOMY_XML_UNUSED, # Freenet - ignore for better debugging
+      'music.genre.artists' => TAXONOMY_XML_UNUSED, # Freenet - ignore for better debugging
+      'common.topic.webpage' => TAXONOMY_XML_UNUSED, # Freenet - ignore for better debugging
+      'common.topic.article' => TAXONOMY_XML_UNUSED, # Freenet - ignore for better debugging
+      'location.location.geolocation' => TAXONOMY_XML_UNUSED, # Freenet - ignore for better debugging
+      'type.type.expected_by' => TAXONOMY_XML_UNUSED, # Freenet - ignore for better debugging
+      'common.topic.image' => TAXONOMY_XML_UNUSED, # Freenet - ignore for better debugging
+      'status' => TAXONOMY_XML_UNUSED, # Seen in SKOS from "http://metadataregistry.org/"
+      'editorialNote' => TAXONOMY_XML_UNUSED, # From Library of Congress. Ignore
+      'value' => TAXONOMY_XML_NAME, # Too unpredictable what context this may be found in
+      'stylesheet' => TAXONOMY_XML_UNUSED, # RDFa - often parses to include useless stuff.
+      'alternate' => TAXONOMY_XML_UNUSED, # RDFa
+      'icon' => TAXONOMY_XML_UNUSED, # RDFa
+      // Some arbitrary known values may come in handy. Store them as pure RDF if we can!
+      'sameAs' => TAXONOMY_XML_OTHER_PREDICATE,
+      'notation' => TAXONOMY_XML_OTHER_PREDICATE, # SKOS
+      'identifier' => TAXONOMY_XML_OTHER_PREDICATE, # uBio
+      'type.type.instance' => TAXONOMY_XML_OTHER_PREDICATE, # Freenet - This one is useful, it represents terms that are members of a vocabulary
     );
   }
   // By listing the deliberately unused attributes the parser finds,
@@ -1197,20 +1201,20 @@ function xtaxonomy_xml_rdf_mapping() {
       'bundle' => 'taxonomy_xml',
       'mapping' => array(
         'rdftype' => array('skos:Concept'),
-        'name'   => array(
+        'name' => array(
           'predicates' => array('rdfs:label', 'skos:prefLabel'),
         ),
-        'description'   => array(
+        'description' => array(
           'predicates' => array('skos:definition'),
         ),
         // The vocabulary this term belongs to. The type 'rev' is used to denote
         // the fact that the skos:member property domain is skos:Collection and
         // its range is skos:Concept or skos:Collection.
-        'vid'   => array(
+        'vid' => array(
           'predicates' => array('skos:member'),
           'type' => 'rev',
         ),
-        'parent'   => array(
+        'parent' => array(
           'predicates' => array('skos:broader'),
           'type' => 'rel',
         ),
@@ -1225,10 +1229,10 @@ function xtaxonomy_xml_rdf_mapping() {
       'bundle' => 'taxonomy_vocabulary',
       'mapping' => array(
         'rdftype' => array('owl:Ontology'),
-        'name'   => array(
+        'name' => array(
           'predicates' => array('rdfs:label'),
         ),
-        'description'   => array(
+        'description' => array(
           'predicates' => array('rdfs:comment'),
         ),
       ),
@@ -1242,10 +1246,10 @@ function xtaxonomy_xml_rdf_mapping() {
  * By inserting this way upstream here, the RDF mapping that happens much later
  * will be overridden where needed.
  */
- function taxonomy_xml_entity_info_alter(&$entity_info, &$context) {
+function taxonomy_xml_entity_info_alter(&$entity_info, &$context) {
   #dpm("HERE, yes");
   #dpm($entity_info);
- }
+}
 
 
 /**
@@ -1262,7 +1266,9 @@ function taxonomy_xml_relationship_synonyms_for($canonic) {
  */
 function taxonomy_xml_relationship_synonyms_reverse() {
   static $flipped;
-  if ($flipped) return $flipped;
+  if ($flipped) {
+    return $flipped;
+  }
   $arr = taxonomy_xml_relationship_synonyms();
   foreach ($arr as $syn => $canonic) {
     if (! isset($flipped[$canonic])) {

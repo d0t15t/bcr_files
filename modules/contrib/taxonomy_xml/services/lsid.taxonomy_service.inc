@@ -1,5 +1,5 @@
 <?php
-/* 
+/*
  */
 
 
@@ -10,7 +10,7 @@
 ///////////// TODO
 /**
  *
- */ 
+ */
 function lsid_taxonomy_service_info() {
   $services = array();
   $services['lsid'] = array(
@@ -91,7 +91,7 @@ function taxonomy_xml_parse_lsid($id) {
     'authority' => $bits[2],
     'namespace' => $bits[3],
     'identifier' => $bits[4],
-    'version' =>  @$bits[5], # optional
+    'version' => @$bits[5], # optional
     'type' => implode(':', array($bits[0], $bits[1], $bits[2], $bits[3])),
   );
   if ((count($bits) > 4) && $lsid['urn'] == 'urn' && $lsid['schema'] == 'lsid' ) {

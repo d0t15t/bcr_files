@@ -55,7 +55,7 @@ function taxonomy_xml_requirements($phase) {
         'description' => t('
           !rdf will assist taxonomy imports
           by enabling a unique Identifier for each imported term.
-        ', array('!rdf' => l('rdf.module', 'http://drupal.org/project/rdf') )
+        ', array('!rdf' => l('rdf.module', 'http://drupal.org/project/rdf'))
         ),
       );
     }
@@ -72,8 +72,8 @@ function taxonomy_xml_requirements($phase) {
           although small all-in-one vocabulary imports (from a single file)
           should still work.
         ', array(
-          '!rdf' => l('rdf.module', 'http://drupal.org/project/rdf')
-          )
+          '!rdf' => l('rdf.module', 'http://drupal.org/project/rdf'),
+        )
         ),
       );
     }

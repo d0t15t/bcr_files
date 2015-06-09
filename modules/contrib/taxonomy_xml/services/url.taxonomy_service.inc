@@ -1,5 +1,5 @@
 <?php
-/* 
+/*
  */
 
 /**
@@ -8,7 +8,7 @@
 
 /**
  * hook_taxonomy_service_info()
- */ 
+ */
 function url_taxonomy_service_info() {
   $services = array();
   $services['url'] = array(
@@ -55,7 +55,7 @@ function url_taxonomy_service_form($form_values, $service_info) {
   );
 
   $form['format']['#description'] = t('
-    The RDF parser can also do a pretty good job of importing RDFa-enhanced XHTML. 
+    The RDF parser can also do a pretty good job of importing RDFa-enhanced XHTML.
     Try it on a Drupal7 taxonomy term page.
   ');
 

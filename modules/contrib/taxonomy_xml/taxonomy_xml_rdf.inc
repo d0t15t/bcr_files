@@ -119,7 +119,7 @@ function taxonomy_xml_rdf_export_vocabulary($vocabulary) {
   }
 
 
-return ('<textarea style="width:100%; height:300px">' . $XMLDoc->saveXML() . '</textarea>');
+  return ('<textarea style="width:100%; height:300px">' . $XMLDoc->saveXML() . '</textarea>');
 
   $subject      = rdf_is_valid_curie($subject_curi) ? rdf_qname_to_uriref($subject_curi) : rdf_uri($subject_curi);
 
@@ -211,20 +211,20 @@ function convert_statements_to_rdf_data($subject_uri, $statements) {
 function taxonomy_xml_rdf_classes() {
   return array(
     'vocabulary' => array(
-      'title'   => t('Taxonomy vocabulary'),
-      'module'  => 'taxonomy',
-      'table'   => 'vocabulary',
-      'query'   => 'SELECT vid FROM {vocabulary}',
+      'title' => t('Taxonomy vocabulary'),
+      'module' => 'taxonomy',
+      'table' => 'vocabulary',
+      'query' => 'SELECT vid FROM {vocabulary}',
       // NOTE: Drupal vocabularies don't actually have dereferenceable URIs
-      'uri'     => 'taxonomy/vocabulary/%vid',
+      'uri' => 'taxonomy/vocabulary/%vid',
       'enabled' => TRUE, // TODO
     ),
     'term' => array(
-      'title'   => t('Taxonomy term'),
-      'module'  => 'taxonomy',
-      'table'   => 'term_data',
-      'query'   => 'SELECT tid FROM {term_data}',
-      'uri'     => 'taxonomy/term/%tid',
+      'title' => t('Taxonomy term'),
+      'module' => 'taxonomy',
+      'table' => 'term_data',
+      'query' => 'SELECT tid FROM {term_data}',
+      'uri' => 'taxonomy/term/%tid',
       'enabled' => TRUE, // TODO
     ),
   );
@@ -254,11 +254,11 @@ function taxonomy_xml_rdf_schema_load_term($term) {
   $term = is_object($term) ? $term : taxonomy_term_load((int) $term);
 
   $statements = array(
-    rdf::type         => rdf_uri(rdf_qname_to_uri('drupal:term')),
-    'term:tid'        => (int) $term->tid,
-    'term:vid'        => (int) $term->vid,
-    'term:name'      => $term->name,
-    'term:body'       => $term->description,
+    rdf::type => rdf_uri(rdf_qname_to_uri('drupal:term')),
+    'term:tid' => (int) $term->tid,
+    'term:vid' => (int) $term->vid,
+    'term:name' => $term->name,
+    'term:body' => $term->description,
   );
 
   // Get normal internal $term values from Drupal

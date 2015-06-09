@@ -1,5 +1,5 @@
 <?php
-/* 
+/*
  */
 
 /**
@@ -8,7 +8,7 @@
 
 /**
  * hook_taxonomy_service_info()
- */ 
+ */
 function local_taxonomy_service_info() {
   $services = array();
   $services['local'] = array(
@@ -29,8 +29,8 @@ function local_taxonomy_service_info() {
  */
 function local_taxonomy_service_form($form_values, $service_info) {
   $form = array();
- 
-  // List available files 
+
+  // List available files
   $search_paths = array(
     drupal_get_path('module', 'taxonomy_xml') . '/samples',
     // add more?
@@ -42,7 +42,7 @@ function local_taxonomy_service_form($form_values, $service_info) {
       $files[$search_path][$file->uri] = $file->filename;
     }
   }
-  
+
   $form['filepath'] = array(
     '#type' => 'select',
     '#title' => t('File to import'),
@@ -56,8 +56,8 @@ function local_taxonomy_service_form($form_values, $service_info) {
     '#options' => $formats,
   );
   $form['submit'] = array(
-    '#type' => 'submit',    
-    '#value' => t('Import from '. $service_info['name']),
+    '#type' => 'submit',
+    '#value' => t('Import from ' . $service_info['name']),
     '#submit' => array('local_taxonomy_service_form_submit'),
   );
 

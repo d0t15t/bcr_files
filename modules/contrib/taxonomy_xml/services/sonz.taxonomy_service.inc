@@ -1,11 +1,11 @@
 <?php
-/* 
+/*
  */
 
 /**
  * @file declare how to load and import a SONZ (Services of New Zealand)
  * Taxonomy
- * 
+ *
  * This simple "service" example is also easily available by entering the URL
  * directly into the taxonomy_xml importer, and is provided as a basic example
  * service definition
@@ -13,7 +13,7 @@
 
 /**
  *
- */ 
+ */
 function sonz_taxonomy_service_info() {
   $services = array();
   $services['sonz'] = array(
@@ -21,9 +21,9 @@ function sonz_taxonomy_service_info() {
     'name' => 'Services Of New Zealand (SONZ)',
     'id' => 'sonz',
     'description' => '
-      A list of topics and classifications used to describe subjects 
-      of interest to government and government agencies. 
-      Subjects include terms relating to administration, national affairs, 
+      A list of topics and classifications used to describe subjects
+      of interest to government and government agencies.
+      Subjects include terms relating to administration, national affairs,
       education, infrastructure, law, economics and industry.
     ',
     'about' => 'http://www.e.govt.nz/standards/nzgls/thesauri',
@@ -54,7 +54,7 @@ function sonz_taxonomy_service_form($form_values, $service_info) {
 
   $form['submit'] = array(
     '#type' => 'submit',
-    '#value' => t('Import from '. $service_info['name']),
+    '#value' => t('Import from ' . $service_info['name']),
     '#submit' => array('sonz_taxonomy_service_form_submit'),
   );
 

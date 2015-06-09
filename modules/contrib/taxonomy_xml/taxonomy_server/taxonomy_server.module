@@ -76,7 +76,7 @@ function taxonomy_server_menu() {
     'type' => MENU_DEFAULT_LOCAL_TASK,
     'weight' => 1,
   );
-  // Depending on the settings, the data dump is either available 
+  // Depending on the settings, the data dump is either available
   // invisibly or as a visible tab
   $items['taxonomy/vocabulary/%taxonomy_vocabulary/rdf'] = array(
     'title' => 'RDF',
@@ -87,10 +87,10 @@ function taxonomy_server_menu() {
     'weight' => 9,
   );
 
-  // Hijack and override the normal taxonomy_term_page 
-  // to insert content-negotiation! 
+  // Hijack and override the normal taxonomy_term_page
+  // to insert content-negotiation!
   // Returns the usual page in usual circumstances, but allows for clients to
-  // get other formats too. 
+  // get other formats too.
   // Copied from taxonomy.module
   $items['taxonomy/term/%taxonomy_term'] = array(
     'title' => 'Taxonomy term',
@@ -133,21 +133,21 @@ function taxonomy_server_permission() {
  */
 function taxonomy_server_help($path = '', $arg) {
   switch ($path) {
-    case 'taxonomy/vocabulary' :
+    case 'taxonomy/vocabulary':
       if (arg(2)) {
         return t("
-          Items with more than one parent may show up twice in a heirarchy. 
+          Items with more than one parent may show up twice in a heirarchy.
           This is normal.
         ");
       }
       break;
-    case 'admin/structure/taxonomy/server' :
+    case 'admin/structure/taxonomy/server':
       return t("
-        Vocabularies are published at !vocabulary_link. 
+        Vocabularies are published at !vocabulary_link.
         The vocabulary server publishes direct data downloads underneath the vocabulary and term pages.
-        This data is linked to from meta link hints inserted into the pages, 
+        This data is linked to from meta link hints inserted into the pages,
         and is also available to semantic crawlers who request the page with content-negotiation.
-      ", array('!vocabulary_link' => l('taxonomy/vocabulary' , 'taxonomy/vocabulary')));
+      ", array('!vocabulary_link' => l('taxonomy/vocabulary', 'taxonomy/vocabulary')));
   }
 }
 
@@ -161,7 +161,7 @@ function taxonomy_server_help($path = '', $arg) {
  */
 function taxonomy_server_settings($form) {
   $form = array();
-  
+
   $form['taxonomy_xml_show_data_tabs'] = array(
     '#title' => t('Display tabs for direct data download on the vocabulary and term pages'),
     '#type' => 'checkbox',
@@ -169,7 +169,7 @@ function taxonomy_server_settings($form) {
     '#description' => t('Access to this data is restricted through the user permissions. This option just controls whether the data is directly visible.'),
   );
   $form['#submit']['taxonomy_xml'] = 'taxonomy_server_settings_submit';
-  
+
   return system_settings_form($form);
 }
 
@@ -186,10 +186,10 @@ function taxonomy_server_settings_submit() {
 /**
  * An override of taxonomy_term_page. Checks if we can give the client
  * another version of this data.
- * 
+ *
  * Checks content-negotiation, then passes back to the normal page renderer
  * unless an alternative was requested.
- * 
+ *
  * @param $term object
  */
 function taxonomy_server_term_page($term = NULL, $format_id = NULL) {
@@ -199,34 +199,34 @@ function taxonomy_server_term_page($term = NULL, $format_id = NULL) {
     // Check if this request was from a content-negotiation compatible client.
     // Redirect them to the alternate version if so.
     $preferred = taxonomy_server_get_preferred_content($_SERVER["HTTP_ACCEPT"]);
-  
+
     watchdog('taxonomy_server', "
       Received a request for <b>{$_SERVER['REQUEST_URI']}</b> .
       Seeing if I can give it better content via content-negotiation.
       Client asked for ({$_SERVER['HTTP_ACCEPT']})
       <br> It seems that the client would prefer '{$preferred}'
     ");
-  
+
     // TODO https & port support
     $rdf_uri = "http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]  . "/rdf";
     if ($preferred == 'rdf') {
       watchdog('taxonomy_server', "Received a <b>content-negotiated</b> request for {$_SERVER['REQUEST_URI']} as $preferred. Boinging the request to that version of this page ($rdf_uri).");
-  
+
       header("HTTP/1.1 303");
       header("Vary: Accept");
       header("Location: " . $rdf_uri);
       exit;
     }
   }
-  
+
   // Maybe this page was a catcher because there was a format ID appended to the arguments
 
   if (! empty($format_id)) {
-    // this vocab was requested in a specific export format. 
+    // this vocab was requested in a specific export format.
     // Use the appropriate export function.
     return taxonomy_xml_export_term($term, $format_id);
   }
-  
+
   // Else, return the normal HTML version!
   // @todo May need to start thinking about depth
   #dpm("Thought about, but decided against sending another format");
@@ -239,7 +239,7 @@ function taxonomy_server_term_page($term = NULL, $format_id = NULL) {
     'title' => $term->name,
     'href' => $rdf_uri,
   ));
-    #    <link rel="alternate" type="application/rss+xml" title="semanticweb.org RSS Feed" href="http://semanticweb.org/index.php?title=Special:RecentChanges&amp;feed=rss" />
+  #    <link rel="alternate" type="application/rss+xml" title="semanticweb.org RSS Feed" href="http://semanticweb.org/index.php?title=Special:RecentChanges&amp;feed=rss" />
 
   // Need to load the taxonomy library inc
   module_load_include('inc', 'taxonomy', 'taxonomy.pages');
@@ -248,10 +248,10 @@ function taxonomy_server_term_page($term = NULL, $format_id = NULL) {
 
 /**
  * Display a page showing one or all available vocabularies
- * 
+ *
  * Inspects content-negotiation for alt formats or explicit content-type
  * requests
- * 
+ *
  * @param $vocabulary object
  */
 function taxonomy_server_vocabulary_page($vocabulary = NULL, $format_id = NULL) {
@@ -263,7 +263,7 @@ function taxonomy_server_vocabulary_page($vocabulary = NULL, $format_id = NULL) 
       #$tree = taxonomy_get_tree($vocabulary->vid);
       #$vocabcount = count($tree);
       $vocabcount = db_query("SELECT count(*) FROM {taxonomy_term_data} WHERE vid = :vid", array(':vid' => $vocabulary->vid))->fetchField();
-      
+
       $link_list[$vocabulary->vid] = array(
         'title' => $vocabulary->name . t(" (!count terms)", array('!count' => $vocabcount)),
         'href' => 'taxonomy/vocabulary/' . $vocabulary->vid,
@@ -289,11 +289,11 @@ function taxonomy_server_vocabulary_page($vocabulary = NULL, $format_id = NULL) 
       Client asked for ({$_SERVER['HTTP_ACCEPT']})
       <br> It seems that the client would prefer '{$preferred}'
     ");
-     # <pre>" . print_r($_SERVER, 1) . "</pre>
+    # <pre>" . print_r($_SERVER, 1) . "</pre>
 
 
     // TODO https & port support
-    $rdf_uri = taxonomy_xml_get_vocabulary_uri($vocabulary). "/rdf";
+    $rdf_uri = taxonomy_xml_get_vocabulary_uri($vocabulary) . "/rdf";
     if ($preferred == 'rdf') {
       watchdog('taxonomy_server', "Received a <b>content-negotiated</b> request for {$_SERVER['REQUEST_URI']} as $preferred. Boinging the request to that version of this page.");
 
@@ -304,7 +304,7 @@ function taxonomy_server_vocabulary_page($vocabulary = NULL, $format_id = NULL) 
     }
 
     if (! empty($format_id)) {
-      // this vocab was requested in a specific export format. 
+      // this vocab was requested in a specific export format.
       // Use the appropriate export function.
       return taxonomy_xml_export_vocabulary($vocabulary, $format_id);
     }
@@ -330,14 +330,14 @@ function taxonomy_server_vocabulary_page($vocabulary = NULL, $format_id = NULL) 
 /**
  * Insert a reference to our pure-xml data whenver the user-HTML page is
  * diplayed for a term
- * 
+ *
  * @see hook_entity_prepare_view()
  */
 function taxonomy_server_entity_prepare_view($entities, $entity_type) {
   switch ($entity_type) {
-    case "taxonomy_term" :
+    case "taxonomy_term":
       foreach ($entities as $term) {
-        $rdf_uri = url('taxonomy/term/'. $term->tid . '/rdf', array('absolute' => TRUE));
+        $rdf_uri = url('taxonomy/term/' . $term->tid . '/rdf', array('absolute' => TRUE));
         drupal_add_html_head_link(array(
           'rel' => 'alternate',
           'type' => 'application/rdf+xml',
@@ -371,7 +371,7 @@ function taxonomy_server_get_term_as_item_tree($vid, $term) {
 
 /**
  * Returns an RDF representation of the vocab
- * 
+ *
  * Channels a taxonomy_xml vocab export.
  */
 function taxonomy_server_export_vocabulary($vocabulary, $format = 'rdf') {
@@ -382,7 +382,7 @@ function taxonomy_server_export_vocabulary($vocabulary, $format = 'rdf') {
 
 /**
  * Returns an RDF representation of the term
- * 
+ *
  * Channels a taxonomy_xml vocab export.
  */
 function taxonomy_server_export_term($term, $format = 'rdf') {

@@ -176,7 +176,7 @@ function taxonomy_xml_xml_parse(&$data, &$vid = 0) {
   xml_set_character_data_handler($xml_parser, 'taxonomy_xml_element_data');
 
   if (!xml_parse($xml_parser, $data, 1)) {
-    watchdog('taxonomy_xml', 'Failed to parse XML file: %error at line %line.', array('%error' => xml_error_string(xml_get_error_code($xml_parser)), '%line' => xml_get_current_line_number($xml_parser)),  WATCHDOG_ERROR);
+    watchdog('taxonomy_xml', 'Failed to parse XML file: %error at line %line.', array('%error' => xml_error_string(xml_get_error_code($xml_parser)), '%line' => xml_get_current_line_number($xml_parser)),   WATCHDOG_ERROR);
     drupal_set_message(t('Failed to parse file: %error at line %line.', array('%error' => xml_error_string(xml_get_error_code($xml_parser)), '%line' => xml_get_current_line_number($xml_parser))), 'error');
   }
   xml_parser_free($xml_parser);
@@ -346,9 +346,9 @@ function taxonomy_xml_setup_vocabulary_from_data($edit) {
         Terms will be imported there, but <a href='!settings_url'>existing vocabulary settings</a>
         will not be modified.",
         array(
-          '%data_vid' => $edit['vid'],
-          '!settings_url' => url('admin/content/taxonomy/edit/vocabulary/' . $edit['vid']),
-        ))
+        '%data_vid' => $edit['vid'],
+        '!settings_url' => url('admin/content/taxonomy/edit/vocabulary/' . $edit['vid']),
+      ))
       );
       // TODO sanity check to avoid inadvertant overwrites.
       // No change

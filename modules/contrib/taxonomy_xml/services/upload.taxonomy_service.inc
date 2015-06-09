@@ -44,7 +44,7 @@ function upload_taxonomy_service_form($form_values, $service_info) {
   );
   $form['submit'] = array(
     '#type' => 'submit',
-    '#value' => t('Import from '. $service_info['name']),
+    '#value' => t('Import from ' . $service_info['name']),
     '#submit' => array('taxonomy_xml_import_form_submit', 'upload_taxonomy_service_form_submit'),
   );
   return $form;
@@ -77,7 +77,7 @@ function upload_taxonomy_service_form_submit($form, &$form_state) {
 
   // The file object is a wierd wrapper instance.
   //
-  //  Drupal7 is odd. How is this supposed to work?
+//  Drupal7 is odd. How is this supposed to work?
   // http://drupal.org/node/822008
   //
   //

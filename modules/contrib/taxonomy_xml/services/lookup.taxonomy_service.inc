@@ -1,5 +1,5 @@
 <?php
-/* 
+/*
  */
 
 
@@ -9,7 +9,7 @@
 
 /**
  * hook_taxonomy_service_info()
- */ 
+ */
 function lookup_taxonomy_service_info() {
   $services = array();
   $services['lookup'] = array(
@@ -59,8 +59,7 @@ function lookup_taxonomy_service_form() {
     'information' => array(
       '#type' => 'markup',
       '#value' => l('More info about remote taxonomy services', TAXONOMY_XML_ADMIN . '/import/services'),
-    )
-
+    ),
   );
 
   $form['format'] = array(
@@ -95,7 +94,6 @@ function lookup_taxonomy_service_form() {
  */
 function lookup_taxonomy_service_services() {
   $services = array(
-
     'freebase' => array(
       'provider' => 'Freebase by Metaweb Technologies, ',
       'name' => 'Freebase lookup',
@@ -107,7 +105,6 @@ function lookup_taxonomy_service_services() {
       'pattern' => 'http://rdf.freebase.com/ns/!identifier',
       'format' => 'rdf',
     ),
-
     'twdg' => array(
       'provider' => 'Biodiversity Information Standards (TDWG)',
       'name' => 'LSID Web Resolver',
@@ -140,7 +137,6 @@ function lookup_taxonomy_service_services() {
       'pattern' => 'http://www.w3.org/2003/03/glossary-project/data/glossaries/WCA-terms.rdf',
       'format' => 'rdf',
     ),
-
     'LOC-lookup' => array(
       'provider' => 'Library of Congress',
       'name' => 'Library of Congress Subject Headings',
@@ -154,7 +150,6 @@ function lookup_taxonomy_service_services() {
       'pattern' => 'http://id.loc.gov/authorities/!identifier',
       'format' => 'rdf',
     ),
-
     'LOC-music' => array(
       'provider' => 'Library of Congress',
       'name' => 'Library of Congress Subject Headings - Popular music - SAMPLE',
@@ -167,7 +162,6 @@ function lookup_taxonomy_service_services() {
       'pattern' => 'http://id.loc.gov/authorities/sh85088865',
       'format' => 'rdf',
     ),
-
     'sonz' => array(
       'provider' => 'New Zealand Government Locator Service (NZGLS)',
       'name' => 'Services Of New Zealand (SONZ)',
@@ -188,7 +182,6 @@ function lookup_taxonomy_service_services() {
       'pattern' => 'http://www.e.govt.nz/standards/nzgls/thesauri/fonz2.30.txt/download',
       'format' => 'csv',
     ),
-
     'AVM' => array(
       'provider' => 'Virtual Astronomy Multimedia Project (VAMP) ',
       'name' => 'Astronomy Visualization Metadata Standard (AVM) RDF+SKOS',
@@ -199,7 +192,6 @@ function lookup_taxonomy_service_services() {
       'pattern' => 'http://www.ivoa.net/rdf/Vocabularies/vocabularies-20091007/AVM/AVM.rdf',
       'format' => 'rdf',
     ),
-    
     'sioc-types' => array(
       'provider' => 'SIOC Core Ontology Specification',
       'name' => 'SIOC Types Module',

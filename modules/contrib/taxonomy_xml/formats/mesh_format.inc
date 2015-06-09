@@ -175,8 +175,8 @@ function taxonomy_xml_mesh_parse(&$data, &$vid = 0, $url = '') {
           $term->predicates[$reltype][$reftarget] = $reftarget;
           // Add it to the current array, seeing as we have it now.
           $terms[$reftarget] = &$target_term;
-# don't need rough name lookups in MeSH
-#          $terms[$refname] = &$target_term;
+          # don't need rough name lookups in MeSH
+          #          $terms[$refname] = &$target_term;
         }
         unset($target_term); // careful when using handles!
       }
@@ -219,8 +219,8 @@ function taxonomy_xml_mesh_parse(&$data, &$vid = 0, $url = '') {
         #  drupal_set_message("We will have to make a new placeholder term called $refname to support its mention from within {$term->name}");
         #}
         $terms[$reftarget] = &$target_term;
-# don't need this
-#        $terms[$refname] = &$target_term;
+        # don't need this
+        #        $terms[$refname] = &$target_term;
         unset($target_term); // careful when using handles!
       }
     }

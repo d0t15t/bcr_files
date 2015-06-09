@@ -385,14 +385,14 @@ function taxonomy_xml_add_terms_as_tcs(&$domcontainer, $termlist) {
     $propername->setattributens(TAXONOMY_XML_TCS_NS, 'ref', '?');
     $termnode->appendchild($propername);
 
-/*
-    $synonyms = taxonomy_get_synonyms($term->tid);
-    foreach ((array) $synonyms as $synonym) {
-      $synonymname = $dom->createelementns(TAXONOMY_XML_TCS_NS, 'Name', xmlentities($synonym) );
-      $synonymname->setattributens(TAXONOMY_XML_TCS_NS, 'scientific', 'false');
-      $termnode->appendchild($synonymname);
-    }
-*/
+    /*
+     $synonyms = taxonomy_get_synonyms($term->tid);
+     foreach ((array) $synonyms as $synonym) {
+     $synonymname = $dom->createelementns(TAXONOMY_XML_TCS_NS, 'Name', xmlentities($synonym) );
+     $synonymname->setattributens(TAXONOMY_XML_TCS_NS, 'scientific', 'false');
+     $termnode->appendchild($synonymname);
+     }
+     */
     $termrelations = $dom->createelementns(TAXONOMY_XML_TCS_NS, 'TaxonRelationships');
     $termnode->appendchild($termrelations);
 
