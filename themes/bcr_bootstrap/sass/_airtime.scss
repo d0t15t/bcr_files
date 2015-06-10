@@ -2,12 +2,14 @@
   display: inline-block;
   max-width: 280px;
   top: -7px !important;
+  white-space: nowrap;
 }
 #block-airtimewidgets-airtime-nowplaying {
   position: relative;
   top: 13px;
-  max-width: 700px;
+  width: 500px;
   display: inline-block;
+  white-space: nowrap;
   .container {
     padding-right: 0;
   }
@@ -21,7 +23,7 @@
 #headerLiveHolder {
 //  position: fixed;
 //  top: 12px;
-//  width: 700px !important;
+  width: 400px !important;
 //  margin-left: 250px;
 //  display: inline-block;
   @include header-font;
