@@ -1,6 +1,13 @@
+#block-bcr-blocks-bcr-player {
+  display: inline-block;
+  max-width: 280px;
+  top: -7px !important;
+}
 #block-airtimewidgets-airtime-nowplaying {
   position: relative;
-  z-index: 10;
+  top: 13px;
+  max-width: 700px;
+  display: inline-block;
   .container {
     padding-right: 0;
   }
@@ -12,11 +19,11 @@
 }
 
 #headerLiveHolder {
-  position: fixed;
-  top: 12px;
-  width: 700px !important;
-  margin-left: 250px;
-
+//  position: fixed;
+//  top: 12px;
+//  width: 700px !important;
+//  margin-left: 250px;
+//  display: inline-block;
   @include header-font;
 
   h4 {

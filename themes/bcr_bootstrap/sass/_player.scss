@@ -1,6 +1,16 @@
 // player styles
 
+#chat-block {
+  position: fixed;
+  top: 12px;
+  right: 75px;
+  border: 1px solid black;
+  text-transform: uppercase;
+  z-index: 2147483649;
+  @include header-font;
+  padding: 8px 12px 6px;
 
+}
 .region-persistent {
   
   position: fixed;
@@ -17,28 +27,27 @@
   }
 
   .mobile-links {
-    position: absolute;
-    z-index: 10;
-    left: 80px;
-    top: 10px;
     @include header-font;
     padding: 8px 12px 6px;
     border: 1px solid black;
     cursor: pointer;
-    display: block;
-    @media only screen and (min-device-width:769px){
-      display: none;
-    }
+    display: inline-block;
+    position: relative;
+    top: 6px;
+    left: 7px;
+//    @media only screen and (min-device-width:769px){
+//      display: none;
+//    }
   }
 
   .live-options {
     @include header-font;
     position: fixed;
     border: 1px solid black;
-    top: 2.5%;
-    left: 2.5%;
-    width: 95%;
-    height: 95%;
+    top: 59px;
+    left: 5%;
+    width: 90%;
+    height: 80%;
     display: none;
     background: white;
     z-index: 100;

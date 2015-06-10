@@ -63,9 +63,7 @@
   <div id="skip-link">
     <a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
   </div>
-  <?php print $persistent;
-  $t=1;
-  ?>
+  <?php print $persistent; ?>
   <div id="page-wrapper">
     <?php print $page_top; ?>
     <?php print $page; ?>
@@ -73,7 +71,11 @@
   </div>
 
   <?php // LIVE CHAT EMBED ?>
-
+  <div id="chat-block">
+    Chat ➝
+  </div>
   <script id="cid0020000078773269376" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 400px;height: 300px;">{"handle":"berlincommunityradio","arch":"js","styles":{"a":"ffffff","b":100,"c":"000000","d":"000000","h":"eeeeee","k":"cccccc","l":"ffffff","m":"ffffff","q":"000000","r":100,"pos":"tr","cv":1,"cvbg":"ffffff","cvfg":"000000","cvw":75,"cvh":58,"surl":0}}</script>
+<!--  <script id="cid0020000094935587404" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 200px;height: 300px;">{"handle":"bcr-chat","arch":"js","styles":{"b":100,"c":"000000","d":"000000","l":"FFFFFF","m":"FFFFFF","p":"10","r":100,"cv":1,"cvbg":"FFFFFF","cvfg":"000000","cvw":60,"cvh":40,"allowpm":0,"cnrs":"0.22"}}</script>-->
+
 
 </html>

@@ -11,7 +11,11 @@
           $(this).jPlayer("setMedia", {
             mp3:"http://berlincommunityradio.out.airtime.pro:8000/berlincommunityradio_a"
           });
-          $(this).jPlayer('play');
+          var href = window.location.href;
+          // no autoplay in dev env
+          if (href.indexOf('bcr.i') == -1) {
+            $(this).jPlayer('play');
+          }
         },
         supplied: "mp3"
       });

@@ -140,11 +140,12 @@ function bcr_player_block_render() {
             </div>
 
           <div class="container">
+          ' . $player . $block . '
             <label class="mobile-links" for="live-options-toggle">
               Listen Live
             </label>
 
-            ' . $player . $block . '
+
           </div>
   ';
 }

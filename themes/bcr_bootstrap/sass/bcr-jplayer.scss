@@ -1,5 +1,5 @@
 /* import compass */
-@import "compass";
+//@import "compass";
 
 body {
   //display: none;
@@ -28,7 +28,7 @@ $button-h: 20px;
 
 
 .bcr-logo {
-  display: inline-block;
+  margin-top: 9px;
   width: 39px;
   height: 38px;
   background: url('../images/logospot.png') no-repeat;
@@ -49,11 +49,12 @@ $button-h: 20px;
 
 .jp-audio {
   display: inline-block;
+
   top: 0px;
-  //left: 80px;
+  width: 140px;
 
   .jp-controls {
-    vertical-align: middle;
+//    vertical-align: middle;
     display: none;
     @media only screen and (min-device-width:769px){
       display: inline-block;
