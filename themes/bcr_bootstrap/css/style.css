@@ -679,7 +679,7 @@ a:hover {
   right: 75px;
   border: 1px solid black;
   text-transform: uppercase;
-  z-index: 2147483649;
+  z-index: 2147483647;
   font-family: 'DIN Next W02 Medium', 'DIN Alternate', 'Helvetica Neue', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.01em;
