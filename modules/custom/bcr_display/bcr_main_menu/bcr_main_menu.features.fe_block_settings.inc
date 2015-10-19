@@ -31,7 +31,7 @@ function bcr_main_menu_default_fe_block_settings() {
         'region' => 'persistent',
         'status' => 1,
         'theme' => 'bcr_bootstrap',
-        'weight' => -13,
+        'weight' => -17,
       ),
       'seven' => array(
         'region' => '',
@@ -60,10 +60,10 @@ function bcr_main_menu_default_fe_block_settings() {
         'weight' => 0,
       ),
       'bcr_bootstrap' => array(
-        'region' => 'navigation',
-        'status' => 1,
+        'region' => '',
+        'status' => 0,
         'theme' => 'bcr_bootstrap',
-        'weight' => -12,
+        'weight' => -17,
       ),
       'seven' => array(
         'region' => '',

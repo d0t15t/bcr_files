@@ -17,34 +17,154 @@ function bcr_main_menu_menu_default_menu_links() {
     'router_path' => 'node/%',
     'link_title' => 'About',
     'options' => array(
+      'identifier' => 'main-menu_about:node/61',
       'attributes' => array(
         'id' => 'about-link',
       ),
-      'identifier' => 'main-menu_about:node/61',
+      'item_attributes' => array(
+        'id' => '',
+        'class' => '',
+        'style' => '',
+      ),
     ),
     'module' => 'menu',
     'hidden' => 0,
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -50,
+    'weight' => -48,
     'customized' => 1,
   );
-  // Exported menu link: main-menu_blog:blog
-  $menu_links['main-menu_blog:blog'] = array(
+  // Exported menu link: main-menu_add-banner:node/add/banner
+  $menu_links['main-menu_add-banner:node/add/banner'] = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'blog',
-    'router_path' => 'blog',
-    'link_title' => 'Blog',
+    'link_path' => 'node/add/banner',
+    'router_path' => 'node/add/banner',
+    'link_title' => 'Add Banner',
     'options' => array(
-      'identifier' => 'main-menu_blog:blog',
+      'menu_icon' => array(
+        'enable' => 0,
+        'path' => 'sites/all/modules/contrib/menu_icons/images/default_icon.png',
+        'image_style' => 'menu_icon',
+      ),
+      'attributes' => array(),
+      'identifier' => 'main-menu_add-banner:node/add/banner',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -37,
+    'customized' => 1,
+  );
+  // Exported menu link: main-menu_add-blog:node/add/blog
+  $menu_links['main-menu_add-blog:node/add/blog'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/add/blog',
+    'router_path' => 'node/add/blog',
+    'link_title' => 'Add Blog',
+    'options' => array(
+      'menu_icon' => array(
+        'enable' => 0,
+        'path' => 'sites/all/modules/contrib/menu_icons/images/default_icon.png',
+        'image_style' => 'menu_icon',
+      ),
+      'attributes' => array(),
+      'identifier' => 'main-menu_add-blog:node/add/blog',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -39,
+    'customized' => 1,
+  );
+  // Exported menu link: main-menu_add-channel-ad:node/add/channel-ads
+  $menu_links['main-menu_add-channel-ad:node/add/channel-ads'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/add/channel-ads',
+    'router_path' => 'node/add/channel-ads',
+    'link_title' => 'Add Channel Ad',
+    'options' => array(
+      'menu_icon' => array(
+        'enable' => 0,
+        'path' => 'sites/all/modules/contrib/menu_icons/images/default_icon.png',
+        'image_style' => 'menu_icon',
+      ),
+      'attributes' => array(),
+      'identifier' => 'main-menu_add-channel-ad:node/add/channel-ads',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -36,
+    'customized' => 1,
+  );
+  // Exported menu link: main-menu_add-channel:node/add/channel
+  $menu_links['main-menu_add-channel:node/add/channel'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/add/channel',
+    'router_path' => 'node/add/channel',
+    'link_title' => 'Add Channel',
+    'options' => array(
+      'menu_icon' => array(
+        'enable' => 0,
+        'path' => 'sites/all/modules/contrib/menu_icons/images/default_icon.png',
+        'image_style' => 'menu_icon',
+      ),
+      'attributes' => array(),
+      'identifier' => 'main-menu_add-channel:node/add/channel',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -38,
+    'customized' => 1,
+  );
+  // Exported menu link: main-menu_add-content:node/add
+  $menu_links['main-menu_add-content:node/add'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/add',
+    'router_path' => 'node/add',
+    'link_title' => 'Add content',
+    'options' => array(
+      'menu_icon' => array(
+        'enable' => 0,
+        'path' => 'sites/all/modules/contrib/menu_icons/images/default_icon.png',
+        'image_style' => 'menu_icon',
+      ),
+      'attributes' => array(),
+      'identifier' => 'main-menu_add-content:node/add',
+    ),
+    'module' => 'menu',
+    'hidden' => 1,
+    'external' => 0,
+    'has_children' => 1,
+    'expanded' => 1,
+    'weight' => -35,
+    'customized' => 1,
+  );
+  // Exported menu link: main-menu_bcr-zine:bcr-zine
+  $menu_links['main-menu_bcr-zine:bcr-zine'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'bcr-zine',
+    'router_path' => 'bcr-zine',
+    'link_title' => 'BCR Zine',
+    'options' => array(
+      'identifier' => 'main-menu_bcr-zine:bcr-zine',
     ),
     'module' => 'system',
     'hidden' => 0,
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -45,
+    'weight' => -41,
     'customized' => 1,
   );
   // Exported menu link: main-menu_community:node/63
@@ -65,11 +185,11 @@ function bcr_main_menu_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => 0,
+    'hidden' => 1,
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -48,
+    'weight' => -46,
     'customized' => 1,
   );
   // Exported menu link: main-menu_contact:node/62
@@ -88,19 +208,24 @@ function bcr_main_menu_menu_default_menu_links() {
       'attributes' => array(
         'id' => 'contact-link',
       ),
+      'item_attributes' => array(
+        'id' => '',
+        'class' => '',
+        'style' => '',
+      ),
     ),
     'module' => 'menu',
     'hidden' => 0,
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -49,
+    'weight' => -47,
     'customized' => 1,
   );
-  // Exported menu link: main-menu_e-mail:mailto:sarah@berlincommunityradio.com
-  $menu_links['main-menu_e-mail:mailto:sarah@berlincommunityradio.com'] = array(
+  // Exported menu link: main-menu_e-mail:mailto:info@berlincommunityradio.com
+  $menu_links['main-menu_e-mail:mailto:info@berlincommunityradio.com'] = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'mailto:sarah@berlincommunityradio.com',
+    'link_path' => 'mailto:info@berlincommunityradio.com',
     'router_path' => '',
     'link_title' => 'E-Mail',
     'options' => array(
@@ -109,7 +234,7 @@ function bcr_main_menu_menu_default_menu_links() {
         'path' => 'public://menu_icons/menu_icon_1940.png',
         'image_style' => 'menu_icon',
       ),
-      'identifier' => 'main-menu_e-mail:mailto:sarah@berlincommunityradio.com',
+      'identifier' => 'main-menu_e-mail:mailto:info@berlincommunityradio.com',
       'attributes' => array(
         'title' => 'E-Mail link',
         'id' => 'mail-link',
@@ -124,7 +249,7 @@ function bcr_main_menu_menu_default_menu_links() {
     'external' => 1,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -38,
+    'weight' => -28,
     'customized' => 1,
   );
   // Exported menu link: main-menu_facebook:https://www.facebook.com/berlincommunityradio
@@ -154,7 +279,7 @@ function bcr_main_menu_menu_default_menu_links() {
     'external' => 1,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -41,
+    'weight' => -31,
     'customized' => 1,
   );
   // Exported menu link: main-menu_home:<front>
@@ -171,13 +296,36 @@ function bcr_main_menu_menu_default_menu_links() {
     'external' => 1,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -44,
+    'weight' => -43,
     'customized' => 1,
   );
-  // Exported menu link: main-menu_instagram:http://web.stagram.com/n/bcr_radio
-  $menu_links['main-menu_instagram:http://web.stagram.com/n/bcr_radio'] = array(
+  // Exported menu link: main-menu_impressum:node/101
+  $menu_links['main-menu_impressum:node/101'] = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'http://web.stagram.com/n/bcr_radio',
+    'link_path' => 'node/101',
+    'router_path' => 'node/%',
+    'link_title' => 'Impressum',
+    'options' => array(
+      'attributes' => array(),
+      'item_attributes' => array(
+        'id' => '',
+        'class' => '',
+        'style' => '',
+      ),
+      'identifier' => 'main-menu_impressum:node/101',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -40,
+    'customized' => 1,
+  );
+  // Exported menu link: main-menu_instagram:http://instagram.com/bcr_radio
+  $menu_links['main-menu_instagram:http://instagram.com/bcr_radio'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'http://instagram.com/bcr_radio',
     'router_path' => '',
     'link_title' => 'Instagram',
     'options' => array(
@@ -186,7 +334,7 @@ function bcr_main_menu_menu_default_menu_links() {
         'path' => 'public://menu_icons/menu_icon_1939.png',
         'image_style' => 'menu_icon',
       ),
-      'identifier' => 'main-menu_instagram:http://web.stagram.com/n/bcr_radio',
+      'identifier' => 'main-menu_instagram:http://instagram.com/bcr_radio',
       'attributes' => array(
         'title' => 'Instagram',
         'id' => 'instagram-link',
@@ -202,7 +350,7 @@ function bcr_main_menu_menu_default_menu_links() {
     'external' => 1,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -39,
+    'weight' => -29,
     'customized' => 1,
   );
   // Exported menu link: main-menu_live:node/65
@@ -222,7 +370,38 @@ function bcr_main_menu_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -46,
+    'weight' => -44,
+    'customized' => 1,
+  );
+  // Exported menu link: main-menu_mixcloud:https://www.mixcloud.com/BCR_Radio
+  $menu_links['main-menu_mixcloud:https://www.mixcloud.com/BCR_Radio'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'https://www.mixcloud.com/BCR_Radio',
+    'router_path' => '',
+    'link_title' => 'mixcloud',
+    'options' => array(
+      'menu_icon' => array(
+        'enable' => 1,
+        'path' => 'sites/all/modules/contrib/menu_icons/images/default_icon.png',
+        'image_style' => 'menu_icon',
+      ),
+      'attributes' => array(
+        'id' => 'mixcloud-link',
+        'target' => '_blank',
+      ),
+      'item_attributes' => array(
+        'id' => '',
+        'class' => '',
+        'style' => '',
+      ),
+      'identifier' => 'main-menu_mixcloud:https://www.mixcloud.com/BCR_Radio',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -34,
     'customized' => 1,
   );
   // Exported menu link: main-menu_schedule:node/64
@@ -242,7 +421,37 @@ function bcr_main_menu_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -47,
+    'weight' => -45,
+    'customized' => 1,
+  );
+  // Exported menu link: main-menu_shop:http://berlincommunityradio.tictail.com
+  $menu_links['main-menu_shop:http://berlincommunityradio.tictail.com'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'http://berlincommunityradio.tictail.com',
+    'router_path' => '',
+    'link_title' => 'Shop',
+    'options' => array(
+      'attributes' => array(
+        'target' => '_blank',
+      ),
+      'item_attributes' => array(
+        'id' => '',
+        'class' => '',
+        'style' => '',
+      ),
+      'menu_icon' => array(
+        'enable' => 0,
+        'path' => 'sites/all/modules/contrib/menu_icons/images/default_icon.png',
+        'image_style' => 'menu_icon',
+      ),
+      'identifier' => 'main-menu_shop:http://berlincommunityradio.tictail.com',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -42,
     'customized' => 1,
   );
   // Exported menu link: main-menu_soundcloud:https://soundcloud.com/berlincommunityradio
@@ -268,11 +477,11 @@ function bcr_main_menu_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => 0,
+    'hidden' => 1,
     'external' => 1,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -43,
+    'weight' => -33,
     'customized' => 1,
   );
   // Exported menu link: main-menu_twitter:https://twitter.com/BCR_Radio
@@ -302,7 +511,7 @@ function bcr_main_menu_menu_default_menu_links() {
     'external' => 1,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -42,
+    'weight' => -32,
     'customized' => 1,
   );
   // Exported menu link: main-menu_youtube:https://www.youtube.com/channel/UCumMTmOu_9khmcAN64uA-2w
@@ -332,7 +541,7 @@ function bcr_main_menu_menu_default_menu_links() {
     'external' => 1,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -40,
+    'weight' => -30,
     'customized' => 1,
   );
   // Exported menu link: menu-streams_stream-live-in-m3u:http://google.com
@@ -363,19 +572,27 @@ function bcr_main_menu_menu_default_menu_links() {
   // Translatables
   // Included for use with string extractors like potx.
   t('About');
-  t('Blog');
+  t('Add Banner');
+  t('Add Blog');
+  t('Add Channel');
+  t('Add Channel Ad');
+  t('Add content');
+  t('BCR Zine');
   t('Community');
   t('Contact');
   t('E-Mail');
   t('Facebook');
   t('Home');
+  t('Impressum');
   t('Instagram');
   t('Live');
   t('Schedule');
+  t('Shop');
   t('Soundcloud');
   t('Stream live in M3U');
   t('Twitter');
   t('Youtube');
+  t('mixcloud');
 
 
   return $menu_links;
