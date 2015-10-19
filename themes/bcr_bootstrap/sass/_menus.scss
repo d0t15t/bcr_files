@@ -2,7 +2,7 @@
 
 // TESTING
 body {
-  //display: none;
+//  display: none !important;
 }
 
 .menu-wrapper {
@@ -18,7 +18,9 @@ body {
     .leaf-facebook-link,
     .leaf-youtube-link,
     .leaf-instagram-link,
-    .leaf-mail-link {
+    .leaf-mail-link,
+    .leaf-mixcloud-link
+    {
       float: left;
       width: 34px;
       height: 34px;
@@ -40,6 +42,12 @@ body {
       }
     }
 
+    .leaf-mixcloud-link {
+      margin-top: 15px;
+      a {
+        background-image: url(../images/menu-mixcloud.png);
+      }
+    }
     .leaf-soundcloud-link {
       margin-top: 15px;
       a {
