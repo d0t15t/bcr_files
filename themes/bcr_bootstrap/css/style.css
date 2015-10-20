@@ -22,34 +22,17 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal !important;
 }
 
-/* line 18, ../sass/_body.scss */
-a, a:link, a:visited {
-  color: black !important;
-}
-
-/* line 24, ../sass/_body.scss */
-.node a, .node a:link, .node a:visited {
-  text-decoration: underline !important;
-}
-
-/* line 28, ../sass/_body.scss */
-a:hover {
-  color: #4AFFD7 !important;
-  text-decoration: none !important;
-  text-shadow: none !important;
-}
-
-/* line 45, ../sass/_body.scss */
+/* line 29, ../sass/_body.scss */
 #block-menu-menu-streams ul {
   margin: 0px;
   padding: 0px;
 }
-/* line 49, ../sass/_body.scss */
+/* line 33, ../sass/_body.scss */
 #block-menu-menu-streams li a:hover {
   background: none !important;
 }
 
-/* line 56, ../sass/_body.scss */
+/* line 40, ../sass/_body.scss */
 .logo-wrapper, .logo {
   height: 130px !important;
   overflow: hidden;
@@ -59,17 +42,17 @@ a:hover {
   z-index: 1;
 }
 
-/* line 64, ../sass/_body.scss */
+/* line 48, ../sass/_body.scss */
 .logo-wrapper {
   display: none;
 }
 
-/* line 67, ../sass/_body.scss */
+/* line 51, ../sass/_body.scss */
 .logo-wrapper, .menu-wrapper {
   float: none;
 }
 
-/* line 72, ../sass/_body.scss */
+/* line 56, ../sass/_body.scss */
 .region-navigation .navbar-collapse ul.navbar-nav {
   font-family: 'DIN Next W02 Medium', 'DIN Alternate', 'Helvetica Neue', sans-serif;
   text-transform: uppercase;
@@ -77,52 +60,52 @@ a:hover {
   font-weight: bold;
 }
 
-/* line 77, ../sass/_body.scss */
+/* line 61, ../sass/_body.scss */
 .logo {
   width: 200px;
   height: 200px;
   background: url("../images/bcr-logo.gif") no-repeat;
 }
-/* line 83, ../sass/_body.scss */
+/* line 67, ../sass/_body.scss */
 .logo:hover {
   background: url("../images/bcr-logo-hover.png") no-repeat;
 }
 
-/* line 88, ../sass/_body.scss */
+/* line 72, ../sass/_body.scss */
 .node-type-channel {
   background: no-repeat -1px -1px;
   background-size: 100% 700px;
 }
-/* line 91, ../sass/_body.scss */
+/* line 75, ../sass/_body.scss */
 .node-type-channel.bg-blue {
   background-image: url("../images/bg-blue.png");
 }
-/* line 94, ../sass/_body.scss */
+/* line 78, ../sass/_body.scss */
 .node-type-channel.bg-green {
   background-image: url("../images/bg-green.png");
 }
-/* line 97, ../sass/_body.scss */
+/* line 81, ../sass/_body.scss */
 .node-type-channel.bg-purple {
   background-image: url("../images/bg-purple.png");
 }
-/* line 100, ../sass/_body.scss */
+/* line 84, ../sass/_body.scss */
 .node-type-channel.bg-yellow {
   background-image: url("../images/bg-yellow.png");
 }
-/* line 103, ../sass/_body.scss */
+/* line 87, ../sass/_body.scss */
 .node-type-channel.bg-red {
   background-image: url("../images/bg-red.png");
 }
 
-/* line 108, ../sass/_body.scss */
+/* line 92, ../sass/_body.scss */
 .main-container.container {
   padding-bottom: 80px;
 }
-/* line 113, ../sass/_body.scss */
+/* line 97, ../sass/_body.scss */
 .main-container.container .panels-flexible-4 .panels-flexible-region-4-left_1 {
   padding-right: 60px;
 }
-/* line 117, ../sass/_body.scss */
+/* line 101, ../sass/_body.scss */
 .main-container.container .panels-flexible-4 .panels-flexible-region-4-left_1 .pane-bcr-schedule-today-panel-pane-1 .view-bcr-schedule-today {
   font-family: 'DIN Next W02 Medium', 'DIN Alternate', 'Helvetica Neue', sans-serif;
   text-transform: uppercase;
@@ -132,51 +115,51 @@ a:hover {
   margin: 0px auto 0px auto;
   padding-bottom: 30px;
 }
-/* line 122, ../sass/_body.scss */
+/* line 106, ../sass/_body.scss */
 .main-container.container .panels-flexible-4 .panels-flexible-region-4-left_1 .pane-bcr-schedule-today-panel-pane-1 .view-bcr-schedule-today p {
   font-size: 12px;
   color: #666;
 }
-/* line 125, ../sass/_body.scss */
+/* line 109, ../sass/_body.scss */
 .main-container.container .panels-flexible-4 .panels-flexible-region-4-left_1 .pane-bcr-schedule-today-panel-pane-1 .view-bcr-schedule-today p strong {
   font-size: 16px;
   color: black;
 }
-/* line 129, ../sass/_body.scss */
+/* line 113, ../sass/_body.scss */
 .main-container.container .panels-flexible-4 .panels-flexible-region-4-left_1 .pane-bcr-schedule-today-panel-pane-1 .view-bcr-schedule-today p a {
   color: black;
 }
-/* line 137, ../sass/_body.scss */
+/* line 121, ../sass/_body.scss */
 .main-container.container .panels-flexible-4 .panels-flexible-region-4-left_1 .pane-bcr-blocks-bcr-chat {
   margin: 0px auto 0px auto;
   width: 100%;
 }
-/* line 141, ../sass/_body.scss */
+/* line 125, ../sass/_body.scss */
 .main-container.container .panels-flexible-4 .panels-flexible-region-4-left_1 .pane-bcr-blocks-bcr-chat .tlkio iframe {
   height: 400px !important;
 }
-/* line 150, ../sass/_body.scss */
+/* line 134, ../sass/_body.scss */
 .main-container.container .panels-flexible-4 .panels-flexible-region-4-center .panels-flexible-region-4-center-inside {
   padding: 0;
 }
-/* line 154, ../sass/_body.scss */
+/* line 138, ../sass/_body.scss */
 .main-container.container .panels-flexible-4 .panels-flexible-region-4-center .panels-flexible-region-4-center-inside .pane-bcr-blog-recent-panel-pane-1 .pane-title {
   display: none;
 }
-/* line 162, ../sass/_body.scss */
+/* line 146, ../sass/_body.scss */
 .main-container.container .panels-flexible-4 .panels-flexible-region-4-center .panels-flexible-region-4-center-inside .view-bcr-blog-recent .views-row {
   margin: 0px 20px 30px 0px;
 }
-/* line 164, ../sass/_body.scss */
+/* line 148, ../sass/_body.scss */
 .main-container.container .panels-flexible-4 .panels-flexible-region-4-center .panels-flexible-region-4-center-inside .view-bcr-blog-recent .views-row .field-type-image {
   width: 100%;
   height: auto;
 }
-/* line 168, ../sass/_body.scss */
+/* line 152, ../sass/_body.scss */
 .main-container.container .panels-flexible-4 .panels-flexible-region-4-center .panels-flexible-region-4-center-inside .view-bcr-blog-recent .views-row:nth-child(3n) {
   margin-right: 0;
 }
-/* line 173, ../sass/_body.scss */
+/* line 157, ../sass/_body.scss */
 .main-container.container .panels-flexible-4 .panels-flexible-region-4-center .panels-flexible-region-4-center-inside .view-bcr-blog-recent .more-link {
   clear: both;
   text-align: right;
@@ -186,22 +169,22 @@ a:hover {
   font-weight: bold;
 }
 
-/* line 190, ../sass/_body.scss */
+/* line 174, ../sass/_body.scss */
 .flippy {
   float: left;
   margin: 30px 0px 30px 0px !important;
 }
-/* line 194, ../sass/_body.scss */
+/* line 178, ../sass/_body.scss */
 .flippy li a {
   font-size: 2em;
   color: #ccc !important;
 }
-/* line 197, ../sass/_body.scss */
+/* line 181, ../sass/_body.scss */
 .flippy li a:hover {
   color: #4AFFD7 !important;
 }
 
-/* line 207, ../sass/_body.scss */
+/* line 191, ../sass/_body.scss */
 #block-views-recommended-blog-posts-block .views-row {
   display: inline-block;
   vertical-align: top;
@@ -289,12 +272,18 @@ a:hover {
   text-transform: uppercase;
   letter-spacing: 0.01em;
   font-weight: bold;
+  color: white;
+  text-decoration: none !important;
 }
-/* line 77, ../sass/_channel-display.scss */
+/* line 45, ../sass/_var.scss */
+.view-bcr-channels .field-name-channel-image-compound .channel-img-wrapper .channel-img-el a:hover {
+  opacity: 0;
+}
+/* line 78, ../sass/_channel-display.scss */
 .view-bcr-channels .field-name-channel-image-compound .channel-img-wrapper .channel-img-el a, .view-bcr-channels .field-name-channel-image-compound .channel-img-wrapper .channel-img-el a:link, .view-bcr-channels .field-name-channel-image-compound .channel-img-wrapper .channel-img-el a:visited {
   color: white !important;
 }
-/* line 83, ../sass/_channel-display.scss */
+/* line 84, ../sass/_channel-display.scss */
 .view-bcr-channels .field-name-channel-image-compound .channel-img-wrapper .channel-img-overlay:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
@@ -303,50 +292,14 @@ a:hover {
   -webkit-transition: opacity, ease-out 100ms;
   transition: opacity, ease-out 100ms;
 }
-/* line 92, ../sass/_channel-display.scss */
-.view-bcr-channels .field-name-channel-cover {
-  margin: 0px 15px 20px 0px;
-}
-/* line 94, ../sass/_channel-display.scss */
-.view-bcr-channels .field-name-channel-cover h4 {
-  margin: 0px !important;
-  font-size: 1em !important;
-  font-weight: normal;
-}
-/* line 98, ../sass/_channel-display.scss */
-.view-bcr-channels .field-name-channel-cover h4 a {
-  padding: 0px 10px 0px 10px;
-  width: 220px;
-  height: 160px;
-  display: block;
-  background-color: black;
-  text-transform: uppercase;
-  text-align: center;
-  line-height: 160px;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
-  opacity: 0.7;
-}
-/* line 109, ../sass/_channel-display.scss */
-.view-bcr-channels .field-name-channel-cover h4 a, .view-bcr-channels .field-name-channel-cover h4 a:link, .view-bcr-channels .field-name-channel-cover h4 a:visited {
-  color: white !important;
-}
-/* line 112, ../sass/_channel-display.scss */
-.view-bcr-channels .field-name-channel-cover h4:hover {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  -moz-transition: opacity, ease-out 100ms;
-  -o-transition: opacity, ease-out 100ms;
-  -webkit-transition: opacity, ease-out 100ms;
-  transition: opacity, ease-out 100ms;
-}
-/* line 118, ../sass/_channel-display.scss */
+/* line 119, ../sass/_channel-display.scss */
 .view-bcr-channels .field-type-image {
   position: relative;
   top: -180px;
   z-index: -1;
   height: 0px;
 }
-/* line 125, ../sass/_channel-display.scss */
+/* line 126, ../sass/_channel-display.scss */
 .view-bcr-channels:after {
   visibility: hidden;
   display: block;
@@ -355,26 +308,26 @@ a:hover {
   clear: both;
   height: 0;
 }
-/* line 134, ../sass/_channel-display.scss */
+/* line 135, ../sass/_channel-display.scss */
 .view-bcr-channels .node-channel-ads {
   width: 220px;
   height: 160px;
   position: absolute;
   overflow: hidden;
 }
-/* line 140, ../sass/_channel-display.scss */
+/* line 141, ../sass/_channel-display.scss */
 .view-bcr-channels .node-channel-ads .field-type-image {
   top: 0px;
   position: absolute;
 }
 
-/* line 148, ../sass/_channel-display.scss */
+/* line 149, ../sass/_channel-display.scss */
 * html .view-bcr-channels {
   zoom: 1;
 }
 
 /* IE6 */
-/* line 149, ../sass/_channel-display.scss */
+/* line 150, ../sass/_channel-display.scss */
 *:first-child + html .view-bcr-channels {
   zoom: 1;
 }
@@ -605,32 +558,65 @@ a:hover {
   display: inline-block;
   line-height: 1em;
   border-bottom: 1px solid transparent;
+  font-weight: 900 !important;
 }
-/* line 139, ../sass/_menus.scss */
+/* line 140, ../sass/_menus.scss */
 .region-navigation ul.navbar-nav li a:hover {
   color: black !important;
   text-decoration: none !important;
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 }
-/* line 146, ../sass/_menus.scss */
+/* line 147, ../sass/_menus.scss */
 .region-navigation ul.navbar-nav li.active-trail a.active {
   background: none !important;
   text-decoration: none !important;
   border-bottom: 1px solid black;
 }
-/* line 162, ../sass/_menus.scss */
+/* line 163, ../sass/_menus.scss */
 .region-navigation #block-menu-menu-main-2 .menu .leaf a {
   padding-top: 0px !important;
 }
-/* line 164, ../sass/_menus.scss */
+/* line 165, ../sass/_menus.scss */
 .region-navigation #block-menu-menu-main-2 .menu .leaf a:hover {
   background: none;
 }
-/* line 171, ../sass/_menus.scss */
+/* line 172, ../sass/_menus.scss */
 .region-navigation a {
   font-size: .9em;
   letter-spacing: 1px;
   text-transform: uppercase !important;
+}
+
+/* line 1, ../sass/_links.scss */
+a, a:link, a:visited {
+  color: black !important;
+}
+
+/* line 6, ../sass/_links.scss */
+a:hover {
+  color: #4AFFD7 !important;
+  text-shadow: none !important;
+}
+
+/* line 13, ../sass/_links.scss */
+.node.view-mode-full a, .node.view-mode-full a:link, .node.view-mode-full a:visited {
+  color: black;
+  text-decoration: underline !important;
+}
+/* line 52, ../sass/_var.scss */
+.node.view-mode-full a:hover, .node.view-mode-full a:link:hover, .node.view-mode-full a:visited:hover {
+  text-decoration: none !important;
+  color: #4AFFD7;
+}
+
+/* line 19, ../sass/_links.scss */
+.node-blog.node-teaser a, .node-blog.node-teaser a:link, .node-blog.node-teaser a:visited {
+  color: black;
+  text-decoration: none !important;
+}
+/* line 38, ../sass/_var.scss */
+.node-blog.node-teaser a:hover, .node-blog.node-teaser a:link:hover, .node-blog.node-teaser a:visited:hover {
+  color: #5BC0DE;
 }
 
 /* line 7, ../sass/_page.scss */

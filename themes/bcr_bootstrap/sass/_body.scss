@@ -15,22 +15,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal !important;
 }
 
-a, a:link, a:visited {
-  color: black !important;
-//  text-decoration: none !important;
-
-}
-.node {
-  a, a:link, a:visited {
-    text-decoration: underline !important;
-  }
-}
-a:hover {
-  color: $blue1 !important;
-  text-decoration: none !important;
-  text-shadow: none !important;
-  //display: none !important;
-}
 
 
 

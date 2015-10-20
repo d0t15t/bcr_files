@@ -73,6 +73,7 @@ $gutter_adjust: 20px;
           font-weight: normal;
           letter-spacing: 1px;
           @include header_font;
+          @include channel-thumb-title-link;
         }
         a, a:link, a:visited {
           color: white !important;
@@ -89,32 +90,32 @@ $gutter_adjust: 20px;
   }
 
 
-  .field-name-channel-cover {
-    margin: 0px 15px $gutter_adjust 0px;
-    h4 {
-      margin: 0px !important;
-      font-size: 1em !important;
-      font-weight: normal;
-      a {
-        padding: 0px $gutter_adjust / 2 0px $gutter_adjust / 2;
-        width: $channel_block_width;
-        height: $channel_block_height;
-        display: block;
-        background-color: black;
-        text-transform: uppercase;
-        text-align: center;
-        line-height: $channel_block_height;
-        @include opacity(.7);
-      }
-      a, a:link, a:visited {
-        color: white !important;
-      }
-      &:hover {
-        @include opacity(0);
-        @include transition(opacity, 100ms ease-out);
-      }
-    }
-  }
+//  .field-name-channel-cover {
+//    margin: 0px 15px $gutter_adjust 0px;
+//    h4 {
+//      margin: 0px !important;
+//      font-size: 1em !important;
+//      font-weight: normal;
+//      a {
+//        padding: 0px $gutter_adjust / 2 0px $gutter_adjust / 2;
+//        width: $channel_block_width;
+//        height: $channel_block_height;
+//        display: block;
+//        background-color: black;
+//        text-transform: uppercase;
+//        text-align: center;
+//        line-height: $channel_block_height;
+//        @include opacity(.7);
+//      }
+//      a, a:link, a:visited {
+//        color: white !important;
+//      }
+//      &:hover {
+//        @include opacity(0);
+//        @include transition(opacity, 100ms ease-out);
+//      }
+//    }
+//  }
   .field-type-image {
     position: relative;
     top: -$channel_block_height - $gutter_adjust;

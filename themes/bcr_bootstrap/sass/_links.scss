@@ -1,0 +1,22 @@
+a, a:link, a:visited {
+  color: black !important;
+//  text-decoration: none !important;
+
+}
+a:hover {
+  color: $blue1 !important;
+//  text-decoration: none !important;
+  text-shadow: none !important;
+  //display: none !important;
+}
+.node.view-mode-full {
+  a, a:link, a:visited {
+//    text-decoration: underline !important;
+    @include node-body-link;
+  }
+}
+.node-blog.node-teaser {
+  a, a:link, a:visited {
+    @include article-headlines-link;
+  }
+}
