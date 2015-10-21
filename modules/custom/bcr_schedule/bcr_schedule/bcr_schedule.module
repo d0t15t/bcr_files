@@ -5,3 +5,102 @@
  */
 
 include_once 'bcr_schedule.features.inc';
+
+/*
+ * @TODO
+ * NOTE: the original purpose of this file is unknown -
+ *  an abandoned feature of some kind
+ */
+
+
+/**
+ * Implements hook_menu().
+ *
+ */
+function bcr_schedule_menu() {
+  $items['schedule/embed'] = array(
+    'title' => 'Airtime Weekly Schedule Widget',
+    'page callback' => 'bcr_schedule_embed_callback',
+    'access callback' => TRUE,
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+function bcr_schedule_preprocess_page(&$variables) {
+  // Get the alias for the page being viewed
+  $alias = drupal_get_path_alias($_GET['q']);
+  $test = 'schedule/embed';
+  if ($alias == $test) {
+//    unset($variables['theme_hook_suggestions']);
+//    $variables['theme_hook_suggestions'][] = 'page-no-theme';
+  }
+}
+
+
+function bcr_schedule_embed_callback() {
+  return '<div id="scheduleTabs" class="ui-tabs"></div>';
+}
+
+/**
+ *
+ * DEPRECATED, NOT NECESSARY
+ *
+ * Implements hook_init().
+ *
+ * Perform setup tasks for non-cached page requests.
+ *
+ * This hook is run at the beginning of the page request. It is typically
+ * used to set up global parameters that are needed later in the request.
+ * When this hook is called, all modules are already loaded in memory.
+ *
+ * This hook is not run on cached pages.
+ *
+ * To add CSS or JS that should be present on all pages, modules should not
+ * implement this hook, but declare these files in their .info file.
+ *
+ * @see hook_boot()
+ *
+ *
+ */
+function bcr_schedule_init() {
+  $dw = strtolower(date('l'));
+  $path = drupal_get_path_alias();
+  $test = 'schedule';
+  if ($path == $test) {
+    drupal_add_js(
+      drupal_get_path('module', 'airtimewidgets')
+      . '/js/airtimewidgets.weeklyprogram.drupal.behaviors.js'
+    );
+//    drupal_add_library('system', 'ui.tabs');
+//    drupal_add_js('jQuery(document).ready(function(){jQuery("#tabs").tabs();});', 'inline');
+
+  }
+
+}
+
+/**
+ *
+ * DEPRECATED, NOT NECESSARY
+ *
+ * Implements theme_preprocess_html
+ *
+ * Add classes to the html 'body' element
+ *
+ * @param $vars
+ *
+ */
+function bcr_schedule_preprocess_html(&$vars) {
+  $path = drupal_get_path_alias();
+  $test = 'schedule';
+  if ($path == $test) {
+    $aliases = explode('/', $path);
+    foreach($aliases as $alias) {
+      // example data - get current day
+      $dw = strtolower(date('l'));
+      $vars['classes_array'][] = drupal_clean_css_identifier('cur-day-'.$dw);
+      $vars['classes_array'][] = drupal_clean_css_identifier($alias);
+      $vars['attributes_array']['cur-day'] = $dw;
+    }
+  }
+}

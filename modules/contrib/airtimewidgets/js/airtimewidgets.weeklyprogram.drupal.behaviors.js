@@ -23,7 +23,11 @@
         updatePeriod: airtimewidgets_weeklyprogram_interval,
       });
       var d = new Date().getDay();
-      $("#scheduleTabs").tabs({selected: d === 0 ? 6 : d - 1, fx: { opacity: 'toggle' }});
+      var asdf;
+      $("#scheduleTabs").tabs({
+        active: d === 0 ? 6 : d - 1, fx: { opacity: 'toggle' }
+//        active: 3
+      });
     }
   }
 })(jQuery);

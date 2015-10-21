@@ -23,6 +23,11 @@ function bcr_blocks_block_info() {
     'info' => t('BCR player'),
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  // Weekly schedule
+  $blocks['airtime_weekly'] = array(
+    'info' => t('BCR Airtime Weekly sched widget'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   // BCR Chat block
 //  $blocks['bcr_chat'] = array(
 //    'info' => t('BCR chat'),
@@ -45,6 +50,9 @@ function bcr_blocks_block_view($delta = '') {
       break;
     case 'bcr_logo':
       $block['content'] = bcr_logo_block_render();
+      break;
+    case 'airtime_weekly':
+      $block['content'] = bcr_airtime_weekly_render();
       break;
 //    case 'bcr_chat':
 //      $block['content'] = bcr_chat_block_render();
@@ -94,6 +102,13 @@ function bcr_blocks_views_pre_render(&$view) {
 function bcr_channels_grid_block_render() {
   return views_embed_view('bcr_channels');
 }
+
+function bcr_airtime_weekly_render() {
+  return bcr_schedule_embed_callback();
+//  return '<iframe src="/schedule/embed" width="900px" height="900px" marginheight="0" marginwidth="0" scrolling="no" frameborder="0"></iframe>';
+}
+
+
 
 /**
  * BCR PLAYER block
