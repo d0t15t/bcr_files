@@ -26,7 +26,6 @@
       var asdf;
       $("#scheduleTabs").tabs({
         active: d === 0 ? 6 : d - 1, fx: { opacity: 'toggle' }
-//        active: 3
       });
     }
   }

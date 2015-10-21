@@ -40,11 +40,10 @@
 
         var el = '.pane-airtimewidgets-airtime-weeklyprogram #scheduleTabs .ui-tabs-nav li';
 //        var asdf;
-//        $(el).click(function(e){
-//          console.log('check click')
-////          e.preventDefault();
-////          return false;
-//        });
+        $(el).click(function(e){
+          e.preventDefault();
+          return false;
+        });
 
 //        /*
 //        load current page
