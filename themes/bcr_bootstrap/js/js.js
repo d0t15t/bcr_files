@@ -36,10 +36,14 @@
 
       if an image is inserted inline, don't display it in image field
        */
-      $('.page-node.node-type-blog', context).once(function() {
-        var node = $('.view-mode-full.node-blog');
-        var images = node.children('.field-name-field-image').find('.field-item img');
-        var inserts = node.find('.field-name-body img.inline-insert');
+      var nodeSelector = '.page-node.node-type-blog';
+      var fieldSelector = '.field-name-field-image';
+      var imgSelector = '.field-item img';
+      var inlineSelector = '.field-name-body img.inline-insert';
+      $(nodeSelector, context).once(function() {
+        var node = $(nodeSelector);
+        var images = node.children(fieldSelector).find(imgSelector);
+        var inserts = node.find(inlineSelector);
         var imageUrls = []; var insertUrls = [];
         function recordSrc (imgSet, urls) {
           imgSet.each(function() {
@@ -58,7 +62,6 @@
         }
         $.each(imageUrls, function(i, e) {
           if (inArray(e, insertUrls)) {
-            console.log('match');
             images[i].remove();
           }
         });
