@@ -27,6 +27,11 @@
       $("#scheduleTabs").tabs({
         active: d === 0 ? 6 : d - 1, fx: { opacity: 'toggle' }
       });
+      $("#scheduleTabs li").click(function() {
+        // deactivate other tabs on click
+        $(this).siblings().removeClass('ui-tabs-selected');
+      })
+
     }
   }
 })(jQuery);
