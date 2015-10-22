@@ -20,47 +20,51 @@
       schedule page
        */
       $('body.schedule', context).once(function() {
-        console.log('schedule tabs')
-//        $("#scheduleTabs").airtimeWeekSchedule({
-//          sourceDomain:'http://berlincommunityradio.airtime.pro',
-//          dowText:{monday:"Monday", tuesday:"Tuesday", wednesday:"Wednesday", thursday:"Thursday", friday:"Friday", saturday:"Saturday", sunday:"Sunday"},
-//          miscText:{time:"Temps", programName:"Nom du Programme", details:"Détails", readMore:"Lire La Suite"},
-//          updatePeriod: 600 //seconds
-//        });
-//        var d = new Date().getDay();
-//        $('#scheduleTabs').tabs({selected: d === 0 ? 6 : d-1, fx: { opacity: 'toggle' }});
-
-
-
         /*
-         prevent weird scroll action on day click
+         prevent weird scroll action on day click in schedule
          */
-
-
-
         var el = '.pane-airtimewidgets-airtime-weeklyprogram #scheduleTabs .ui-tabs-nav li';
-//        var asdf;
         $(el).click(function(e){
           e.preventDefault();
           return false;
         });
 
-//        /*
-//        load current page
-//         */
-//        var curDay = $(this).attr('cur-day');
-//        var activeTabTag = 'ui-tabs-active';
-//        var tab = '.pane-airtimewidgets-airtime-weeklyprogram';
-//        $(tab).each(function() {
-//          console.log('found one')
-//          $(this).css({
-//            'background-color' : 'pink'
-//          });
-//          $(this).removeClass(activeTabTag);
-//          $(this).remove();
-//        });
+      });
+
+      /*
+      Blog Article node pages
+
+      if an image is inserted inline, don't display it in image field
+       */
+      $('.page-node.node-type-blog', context).once(function() {
+        var node = $('.view-mode-full.node-blog');
+        var images = node.children('.field-name-field-image').find('.field-item img');
+        var inserts = node.find('.field-name-body img.inline-insert');
+        var imageUrls = []; var insertUrls = [];
+        function recordSrc (imgSet, urls) {
+          imgSet.each(function() {
+            urls.push($(this).attr('src'));
+          });
+        };
+        recordSrc(images, imageUrls);
+        recordSrc(inserts, insertUrls);
+        function inArray(needle,haystack) {
+          var count=haystack.length;
+          for(var i=0;i<count;i++)
+          {
+            if(haystack[i]===needle){return true;}
+          }
+          return false;
+        }
+        $.each(imageUrls, function(i, e) {
+          if (inArray(e, insertUrls)) {
+            console.log('match');
+            images[i].remove();
+          }
+        });
 
       });
+
 
 
     }

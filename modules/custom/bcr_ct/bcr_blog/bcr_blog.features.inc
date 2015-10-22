@@ -57,11 +57,11 @@ function bcr_blog_flag_default_flags() {
     'show_on_teaser' => 1,
     'show_contextual_link' => 0,
     'i18n' => 0,
-    'api_version' => 2,
     'module' => 'bcr_blog',
     'locked' => array(
       0 => 'name',
     ),
+    'api_version' => 2,
   );
   return $flags;
 
@@ -81,5 +81,6 @@ function bcr_blog_node_info() {
       'help' => '',
     ),
   );
+  drupal_alter('node_info', $items);
   return $items;
 }

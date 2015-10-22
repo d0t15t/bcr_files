@@ -33,7 +33,7 @@ function bcr_blog_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'bcr_bootstrap',
-        'weight' => -16,
+        'weight' => -15,
       ),
       'seven' => array(
         'region' => '',
@@ -42,7 +42,7 @@ function bcr_blog_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => '<none>',
+    'title' => '',
     'visibility' => 0,
   );
 
@@ -51,7 +51,9 @@ function bcr_blog_default_fe_block_settings() {
     'custom' => 0,
     'delta' => 'service_links',
     'module' => 'service_links',
-    'node_types' => array(),
+    'node_types' => array(
+      0 => 'blog',
+    ),
     'pages' => '',
     'roles' => array(),
     'themes' => array(
@@ -65,7 +67,7 @@ function bcr_blog_default_fe_block_settings() {
         'region' => '',
         'status' => 0,
         'theme' => 'bcr_bootstrap',
-        'weight' => 0,
+        'weight' => -17,
       ),
       'seven' => array(
         'region' => '',
@@ -74,7 +76,7 @@ function bcr_blog_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => '',
+    'title' => 'test',
     'visibility' => 0,
   );
 
@@ -131,7 +133,7 @@ function bcr_blog_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'bcr_bootstrap',
-        'weight' => -17,
+        'weight' => -16,
       ),
       'seven' => array(
         'region' => '',
@@ -140,7 +142,7 @@ function bcr_blog_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => '',
+    'title' => 'Recommended',
     'visibility' => 0,
   );
 

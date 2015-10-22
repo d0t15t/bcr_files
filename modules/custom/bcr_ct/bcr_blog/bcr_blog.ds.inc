@@ -38,7 +38,7 @@ function bcr_blog_ds_field_settings_info() {
       'format' => 'default',
     ),
     'service_links_displays_group' => array(
-      'weight' => '6',
+      'weight' => '5',
       'label' => 'hidden',
       'format' => 'sld_group_image',
     ),
@@ -46,6 +46,11 @@ function bcr_blog_ds_field_settings_info() {
       'weight' => '2',
       'label' => 'hidden',
       'format' => 'default',
+    ),
+    'field_image' => array(
+      'formatter_settings' => array(
+        'ft' => array(),
+      ),
     ),
   );
   $export['node|blog|full'] = $ds_fieldsetting;
@@ -140,6 +145,53 @@ function bcr_blog_ds_layout_settings_info() {
     'hide_sidebars' => 0,
   );
   $export['node|blog|default'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
+  $ds_layout->id = 'node|blog|form';
+  $ds_layout->entity_type = 'node';
+  $ds_layout->bundle = 'blog';
+  $ds_layout->view_mode = 'form';
+  $ds_layout->layout = 'ds_2col_fluid';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'left' => array(
+        0 => 'title',
+        1 => 'path',
+        2 => 'body',
+      ),
+      'right' => array(
+        3 => 'field_image',
+        4 => 'field_file',
+      ),
+      'hidden' => array(
+        5 => '_add_existing_field',
+      ),
+    ),
+    'fields' => array(
+      'title' => 'left',
+      'path' => 'left',
+      'body' => 'left',
+      'field_image' => 'right',
+      'field_file' => 'right',
+      '_add_existing_field' => 'hidden',
+    ),
+    'classes' => array(
+      'layout_class' => array(
+        '' => '',
+      ),
+    ),
+    'wrappers' => array(
+      'left' => 'div',
+      'right' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
+    'layout_link_custom' => '',
+  );
+  $export['node|blog|form'] = $ds_layout;
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
