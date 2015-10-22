@@ -36,12 +36,12 @@
 
       if an image is inserted inline, don't display it in image field
        */
-      var nodeSelector = '.page-node.node-type-blog';
-      var fieldSelector = '.field-name-field-image';
+      var nodeSelector = '.page-node.node-type-blog .node.view-mode-full';
+      var fieldSelector = '.field-type-image';
       var imgSelector = '.field-item img';
       var inlineSelector = '.field-name-body img.inline-insert';
       $(nodeSelector, context).once(function() {
-        var node = $(nodeSelector);
+        var node = $(this);
         var images = node.children(fieldSelector).find(imgSelector);
         var inserts = node.find(inlineSelector);
         var imageUrls = []; var insertUrls = [];
@@ -67,8 +67,6 @@
         });
 
       });
-
-
 
     }
   };
