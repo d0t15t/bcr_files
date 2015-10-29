@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * flag all blog posts to display banner
+ * @param $sandbox
+ */
+function bcr_banner_update_7000(&$sandbox) {
+  bcr_banner_flag_blogs_for_banner();
+}
+//function bcr_banner_update_7001(&$sandbox) {
+//  $t=1;
+//}

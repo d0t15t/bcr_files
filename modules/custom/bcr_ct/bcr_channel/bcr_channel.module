@@ -37,7 +37,12 @@ function bcr_channel_ds_fields_info($entity_type) {
  * @return mixed|string
  */
 function bcr_channel_ds_field_banner($field) {
-  $block = module_invoke('views','block_view','bcr_article_banner_insert-block');
-  $block = render($block['content']) . '<div class="banner-info">Advertisement</div>';
+  // see if flag enabled
+  $node = $field['entity'];
+  $flag = flag_get_flag('banner_include_flag');
+  if ($flag && $flag->is_flagged($node->nid)) {
+    $block = module_invoke('views','block_view','bcr_article_banner_insert-block');
+    $block = render($block['content']) . '<div class="banner-info">Advertisement</div>';
+  } else $block = '';
   return $block;
 }
