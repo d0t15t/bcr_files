@@ -30,7 +30,7 @@
       $("#scheduleTabs li").click(function() {
         // deactivate other tabs on click
         $(this).siblings().removeClass('ui-tabs-selected');
-      })
+      });
 
     }
   }
