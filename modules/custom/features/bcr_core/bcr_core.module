@@ -1,0 +1,29 @@
+<?php
+/**
+ * @file
+ * Code for the bcr_core feature.
+ */
+
+include_once 'bcr_core.features.inc';
+
+
+/**
+ * Implements hook_init().
+
+ */
+//function bcr_core_init() {
+//  drupal_add_js('sites/all/libraries/slidejs/source/jquery.slides.js');
+//}
+
+
+
+/**
+ * Implements hook_views_pre_render().
+ * 
+ */
+function bcr_core_views_post_render(&$view) {
+//  $head = $view->header['area']->options['content'];
+//  array_unshift($view->result, '<div class="views-row"><img src="/sites/all/themes/bcr_bootstrap/images/logotypebig.png"></div>');
+  $t=1;
+  
+}

@@ -195,3 +195,20 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0px 10px 0px 0px;
   }
 }
+
+.view-slideshow-blog {
+  .slidesjs-slide {
+    max-height : 450px;
+    img {
+      height: 430px;
+      width: auto;
+    }
+  }
+  .logo-slider {
+    img {
+      margin-top: 50px;
+      width: 100%;
+      height: auto;
+    }
+  }
+}

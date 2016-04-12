@@ -13,7 +13,7 @@
           });
           var href = window.location.href;
           // no autoplay in dev env
-          if (href.indexOf('bcr.i') == -1) {
+          if (href.indexOf('loc.berlincommunityradio.com.dev/') == -1) {
             $(this).jPlayer('play');
           }
         },

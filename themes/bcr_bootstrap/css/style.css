@@ -192,6 +192,22 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0px 10px 0px 0px;
 }
 
+/* line 200, ../sass/_body.scss */
+.view-slideshow-blog .slidesjs-slide {
+  max-height: 450px;
+}
+/* line 202, ../sass/_body.scss */
+.view-slideshow-blog .slidesjs-slide img {
+  height: 430px;
+  width: auto;
+}
+/* line 208, ../sass/_body.scss */
+.view-slideshow-blog .logo-slider img {
+  margin-top: 50px;
+  width: 100%;
+  height: auto;
+}
+
 /* line 4, ../sass/_channel-display.scss */
 .homepage-body .view-bcr-channels {
   left: -250px;
@@ -203,7 +219,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   z-index: 9;
   text-align: center;
-  margin: 80px 10px 0;
+  margin: 0px 10px 0;
   padding-bottom: 160px;
   background: white url(../images/logospot_footer.png) no-repeat bottom 60px center;
   background-size: 90px;
@@ -619,13 +635,6 @@ a:hover {
   color: #5BC0DE;
 }
 
-/* line 7, ../sass/_page.scss */
-#homepage-panel {
-  width: 704px;
-  padding-top: 360px;
-  background: url(../images/logotypebig.png) no-repeat 0px 20px;
-  background-size: 700px;
-}
 /* line 13, ../sass/_page.scss */
 #homepage-panel .panels-flexible-region-4-center {
   width: 100%;

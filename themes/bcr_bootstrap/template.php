@@ -13,7 +13,8 @@
 function bcr_bootstrap_preprocess_html(&$variables){
   $variables['persistent'] = render($variables['page']['persistent']);
   drupal_add_css('http://bcr-dev.dyss.net/css/blog-styles.css', array('type' => 'external'));
-  drupal_add_js('http://fast.fonts.net/jsapi/120f729d-c82d-4bed-9ae8-3563ea0a5c45.js', array('type' => 'external')); 
+  drupal_add_js('http://fast.fonts.net/jsapi/120f729d-c82d-4bed-9ae8-3563ea0a5c45.js', array('type' => 'external'));
+  drupal_add_library('bcr_core', 'slidejs');
 
 //  $background = ["blue", "red", "yellow", "green", "purple"];
   $background = array("blue", "red", "yellow", "green", "purple");
@@ -56,3 +57,5 @@ function bcr_bootstrap_menu_name_getter(array $vars) {
     return NULL;
   }
 }
+
+
