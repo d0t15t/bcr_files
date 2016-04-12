@@ -37,6 +37,12 @@ function bcr_blog_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 3,
       ),
+      'image_large' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 17,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -95,6 +101,12 @@ function bcr_blog_field_default_field_instances() {
         ),
         'type' => 'file_default',
         'weight' => 4,
+      ),
+      'image_large' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -169,6 +181,18 @@ function bcr_blog_field_default_field_instances() {
         ),
         'type' => 'image',
         'weight' => 1,
+      ),
+      'image_large' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'field_multiple_limit' => 1,
+          'field_multiple_limit_offset' => 0,
+          'image_link' => 'content',
+          'image_style' => 'extra_large',
+        ),
+        'type' => 'image',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'hidden',

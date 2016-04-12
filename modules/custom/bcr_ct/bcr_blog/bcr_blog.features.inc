@@ -51,7 +51,7 @@ function bcr_blog_flag_default_flags() {
       ),
     ),
     'weight' => 0,
-    'show_on_form' => 0,
+    'show_on_form' => 1,
     'access_author' => '',
     'show_on_page' => 1,
     'show_on_teaser' => 1,

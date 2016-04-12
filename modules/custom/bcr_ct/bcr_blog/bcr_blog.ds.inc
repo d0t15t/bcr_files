@@ -57,6 +57,28 @@ function bcr_blog_ds_field_settings_info() {
 
   $ds_fieldsetting = new stdClass();
   $ds_fieldsetting->api_version = 1;
+  $ds_fieldsetting->id = 'node|blog|image_large';
+  $ds_fieldsetting->entity_type = 'node';
+  $ds_fieldsetting->bundle = 'blog';
+  $ds_fieldsetting->view_mode = 'image_large';
+  $ds_fieldsetting->settings = array(
+    'title' => array(
+      'weight' => '1',
+      'label' => 'hidden',
+      'format' => 'default',
+      'formatter_settings' => array(
+        'link' => '1',
+        'wrapper' => '',
+        'class' => '',
+        'exclude node title settings' => '1',
+        'ft' => array(),
+      ),
+    ),
+  );
+  $export['node|blog|image_large'] = $ds_fieldsetting;
+
+  $ds_fieldsetting = new stdClass();
+  $ds_fieldsetting->api_version = 1;
   $ds_fieldsetting->id = 'node|blog|teaser';
   $ds_fieldsetting->entity_type = 'node';
   $ds_fieldsetting->bundle = 'blog';
@@ -130,7 +152,11 @@ function bcr_blog_ds_layout_settings_info() {
       'field_file' => 'left',
       'node_link' => 'left',
     ),
-    'classes' => array(),
+    'classes' => array(
+      'layout_class' => array(
+        '' => '',
+      ),
+    ),
     'wrappers' => array(
       'header' => 'div',
       'left' => 'div',
