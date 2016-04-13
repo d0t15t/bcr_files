@@ -192,16 +192,21 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0px 10px 0px 0px;
 }
 
-/* line 200, ../sass/_body.scss */
+/* line 199, ../sass/_body.scss */
+.view-slideshow-blog {
+  position: relative;
+  z-index: 9;
+}
+/* line 202, ../sass/_body.scss */
 .view-slideshow-blog .slidesjs-slide {
   max-height: 450px;
 }
-/* line 202, ../sass/_body.scss */
+/* line 204, ../sass/_body.scss */
 .view-slideshow-blog .slidesjs-slide img {
   height: 430px;
   width: auto;
 }
-/* line 208, ../sass/_body.scss */
+/* line 210, ../sass/_body.scss */
 .view-slideshow-blog .logo-slider img {
   margin-top: 50px;
   width: 100%;
@@ -220,38 +225,39 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 9;
   text-align: center;
   margin: 0px 10px 0;
+  padding-top: 60px;
   padding-bottom: 160px;
   background: white url(../images/logospot_footer.png) no-repeat bottom 60px center;
   background-size: 90px;
 }
-/* line 20, ../sass/_channel-display.scss */
+/* line 21, ../sass/_channel-display.scss */
 .view-bcr-channels .views-row {
   float: left;
   width: 220px;
   margin-right: 20px;
   margin-bottom: 60px;
 }
-/* line 25, ../sass/_channel-display.scss */
+/* line 26, ../sass/_channel-display.scss */
 .view-bcr-channels .views-row:nth-child(4n) {
   margin-right: 0;
 }
-/* line 28, ../sass/_channel-display.scss */
+/* line 29, ../sass/_channel-display.scss */
 .view-bcr-channels .views-row:nth-child(4n + 1) {
   clear: both;
 }
-/* line 33, ../sass/_channel-display.scss */
+/* line 34, ../sass/_channel-display.scss */
 .view-bcr-channels .field-name-channel-image-compound .channel-img-wrapper {
   position: relative;
   width: 220px;
   height: 160px;
   margin: 0;
 }
-/* line 38, ../sass/_channel-display.scss */
+/* line 39, ../sass/_channel-display.scss */
 .view-bcr-channels .field-name-channel-image-compound .channel-img-wrapper img {
   width: 220px;
   height: auto;
 }
-/* line 42, ../sass/_channel-display.scss */
+/* line 43, ../sass/_channel-display.scss */
 .view-bcr-channels .field-name-channel-image-compound .channel-img-wrapper .channel-img-el {
   position: absolute;
   top: 0px;
@@ -264,7 +270,7 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-transition-duration: 200ms;
   transition-duration: 200ms;
 }
-/* line 56, ../sass/_channel-display.scss */
+/* line 57, ../sass/_channel-display.scss */
 .view-bcr-channels .field-name-channel-image-compound .channel-img-wrapper .channel-img-el .channel-img-el-inner {
   width: 220px;
   height: 160px;
@@ -273,7 +279,7 @@ h1, h2, h3, h4, h5, h6 {
   top: 0px;
   font-size: 14px;
 }
-/* line 64, ../sass/_channel-display.scss */
+/* line 65, ../sass/_channel-display.scss */
 .view-bcr-channels .field-name-channel-image-compound .channel-img-wrapper .channel-img-el a {
   width: 220px;
   height: 160px;
@@ -295,11 +301,11 @@ h1, h2, h3, h4, h5, h6 {
 .view-bcr-channels .field-name-channel-image-compound .channel-img-wrapper .channel-img-el a:hover {
   opacity: 0;
 }
-/* line 78, ../sass/_channel-display.scss */
+/* line 79, ../sass/_channel-display.scss */
 .view-bcr-channels .field-name-channel-image-compound .channel-img-wrapper .channel-img-el a, .view-bcr-channels .field-name-channel-image-compound .channel-img-wrapper .channel-img-el a:link, .view-bcr-channels .field-name-channel-image-compound .channel-img-wrapper .channel-img-el a:visited {
   color: white !important;
 }
-/* line 84, ../sass/_channel-display.scss */
+/* line 85, ../sass/_channel-display.scss */
 .view-bcr-channels .field-name-channel-image-compound .channel-img-wrapper .channel-img-overlay:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
@@ -308,14 +314,14 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-transition: opacity, ease-out 100ms;
   transition: opacity, ease-out 100ms;
 }
-/* line 119, ../sass/_channel-display.scss */
+/* line 120, ../sass/_channel-display.scss */
 .view-bcr-channels .field-type-image {
   position: relative;
   top: -180px;
   z-index: -1;
   height: 0px;
 }
-/* line 126, ../sass/_channel-display.scss */
+/* line 127, ../sass/_channel-display.scss */
 .view-bcr-channels:after {
   visibility: hidden;
   display: block;
@@ -324,26 +330,26 @@ h1, h2, h3, h4, h5, h6 {
   clear: both;
   height: 0;
 }
-/* line 135, ../sass/_channel-display.scss */
+/* line 136, ../sass/_channel-display.scss */
 .view-bcr-channels .node-channel-ads {
   width: 220px;
   height: 160px;
   position: absolute;
   overflow: hidden;
 }
-/* line 141, ../sass/_channel-display.scss */
+/* line 142, ../sass/_channel-display.scss */
 .view-bcr-channels .node-channel-ads .field-type-image {
   top: 0px;
   position: absolute;
 }
 
-/* line 149, ../sass/_channel-display.scss */
+/* line 150, ../sass/_channel-display.scss */
 * html .view-bcr-channels {
   zoom: 1;
 }
 
 /* IE6 */
-/* line 150, ../sass/_channel-display.scss */
+/* line 151, ../sass/_channel-display.scss */
 *:first-child + html .view-bcr-channels {
   zoom: 1;
 }

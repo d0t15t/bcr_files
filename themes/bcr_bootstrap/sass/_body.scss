@@ -197,6 +197,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .view-slideshow-blog {
+  position: relative;
+  z-index: 9;
   .slidesjs-slide {
     max-height : 450px;
     img {
