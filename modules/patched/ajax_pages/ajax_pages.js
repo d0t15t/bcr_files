@@ -110,7 +110,9 @@ Drupal.ajax.prototype.commands.ajaxPagesSettings = function(ajax, response, stat
   // Replace Drupal.settings with the supplied settings array while preserving
   // the ajaxPageState object.
   var ajaxPageState = Drupal.settings.ajaxPageState;
+  var urlIsAjaxTrusted = Drupal.settings.urlIsAjaxTrusted;
   Drupal.settings = response.settings;
+  Drupal.settings.urlIsAjaxTrusted = urlIsAjaxTrusted;
   Drupal.settings.ajaxPageState = ajaxPageState;
 }
 
